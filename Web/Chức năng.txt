@@ -1,0 +1,40 @@
+Admin:
+	1. Chấm công điểm danh: ghi giờ đến giờ về => xác định thời gian làm việc
+	2. Quản lý ca làm việc:xác định số giờ là việc, tính lương
+	  Tăng ca, đi trễ nhiều => lương ...
+	3.Báo cáo thống kê:
+ 	 - Thông kê thời gian làm việc của từng nhân viên (nhân viên & admin xem)
+ 	 - Thông kê thời gian làm việc của tất cả nhân viên (được phân theo bộ phận làm việc)
+	 - Thông kê về chấm công, nghỉ phép, tăng ca...
+	4. Cảnh báo nhân viên nếu quên chấm công quá ? ngày / tháng, nghỉ phép không phép
+Nhân viên:
+	5. Nhân viên có thể xem thời gian làm việc, xem lương của bản thân
+	6. Nhân viên có thể submit đơn nghỉ phép lên hệ thống ..?
+	-> hệ thống sẽ ghi lại...
+
+Cơ sở dữ liệu:
+
+
+tài khoản
+role: 2 : admin và user
+account{ id,name,password,active}
+
+role{id_role,role: admin & user}
+
+employee{user_id,id_acc,name,position,department,image}
+
+department{id_department,time_rule,name,id_com}
+
+company{id_com,name}
+
+attendance{id,id_employee,time_id,status,time}
+
+status_late{id_status,id_employee,time_id,status}
+
+permission_day{id_permiss,time_id,id_employee}
+
+time_id{id,day}
+
+Thêm bảng đki tăng ca,
+
+
