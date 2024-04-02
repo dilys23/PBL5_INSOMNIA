@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết hoạt động </title>
+  <link rel="stylesheet" href="../static/css/TimeSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <div class="container1">
+            <div class="information_date">
+                <button id="btn_information">Information
+                </button>
+                <div id="dialog_overlay">
+                    <div id="dialog_box">
+                        <div class="dialog_box_head">
+                            <div class="dialog_box_head_name">
+                                <h5 class="head_name">Bạch Dương</h5>
+                                <div class="head_major">UI Designer</div>
+                            </div>
+                            <div class="img_close">
+                                <img id="img_dialog" src="../Img/ava.jpg" alt="">
+                                <i id="close-dialog-btn" class="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                       <div class="dialog_box_body">
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Email:</div>
+                            <div class="dialog_body_item_content">bachduongvan0402@gmail.com</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Mobile phone:</div>
+                            <div class="dialog_body_item_content">0914136584</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Date of birth:</div>
+                            <div class="dialog_body_item_content">04-02-2003</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Gender:</div>
+                            <div class="dialog_body_item_content">Female</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">EmployeeID:</div>
+                            <div class="dialog_body_item_content">user42</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Degisnation:</div>
+                            <div class="dialog_body_item_content">UI Designer</div>
+                         </div>
+                         <div class="dialog_body_item">
+                            <div class="dialog_body_item_tilte">Department:</div>
+                            <div class="dialog_body_item_content">Design</div>
+                         </div>
+                       </div>
+                       <button class="edit_profile">Edit profile</button>
+                    </div>
+                </div>
+            
+                <div class="date-container">
+                    <input type="date" id="birthday" class="date" name="birthday">
+                  </div>
+                    <!-- <i class="icon_calendar fa-solid fa-calendar"></i>
+                    <span>15/4/2024</span> -->
+               
+            </div>
+            <div class="board_timesheet">
+                <div class="board_timesheet_left">
+                    <img class="board_timesheet_avatar" src="../Img/ava.jpg">
+                    <div class="board_timesheet_name">Văn Thị Bạch Dương</div>
+                </div>
+               
+                <div class="board_timesheet_info">
+                    <h3 class="board_timesheet_info_title">Daily Attendance</h3>
+                    <div class="board_timesheet_info_checkin">
+                        <h5 class="board_timesheet_info_checkinTitle">CheckInTime:</h5>
+                        <div class="time_in">7h5p</div>
+                    </div>
+                    <div class="board_timesheet_info_checkout">
+                        <h5 class="board_timesheet_info_checkOutTitle">CheckOutTime:</h5>
+                        <div class="time_out">11h20p</div>
+                    </div>
+                    <button class="btn_absent">Add Absent</button>
+                </div>
+            </div>
+        </div>  
+        <div class="statistics_timesheet">
+            <div class="statistics_timesheet_left">
+                <div class="statistics_timesheet_left_head">
+                    <h5 class="statistics_timesheet_left_head_title">Of Attendance</h5>
+                    <div class="statistics_timesheet_left_head_date">
+                            <select class="month_options">
+                                <option value="jan">January</option>
+                                <option value="feb">February</option>
+                                <option value="mar">March</option>
+                                <option value="apr">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="august">August</option>
+                                <option value="sep">September</option>
+                                <option value="oct">October</option>
+                                <option value="nov">November</option>
+                                <option value="dec">December</option>                        
+                            </select>
+                            <select class="year_options">
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>                        
+                            </select>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="circle-graph">
+                        <div class="circle-graph-progress progress-a" data-progress="25"></div>
+                        <div class="circle-graph-progress progress-b" data-progress="35"></div>
+                        <div class="circle-graph-progress progress-c" data-progress="40"></div>
+                      </div>      
+                    <div class="note-graph">
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_ontime">80%</div>
+                                <div class="note_ontime_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Ontime</div>
+                            
+                        </div>
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_late">15%</div>
+                                <div class="note_late_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Late</div>
+                        </div>
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_absent">5%</div>
+                                <div class="note_absent_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Absent</div>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="statistics_timesheet_right">
+                <div class="statistics_timesheet_right_title">
+                       Team Members(5) 
+                </div>
+                <div class="list_member">
+                    <div class="member">
+                        <img class="memeber_ava" src="../Img/ava.jpg" alt="">
+                        <h6 class="member_name">Nguyễn Thị Lê</h6>
+                    </div>
+                    <div class="member">
+                        <img class="memeber_ava" src="../Img/ava.jpg" alt="">
+                        <h6 class="member_name">Nguyễn Viết An</h6>
+                    </div>
+                    <div class="member">
+                        <img class="memeber_ava" src="../Img/ava.jpg" alt="">
+                        <h6 class="member_name">Lê Minh Anh</h6>
+                    </div>
+                  
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="../static/js/TimeSheet.js"></script>
+</html>

@@ -1,0 +1,441 @@
+:root{
+    --introduce_name :#29306D;
+    --introduce_descrip:rgba(67, 75, 140, 0.7);
+    --bg-grey: #F5F7FA;
+    --text-black: #4D4D4D;
+    --text-light-black: #717171;
+    --text-blue: #547AF6;
+    --btn-blue: #3D8BFD;
+    --btn-red: rgba(235, 18, 18, 0.7);
+    --absent: rgba(235, 18, 18, 0.5);
+    --ontime:rgba(80, 196, 255, 0.63);
+    --late: rgba(231, 255, 84, 0.7);
+    --light-blue: rgba(80, 196, 255, 0.2);
+    --dialog-title:rgba(0, 0, 0, 0.6);
+}
+body, .container1 {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    margin-bottom: 4rem;
+ }
+ .container1{
+    background-color: var(--bg-grey);
+    padding: 0.5rem 0rem;
+ }
+ .information_date{
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0rem;
+ }
+ #btn_information{
+    border: none;
+    background: var(--btn-blue);
+    color: white;
+    padding: 0.5rem 1.2rem ;
+    border-radius: 20px;
+    margin-left: -10rem;
+ }
+ .date{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 8rem;
+    border: 1px solid var(--btn-blue) ;
+    border-radius: 20px;
+    padding: 0rem 1rem;
+    margin-right: -10rem;
+   
+ }
+
+ input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: 1px  solid var(--btn-blue);
+  background: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  height: 2rem;
+  color: var(--btn-blue);
+}
+
+
+.date-container input[type="date"]:focus {
+  border-color: var(--btn-blue);
+  color: var(--btn-blue);
+}
+
+  /* Bang cham cong  */
+.board_timesheet{
+    width: 65%;
+    padding: 2rem 3rem ;
+    border: 1px solid var(--btn-blue);
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    background: white;
+    margin-bottom: 3rem;
+}
+.board_timesheet_avatar{
+    width: 20rem;
+    height: 20rem;
+}
+.board_timesheet_info_checkin , .board_timesheet_info_checkout{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.board_timesheet_info_title{
+    font-size: 2rem;
+    color: var(--btn-blue);     
+}
+.board_timesheet_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.board_timesheet_info_checkOutTitle{
+    width: 7rem;
+    font-size: 1rem;
+    margin-right: 1.5rem;
+}
+.board_timesheet_info_checkinTitle{
+  width: 7rem;
+    font-size: 1rem;
+    margin-right:2rem;
+}
+.board_timesheet_left{
+    display: block;
+    text-align: center;
+
+}
+.board_timesheet_name{
+    margin-top: 1rem;
+    font-weight: 550;
+}
+.time_in , .time_out{
+  width: 5.5rem;
+}
+.btn_absent{
+    border: none;
+    background:var(--btn-red);
+    padding:0.5rem 1rem;
+    border-radius: 20px;
+    margin-top: 4rem;
+    margin-right: -5rem;
+}
+/* Thong ke theo thang - nam */
+.statistics_timesheet{
+    display: flex;
+    justify-content: space-around;
+    padding: 5rem 14rem;
+    gap : 4rem;
+}
+.statistics_timesheet_left{
+    border: 1px solid var(--btn-blue);
+    width: 60%;
+    padding:0rem 2rem;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.statistics_timesheet_left_head{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0rem;
+}
+.statistics_timesheet_left_head_date{
+    display: flex;
+    justify-content: space-around;
+    gap:1rem;
+}
+.icon_calendar{
+  color:var(--btn-blue);
+}
+.month_options,
+.year_options {
+    background-color: #fff;
+    border: 1px solid var(--btn-blue);
+    border-radius: 20px;
+    width:6rem;
+    height: 2rem;
+    align-items: center;
+    text-align: center;
+}
+
+.show {
+    display: block;
+}
+
+.statistics_timesheet_left_head_title{
+    color:var(--btn-blue);
+    font-size: 1.2rem;
+    margin-block-start: 0;
+}
+/* hình tron */
+.wrap{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.circle-graph {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+.circle-graph-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+  transform-origin: center;
+  transform: rotate(0deg); /* Thiết lập góc quay mặc định là 0 độ */
+}
+
+.progress-a {
+  background-color: var(--absent);
+}
+
+.progress-b {
+  background-color: var(--late);
+}
+
+.progress-c {
+  background-color: var(--ontime);
+}
+
+.circle-graph-progress::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+  transform-origin: center;
+}
+.note_ontime{
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+  align-items: center;
+}
+.note_ontime_rect, .note_late_rect, .note_absent_rect{
+  width: 2rem;
+  height: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}
+.note_ontime_rect{
+  background: var(--ontime);
+}
+.note_late_rect{
+ background: var(--late);
+}
+.note_absent_rect{
+  background: var(--absent);
+}
+.note-graph-name{
+  width:3rem;
+  font-weight: 500;
+}
+
+
+/* .circle-graph-progress[data-progress="0"]::before {
+  display: none;
+}
+
+.circle-graph-progress[data-progress="100"] {
+  clip-path: none;
+} */
+/* Team member */
+.statistics_timesheet_right{
+  width: 40%;
+  border: 1px solid var(--btn-blue);
+  border-radius: 20px;
+}
+.statistics_timesheet_right_title{
+  padding:  2rem 2rem 2rem 3rem;
+  color:var(--btn-blue);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.list_member{
+ display: flex;
+ flex-direction: column; 
+ padding-left: 2rem;
+ max-height: 15rem;
+ overflow-y: auto;
+}
+
+.member{
+  display: inline-flex;
+  gap:0.5rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+.memeber_ava{
+  width: 2rem;
+  height: 2rem;  
+  margin: auto 1rem ;
+  border-radius: 90px;
+}
+.member_name{
+  font-size: 1rem;
+  font-weight: 500;
+  margin: auto 1rem ;
+}
+html {
+  font-size: 1rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .board_timesheet {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statistics_timesheet {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0; 
+  }
+
+  .statistics_timesheet_left,
+  .statistics_timesheet_right {
+    width: 100%;
+    margin: 0.5rem 0; 
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .board_timesheet_avatar {
+    width: 9.375rem;
+    height: 9.375rem; 
+  }
+
+  .circle-graph,
+  .note-graph {
+    width: 9.375rem; 
+    height: 9.375rem;
+  }
+
+  .memeber_ava {
+    width: 1.875rem; 
+    height: 1.875rem;
+  }
+
+  .member_name {
+    font-size: 0.875rem;
+  }
+}
+
+/* Dialog information */
+#dialog_overlay{
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rbg(0,0,0,0.8);
+  z-index: 99;  
+  backdrop-filter: blur(0.5px);
+} 
+#dialog_box{
+  background-color: white;
+  width: 30rem;
+  /* padding: 1.2rem; */
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid black;
+}
+#dialog_box h2{
+  margin-top: 0;
+}
+#close-dialog-btn {
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#close-dialog-btn:hover {
+  background-color: #aaa;
+}
+.dialog_box_head{
+  border-radius: 20px;
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: space-between;
+}
+.dialog_box_head_name{
+  margin: 0;
+  padding: 0.5rem 0rem 0.5rem 2rem;
+}
+.head_name{
+  margin: 0.7rem 0rem;
+}
+#img_dialog{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: auto 0;
+  /* margin-right: 2rem; */
+}
+.dialog_box_body{
+  padding:3rem;
+  
+}
+.dialog_body_item{
+  display: flex;
+  justify-content: left;
+  margin-bottom: 1rem;
+}
+.dialog_body_item_tilte{
+  width: 8.5rem;
+  color:var(--dialog-title);
+}
+#close-dialog-btn{
+  margin: auto 0;
+  background: none;
+}
+#close-dialog-btn:hover{
+  background: none;
+}
+.img_close{
+  display: flex;
+  margin: auto 0;
+}
+.edit_profile{
+  background: white;
+  border: 1px solid var(--btn-blue);
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  color: var(--btn-blue);
+  padding: 0.3rem 1rem;
+  position: absolute;
+  right:1rem;
+  bottom: 0.7rem;
+}
