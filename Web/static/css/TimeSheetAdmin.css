@@ -14,6 +14,7 @@
     --dialog-title:rgba(0, 0, 0, 0.6);
     --blue-table: rgba(80, 196, 255, 0.63);
     --input-search:rgba(80, 196, 255, 0.24);
+    --btn-accept: #5CF06B;
 }
 .header{
     margin-bottom: 4rem;
@@ -195,4 +196,46 @@ td{
     color:var(--btn-blue);
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  .btn_accept, .btn_dismiss{
+    border-radius: 20px;
+    width: 6rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.2rem;
+  }
+  .btn_accept{
+    background: var(--btn-accept);
+  }
+  .btn_dismiss{
+    background: var(--btn-red);
+  }
+  .member_permission{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    
+  }
+  .member_permission_left{
+    display: flex;
+  }
+  .member_permission_right{
+    display: flex;
+    gap:0.7rem;
+    padding-right: 1rem;
+    align-items: center;
+  }
+  @media screen and (max-width: 48rem) {
+
+  }
+  @media screen and ( max-width: 75rem) and (min-width: 48rem){
+
+  }
+  @media screen and (max-width:75rem){
+    .container_head_search{
+      display: none;
+    }
   }
