@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- --------- UNICONS ---------- -->
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="../static/css/MainPage.css" />
+    <!-- --------- FAVICON ---------- -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <title>INSOMNIA</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../Img/logo.svg"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- --------------- HEADER --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+          <img src="../Img/logo.svg" />
+          <img src="../Img/logo-name.svg" class="logo-name" />
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+          <ul class="nav_menu_list">
+            <li class="nav_list">
+              <a href="#home" class="nav-link active-link">Home</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#about" class="nav-link">About</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#education" class="nav-link">Experiences</a>
+              <div class="circle"></div>
+            </li>
+            <li class="nav_list">
+              <a href="#contact" class="nav-link">Contact</a>
+              <div class="circle"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-button ">
+       
+            <button class="btn login" id="login" >
+                Login 
+            </button>
+            <button class="btn signup">Signup</button>
+     
+        </div>
+       
+        <div class="nav-menu-btn">
+          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+      <!-- -------------- MAIN ---------------- -->
+      <main class="wrapper">
+        <!-- -------------- FEATURED BOX ---------------- -->
+        <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+              <span>INSOMNIA</span>
+            </div>
+            <div class="featured-name">
+              <p>I'm <span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+              <p>
+                The time management system is a technological solution that
+                helps businesses efficiently record and track employees' working
+                hours. It is a crucial component of human resources and
+                financial management, aiding organizations in saving time,
+                enhancing transparency, and reducing errors in payroll
+                calculations.
+              </p>
+            </div>
+        
+            <div class="social_icons">
+              <div class="icon">
+                <a href="https://www.instagram.com/dilysnguyen23/"
+                  ><i class="uil uil-instagram"></i
+                ></a>
+              </div>
+              <div class="icon">
+                <a href="https://www.linkedin.com/in/your-linkedin-profile/"
+                  ><i class="uil uil-linkedin-alt"></i
+                ></a>
+              </div>
+              <div class="icon">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100016345395566"
+                  ><i class="uil uil-facebook"></i
+                ></a>
+              </div>
+              <!-- <div class="icon">
+                <a href="https://github.com/dilys23"
+                  ><i class="uil uil-github-alt"></i
+                ></a>
+              </div> -->
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="home-img">
+              <img src="../Img/home.svg" alt="avatar" />
+            </div>
+          </div>
+          <div class="scroll-icon-box">
+            <a href="#about" class="scroll-btn">
+              <i class="uil uil-mouse-alt"></i>
+              <p>Scroll Down</p>
+            </a>
+          </div>
+        </section>
+        <!-- -------------- ABOUT BOX ---------------- -->
+        <section class="section" id="about">
+          <div class="top-header">
+            <h1>About Me</h1>
+          </div>
+          <div class="row">
+       
+            <div class="col">
+              <div class="skills-box">
+                <img src="../Img/imgconect.svg" alt="" />
+                <div class="skills-header">
+                  <h3>Connect</h3>
+                </div>
+                <div class="skills-list">
+                  <p>
+                    The connectivity within the company's time management system
+                    facilitates streamlined operations, transparent
+                    collaboration, and accurate payroll processes, enhancing
+                    overall organizational efficiency.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="skills-box">
+                <img src="../Img/imgmerge.svg" alt="" />
+                <div class="skills-header">
+                  <h3>Merge</h3>
+                </div>
+                <div class="skills-list">
+                  <p>
+                    The company's time management system incorporates "Merge"
+                    with facial recognition, streamlining clock-in processes and
+                    ensuring accuracy through facial identification.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="skills-box">
+                <img src="../Img/imgwork.svg" alt="" />
+                <div class="skills-header">
+                  <h3>Work</h3>
+                </div>
+                <div class="skills-list">
+                  <p>
+                    The company's time management system streamlines employee
+                    work hours logging and enhances communication, optimizing
+                    overall workplace efficiency.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="featured-box" id="explore">
+          <div class="featured-image">
+            <div class="home-img">
+              <img src="../Img/exper.svg" alt="avatar" />
+            </div>
+          </div>
+          <div class="featured-text">
+            <div class="featured-text-card">
+              <span>INSOMNIA</span>
+            </div>
+            <div class="featured-name">
+              <p>
+                Utilizing AI and facial recognition for efficient attendance
+                management.
+              </p>
+            </div>
+            <div class="featured-text-info">
+              <p>
+                Implementing a sophisticated system that combines AI and facial
+                recognition to precisely recognize and authenticate employees'
+                faces. This comprehensive solution not only simplifies the
+                attendance tracking process but also enables efficient payroll
+                calculation by accurately capturing work hours. The technology
+                ensures a secure and reliable method for employee check-ins,
+                contributing to a streamlined and error-free payroll system.
+                Embracing this advanced approach enhances overall workforce
+                management, fostering a more efficient and automated HR process.
+              </p>
+            </div>
+          </div>
+        </section>
+     
+
+        <!-- -------------- CONTACT BOX ---------------- -->
+        <section class="section" id="contact">
+          <div class="top-header">
+            <h1>Get in touch</h1>
+            <span>Do you have a project in your mind, contact me here</span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="contact-info">
+                <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
+                <p>
+                  <i class="uil uil-envelope"></i> Email:
+                  insomnia.company@gmail.com
+                </p>
+                <p><i class="uil uil-phone"></i> Tel: +84 768 816 381</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-control">
+                <form
+                  id="myForm"
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  onsubmit="return validateForm()"
+                >
+                  <div class="form-inputs">
+                    <input
+                      type="hidden"
+                      name="access_key"
+                      value="51af8799-cfe2-4a75-abb9-9664f3b7254e"
+                    />
+                    <input
+                      name="name"
+                      required
+                      type="text"
+                      class="input-field"
+                      placeholder="Name"
+                    />
+                    <input
+                      type="text"
+                      name="email"
+                      required
+                      class="input-field"
+                      placeholder="Email"
+                    />
+                  </div>
+                  <div class="text-area">
+                    <textarea
+                      name="message"
+                      required
+                      placeholder="Message"
+                    ></textarea>
+                  </div>
+                  <div class="form-button">
+                    <button class="btn" type="submit">
+                      Send <i class="uil uil-message"></i>
+                    </button>
+                  </div>
+                  <span
+                    id="emailError"
+                    style="color: red; font-size: 12px"
+                  ></span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- --------------- FOOTER --------------- -->
+      <footer>
+        <div class="top-footer">
+          <p>INSOMNIA .</p>
+        </div>
+        <div class="middle-footer">
+          <ul class="footer-menu">
+            <li class="footer_menu_list">
+              <a href="#home">Home</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#about">About</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#education">Experiences</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social-icons">
+          <div class="icon">
+            <a href="https://www.instagram.com/dilysnguyen23/"
+              ><i class="uil uil-instagram"></i
+            ></a>
+          </div>
+          <div class="icon">
+            <a href="https://www.linkedin.com/in/your-linkedin-profile/"
+              ><i class="uil uil-linkedin-alt"></i
+            ></a>
+          </div>
+          <div class="icon">
+            <a href="https://www.facebook.com/profile.php?id=100016345395566"
+              ><i class="uil uil-facebook"></i
+            ></a>
+          </div>
+        
+        </div>
+        <div class="bottom-footer">
+          <p>
+            Copyright &copy;
+            <a href="#home" style="text-decoration: none">INSOMNIA</a> - All
+            rights reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- ----- MAIN JS ----- -->
+    <script src="../static/js/homepage.js   "></script>
+  </body>
+</html>
