@@ -13,6 +13,20 @@
     --light-blue: rgba(80, 196, 255, 0.2);
     --dialog-title:rgba(0, 0, 0, 0.6);
 }
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 98;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+  height: 70px; 
+  line-height: 70px; 
+}
+.container {
+  margin-top: 3rem; 
+  padding-top: 20px; 
+}
 body, .container1 {
     margin: 0;
     padding: 0;
@@ -88,10 +102,14 @@ body, .container1 {
     display: flex;
     justify-content: left;
     align-items: center;
+    gap:1.5rem;
+    margin-bottom: 2rem;
 }
 .board_timesheet_info_title{
     font-size: 2rem;
     color: var(--btn-blue);     
+    margin-bottom: 3rem;
+    margin-top: 2rem;
 }
 .board_timesheet_info {
     display: flex;
@@ -99,14 +117,14 @@ body, .container1 {
     align-items: center; 
 }
 .board_timesheet_info_checkOutTitle{
-    width: 7rem;
+    width: 8rem;
     font-size: 1rem;
-    margin-right: 1.5rem;
+    /* margin-right: 1.5rem; */
 }
 .board_timesheet_info_checkinTitle{
-  width: 7rem;
+  width: 8rem;
     font-size: 1rem;
-    margin-right:2rem;
+    /* margin-right:2rem; */
 }
 .board_timesheet_left{
     display: block;
@@ -165,6 +183,7 @@ body, .container1 {
     height: 2rem;
     align-items: center;
     text-align: center;
+    outline: none;
 }
 
 .show {
@@ -184,47 +203,12 @@ body, .container1 {
 }
 .circle-graph {
   position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
+  width: 200px; /* Độ rộng của hình tròn */
+  height: 200px; /* Chiều cao của hình tròn */
+  border-radius: 50%; /* Để tạo hình tròn */
+  background-color: #ddd; /* Màu nền của hình tròn */
 }
 
-.circle-graph-progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-  transform-origin: center;
-  transform: rotate(0deg); /* Thiết lập góc quay mặc định là 0 độ */
-}
-
-.progress-a {
-  background-color: var(--absent);
-}
-
-.progress-b {
-  background-color: var(--late);
-}
-
-.progress-c {
-  background-color: var(--ontime);
-}
-
-.circle-graph-progress::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  border-radius: 50%;
-  transform-origin: center;
-}
 .note_ontime{
   display: flex;
   justify-content: space-between;
@@ -355,9 +339,8 @@ html {
   left:0;
   width: 100%;
   height: 100%;
-  background-color: rbg(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 99;  
-  backdrop-filter: blur(0.5px);
 } 
 #dialog_box{
   background-color: white;

@@ -14,12 +14,19 @@ body {
   margin: 0 auto;
   /* padding: 0 20px; */
 }
-
-
-.header{
-   margin-bottom: 4rem;
+#header {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+  height: 70px; 
+  line-height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
-
+.container {
+  margin-top: 7rem; 
+  padding-top: 20px; 
+}
 .introduce{
   position: relative;
   display: flex;

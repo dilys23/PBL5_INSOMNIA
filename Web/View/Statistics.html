@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết hoạt động </title>
+  <link rel="stylesheet" href="../static/css/TimeSheetAdmin.css">
+  <link rel="stylesheet" href="../static/css/Statistics.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="container">
+        <div class="container1">
+            <div class="container_head">
+                <div class="container_head_left">
+                    <div class="container_head_search">
+                        <input type="search" class="input_search">
+                        <i class="btn_search fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="container_head_department">
+                        <select class="department_options">
+                            <option value="design">Design</option>
+                            <option value="mark">Marketing</option>
+                            <option value="dev">Development</option>                        
+                        </select>
+                    </div>
+                </div>
+                <input type="month" id="bdaymonth" name="bdaymonth">
+                
+            </div>
+            <div class="table-container">
+                <table>
+                        <thead>
+                            <tr class="tr_head">
+                                <th class="th_name">Name</th>
+                                <th>Department</th>
+                                <th>Attendance</th>
+                                <th>DayLate</th>
+                                <th>Absent</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    
+                    <tbody>
+                        <tr class="table_employee_infor">
+                            <td class="col_name">
+                                <img src="../Img/ava.jpg" alt="" class="img_ava">
+                                <div class="table_name_employee">Van Thi Bach Duong</div>
+                            </td>
+                            <td class="col_depart"><div>Designer</div></td>
+                            <td class="col_depart">6h55p</td>
+                            <td class="col_depart">11h20p</td>
+                            <td class="col_depart">OnTime</td>
+                            <td class="col_depart">
+                                <div class="btn_see">
+                                    See More
+                                </div>
+                            </td>
+                           
+                        </tr>  
+                        <tr class="table_employee_infor">
+                            <td class="col_name">
+                                <img src="../Img/ava.jpg" alt="" class="img_ava">
+                                <div class="table_name_employee">Lê Minh Anh</div>
+                            </td>
+                            <td class="col_depart"><div>Management</div></td>
+                            <td class="col_depart">6h57p</td>
+                            <td class="col_depart">11h20p</td>
+                            <td class="col_depart">OnTime</td>
+                            <td class="col_depart">
+                                <div class="btn_see">
+                                    See More
+                                </div>
+                            </td>
+                        </tr>   
+                        <tr class="table_employee_infor">
+                            <td class="col_name">
+                                <img src="../Img/ava.jpg" alt="" class="img_ava">
+                                <div class="table_name_employee">Van Thi Bach Duong</div>
+                            </td>
+                            <td class="col_depart"><div>Designer</div></td>
+                            <td class="col_depart">6h55p</td>
+                            <td class="col_depart">11h20p</td>
+                            <td class="col_depart">OnTime</td>
+                            <td class="col_depart">
+                                <div class="btn_see">
+                                    See More
+                                </div>
+                            </td>
+                        </tr>  
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>  
+    <div id="dialog_overlay">
+        <div id="dialog_box">
+            <div class="dialog_box_head">
+                <div class="dialog_box_head_title">
+                    <h5 class="head_name">Attendance in</h5>
+                    <h5 id="head_month">February 2024</h5>
+                </div>
+            </div>
+           <div class="dialog_box_body">
+             <div class="dialog_body_item">
+                <div class="dialog_body_item_tilte">Name:</div>
+                <div class="dialog_body_item_content">Lê Minh Anh</div>
+             </div>
+             <div class="dialog_body_item">
+                <div class="dialog_body_item_tilte">Department:</div>
+                <div class="dialog_body_item_content">Design</div>
+             </div>
+             <div class="dialog_body_item">
+                <div class="dialog_body_item_tilte">DayAbsent have Permisson:</div>
+                <div class="dialog_body_item_content">
+                    <div class="list_date_permission">
+                        10-2-2024
+                    </div>
+                 
+                </div>
+             </div>
+             <div class="dialog_body_item"> 
+                <div class="dialog_body_item_tilte">DayAbsent dont have permission:</div>
+                <div class="dialog_body_item_content">
+                    <div class="list_date_nonpermission">
+                        
+                    </div>
+                </div>
+             </div>
+             <div class="dialog_body_item">
+                <div class="dialog_body_item_tilte">DayLate:</div>
+                <div class="dialog_body_item_content">
+                    <div class="list_date_permission">
+                        16-2-2024
+                    </div>
+                </div>
+             </div>  
+        </div>
+        <div id="btn_close">
+            <i class="fa-solid fa-xmark"></i>
+            <div>Close</div>
+       </div>
+    </div>
+</body>
+<script src="../static/js/Statistics.js"></script>
+<script src="../static/js/Header.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</html>

@@ -1,0 +1,139 @@
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+    height: 70px; 
+    line-height: 70px; 
+}
+.container {
+    margin-top: 3rem; 
+    padding-top: 20px; 
+}
+#bdaymonth{
+    border-radius: 20px;
+    border: 1px solid var(--btn-blue);
+    outline: none;
+    padding:0.5rem;
+    color:var(--btn-blue);
+    display: flex;
+    text-align: center;
+    height: 1.5rem;
+}
+.btn_see{
+    border: 1px solid var(--btn-blue);
+    width: 6rem;
+    /* text-align: center; */
+    margin:0 auto;
+    padding:0.2rem 0.8rem;
+    border-radius: 20px;
+}
+tr {
+    display: flex; 
+}
+
+.tr_head{
+    display: flex; 
+}
+.th_name{
+    font-size: 1rem;
+    flex: 1.5;
+    padding: 10px; 
+}
+.col_name {
+    font-size: 0.8rem;
+    flex: 1.5; 
+    padding: 10px; 
+    margin: auto 0;
+}
+th:not(.th_name){
+   
+    flex: 1; 
+    padding: 10px;
+}
+
+td:not(.col_name) {
+    font-size: 0.8rem;
+    flex: 1; 
+    padding: 10px; 
+}
+.col_depart{
+    margin:auto 0;
+}
+/* dialog see more */
+#dialog_overlay{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;  
+    
+  } 
+  #dialog_box{
+    background-color: white;
+    width: 30rem;
+    /* padding: 1.2rem; */
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+.dialog_box_head{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: var(--input-search);
+    border-radius: 20px;
+    height: 4rem;
+}
+.head_name{
+    margin-right: 0.2rem;
+    
+}
+#head_month, .head_name{
+    font-size: 1.3rem;
+    color: var(--btn-blue);
+}
+.dialog_box_body{
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+}
+.dialog_box_head_title{
+    display: flex;
+}
+#close-dialog-btn{
+    color:var(--btn-blue);
+}
+
+#btn_close{
+    display: flex;
+    border: 1px solid var(--btn-blue);
+    background: white;
+    width: 4rem;
+    padding: 0.3rem 0.7rem;
+    gap:0.5rem;
+    border-radius: 20px;
+    color: var(--btn-blue);
+    align-items: center;
+    margin-top: 1rem;
+    position: absolute;
+    right:1rem;
+    bottom: 0.7rem;
+}
+.dialog_body_item{
+    display: flex;
+    margin-bottom: 1rem;
+}
+.dialog_body_item_tilte{
+    width: 16rem;
+    color:var(--text-light-black) ;
+}

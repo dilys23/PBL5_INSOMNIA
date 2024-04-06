@@ -7,11 +7,17 @@
   <title>Chi tiết hoạt động </title>
   <link rel="stylesheet" href="../static/css/TimeSheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+  <title>INSOMNIA</title>
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="../Img/logo.svg"
+  />
 </head>
 
 <body>
-    <div class="header"></div>
+    <div id="header"></div>
     <div class="container">
         <div class="container1">
             <div class="information_date">
@@ -117,10 +123,10 @@
                     </div>
                 </div>
                 <div class="wrap">
-                    <div class="circle-graph">
-                        <div class="circle-graph-progress progress-a" data-progress="25"></div>
+                    <div class="circle-graph" id="pie">
+                        <!-- <div class="circle-graph-progress progress-a" data-progress="25"></div>
                         <div class="circle-graph-progress progress-b" data-progress="35"></div>
-                        <div class="circle-graph-progress progress-c" data-progress="40"></div>
+                        <div class="circle-graph-progress progress-c" data-progress="40"></div> -->
                       </div>      
                     <div class="note-graph">
                         <div class="note_ontime">
@@ -172,9 +178,8 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </body>
 <script src="../static/js/TimeSheet.js"></script>
+<script src="../static/js/Header.js"></script>
 </html>

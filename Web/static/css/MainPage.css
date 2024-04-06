@@ -13,6 +13,8 @@
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 }
 /* ----- BASE ----- */
+
+
 *{
     margin: 0;
     padding: 0;
@@ -24,7 +26,7 @@ html{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
+/* ----- CHANGE sTHE SCROLL BAR DESIGN ----- */
 ::-webkit-scrollbar{
     width: 10px;
     border-radius: 25px;
