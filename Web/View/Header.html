@@ -4,6 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="../static/css/Header.css" />
+      <!-- <script src="../static/js/Header.js"></script> -->
       <!-- --------- FAVICON ---------- -->
       <title>INSOMNIA</title>
       <link
@@ -23,22 +24,30 @@
           </div>
           <div class="nav-menu" id="myNavMenu">
             <ul class="nav_menu_list">
+              <!-- <li class="nav_list">
+                <a href="MainPage.html" class="nav-link active-link">Home</a>
+                <div class="circle"></div>
+              </li> -->
               <li class="nav_list">
-                <a href="#home" class="nav-link active-link">Home</a>
+                <a href="TimeSheetAdmin.html" class="nav-link">TimeSheet</a>
                 <div class="circle"></div>
               </li>
               <li class="nav_list">
-                <a href="#about" class="nav-link">TimeSheet</a>
+                <a href="StatisticsAdmin.html" class="nav-link">Statistics</a>
                 <div class="circle"></div>
               </li>
               <li class="nav_list">
-                <a href="#education" class="nav-link">Statistics</a>
+                <a href="Department.html" class="nav-link">Department</a>
                 <div class="circle"></div>
               </li>
             </ul>
           </div>
           <div class="nav-ava">  
-            <img src="../Img/ava.jpg">
+            <img src="../Img/ava.jpg" id="img_nav">
+            <div id="dropdown_content" class="dropdown-content">
+              <a href="#">Thông tin cá nhân</a>
+              <a href="#">Đăng xuất</a>
+            </div>
           </div>
         
         </nav>
@@ -51,6 +60,7 @@
       <!-- ----- SCROLL REVEAL JS Link----- -->
       <script src="https://unpkg.com/scrollreveal"></script>
       <!-- ----- MAIN JS ----- -->
-      <script src="../static/js/homepage.js   "></script>
+      <script src="../static/js/homepage.js"></script>
+      <script src="../static/js/Header.js"></script>
     </body>
   </html>

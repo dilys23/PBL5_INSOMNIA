@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- --------- UNICONS ---------- -->
-
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
-    <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="../static/css/MainPage.css" />
-    <!-- --------- FAVICON ---------- -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
@@ -24,11 +21,11 @@
       type="image/x-icon"
       href="../Img/logo.svg"
     />
+    <script src="../static/js/MainPage.js"></script>
   </head>
 
   <body>
     <div class="container">
-      <!-- --------------- HEADER --------------- -->
       <nav id="header">
         <div class="nav-logo">
           <img src="../Img/logo.svg" />
@@ -59,8 +56,39 @@
             <button class="btn login" id="login" >
                 Login 
             </button>
-            <button class="btn signup">Signup</button>
-     
+            <div class="dialog-overlay" id="dialogOverlay">
+              <div class="dialog-box">
+                       <div class="dialog-title">
+                          <h2 class="title">Login with your account</h2>
+                          <i class="fa-solid fa-xmark" id="btn_close_dialog"></i>
+                       </div>
+                      
+                      <div class="dialog-body">
+                          <div class="form-group">
+                              <label for="dialog-login-email" class="dialog-label">Email</label>
+                              <div class="input-group">
+                                <input type="email" id="dialog-login-email" placeholder="Email address">
+                                <i class="fa-solid fa-envelope icon_email"></i>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="dialog-password" class="dialog-label">Password</label>
+                              <div class="input-group">
+                                  <input type="password" pattern=".{8,}" id="dialog-password" placeholder="Your password">      
+                                  <i class="fa-solid fa-eye" id="icon_eye"></i>
+                              </div>        
+                          </div>
+                          <div class="form-group2">
+                            <div class="space"></div>
+                            <p class="help-text">At least 8 characters</p>
+                          </div>
+                     
+                        <button type="submit" id="btn-submit">Login</button>
+                        <a href="#" id="forgot_pass">Forgot password?</a>
+                        <p>I don't have an account. <a href="#" onclick="switchForm('register', event)">Register</a></p>
+                      </div>
+              </div>
+          </div>
         </div>
        
         <div class="nav-menu-btn">
@@ -75,44 +103,42 @@
             <div class="featured-text-card">
               <span>INSOMNIA</span>
             </div>
-            <div class="featured-name">
-              <p>I'm <span class="typedText"></span></p>
-            </div>
-            <div class="featured-text-info">
-              <p>
-                The time management system is a technological solution that
-                helps businesses efficiently record and track employees' working
-                hours. It is a crucial component of human resources and
-                financial management, aiding organizations in saving time,
-                enhancing transparency, and reducing errors in payroll
-                calculations.
-              </p>
-            </div>
-        
-            <div class="social_icons">
-              <div class="icon">
-                <a href="https://www.instagram.com/dilysnguyen23/"
-                  ><i class="uil uil-instagram"></i
-                ></a>
+            <div class="feature-left">
+              <div class="featured-name">
+                <p>I'm <span class="typedText"></span></p>
               </div>
-              <div class="icon">
-                <a href="https://www.linkedin.com/in/your-linkedin-profile/"
-                  ><i class="uil uil-linkedin-alt"></i
-                ></a>
+              <div class="featured-text-info">
+                <p>
+                  The time management system is a technological solution that
+                  helps businesses efficiently record and track employees' working
+                  hours. It is a crucial component of human resources and
+                  financial management, aiding organizations in saving time,
+                  enhancing transparency, and reducing errors in payroll
+                  calculations.
+                </p>
               </div>
-              <div class="icon">
-                <a
-                  href="https://www.facebook.com/profile.php?id=100016345395566"
-                  ><i class="uil uil-facebook"></i
-                ></a>
+          
+              <div class="social_icons">
+                <div class="icon">
+                  <a href=""
+                    ><i class="uil uil-instagram"></i
+                  ></a>
+                </div>
+                <div class="icon">
+                  <a href=""
+                    ><i class="uil uil-linkedin-alt"></i
+                  ></a>
+                </div>
+                <div class="icon">
+                  <a
+                    href=""
+                    ><i class="uil uil-facebook"></i
+                  ></a>
+                </div>
               </div>
-              <!-- <div class="icon">
-                <a href="https://github.com/dilys23"
-                  ><i class="uil uil-github-alt"></i
-                ></a>
-              </div> -->
             </div>
-          </div>
+            </div>
+           
           <div class="featured-image">
             <div class="home-img">
               <img src="../Img/home.svg" alt="avatar" />
@@ -330,11 +356,13 @@
         </div>
       </footer>
     </div>
+  
     <!-- ----- TYPING JS Link ----- -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- ----- SCROLL REVEAL JS Link----- -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ----- MAIN JS ----- -->
     <script src="../static/js/homepage.js   "></script>
+   
   </body>
 </html>

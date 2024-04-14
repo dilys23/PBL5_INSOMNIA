@@ -315,3 +315,38 @@ td{
       padding: 0.2rem 0;
     }
   }
+  .container_head_add_date input[type="date"]::-webkit-datetime-edit,
+.container_head_add_date input[type="date"]::-webkit-inner-spin-button,
+.container_head_add_date input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: var(--btn-blue);
+    opacity: 1;
+}
+input[type="date"] {
+    position: relative;
+    width: 150px;
+     height: 1.5rem;
+    color: white;
+    /* margin-top:0.5rem ; */
+    outline: none;
+    
+}
+
+input[type="date"]:before {
+    position: absolute;
+     left: 10px;
+    content: attr(data-date);
+    display: inline-block;
+    color: var(--btn-blue);;
+    
+}
+/* .container_head_add_date button,
+.container_head_add_date input {
+    vertical-align: middle;
+} */

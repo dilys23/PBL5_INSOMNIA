@@ -8,19 +8,19 @@ function myMenuFunction(){
     }
   }
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
-  window.onscroll = function() {headerShadow()};
-  function headerShadow() {
-    const navHeader =document.getElementById("header");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop >  50) {
-      navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
-      navHeader.style.height = "70px";
-      navHeader.style.lineHeight = "70px";
-    } else {
-      navHeader.style.boxShadow = "none";
-      navHeader.style.height = "90px";
-      navHeader.style.lineHeight = "90px";
-    }
-  }
+  // window.onscroll = function() {headerShadow()};
+  // function headerShadow() {
+  //   const navHeader =document.getElementById("header");
+  //   if (document.body.scrollTop > 50 || document.documentElement.scrollTop >  50) {
+  //     navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
+  //     navHeader.style.height = "70px";
+  //     navHeader.style.lineHeight = "70px";
+  //   } else {
+  //     navHeader.style.boxShadow = "none";
+  //     navHeader.style.height = "90px";
+  //     navHeader.style.lineHeight = "90px";
+  //   }
+  // }
 /* ----- TYPING EFFECT ----- */
  var typingEffect = new Typed(".typedText",{
     strings : ["Employee Attendance Website"],
@@ -106,3 +106,31 @@ function validateForm() {
       return true; // Allow form submission
   }
 }
+document.getElementById('icon_eye').addEventListener('click', function(e) {
+  var input = document.getElementById('dialog-password');
+  var eyeIcon = document.getElementById('icon_eye');
+  if(input.type=="password"){
+    input.type="text";
+    eyeIcon.classList.remove("fa-eye");
+    eyeIcon.classList.add("fa-eye-slash");
+  }else{
+    input.type="password";
+    eyeIcon.classList.add("fa-eye");
+    eyeIcon.classList.remove("fa-eye-slash");
+  }
+})
+
+document.getElementById('btn_close_dialog').addEventListener('click', function() {
+  document.getElementById('dialogOverlay').style.display = 'none';
+});
+document.addEventListener("DOMContentLoaded", function() {
+  // Ví dụ:
+  document.getElementById('login').addEventListener('click', function(event) {
+      event.preventDefault(); // Ngăn chặn hành động mặc định của nút
+      document.getElementById('dialogOverlay').style.display = 'block';
+  });
+
+});
+document.getElementById('btn-submit').addEventListener('click',function(){
+  window.location.href = 'TimeSheet.html';
+} )

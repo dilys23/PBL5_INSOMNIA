@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chi tiết hoạt động </title>
   <link rel="stylesheet" href="../static/css/TimeSheetAdmin.css">
-  <link rel="stylesheet" href="../static/css/Statistics.css">
+  <link rel="stylesheet" href="../static/css/StatisticsAdmin.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
 </head>
 
 <body>
@@ -96,9 +97,50 @@
                         
                     </tbody>
                 </table>
-            </div>
+            </div>    
         </div>
-       
+        <div class="statistics">
+            <div class="statistics_left">
+                <h4 class="statistics_left_title">Punctuality statistics</h4>
+                <div class="wrap">
+                    <div class="circle-graph" id="pie">
+                        <!-- <div class="circle-graph-progress progress-a" data-progress="25"></div>
+                        <div class="circle-graph-progress progress-b" data-progress="35"></div>
+                        <div class="circle-graph-progress progress-c" data-progress="40"></div> -->
+                      </div>      
+                    <div class="note-graph">
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_ontime">80%</div>
+                                <div class="note_ontime_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Ontime</div>
+                            
+                        </div>
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_late">15%</div>
+                                <div class="note_late_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Late</div>
+                        </div>
+                        <div class="note_ontime">
+                            <div>
+                                <div class="note_graph_percent_absent">5%</div>
+                                <div class="note_absent_rect"></div>
+                            </div>
+                            <div class="note-graph-name">Absent</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statistics_right">
+
+            </div>
+           
+           
+        </div>
     </div>  
     <div id="dialog_overlay">
         <div id="dialog_box">
@@ -107,7 +149,7 @@
                     <h5 class="head_name">Attendance in</h5>
                     <h5 id="head_month">February 2024</h5>
                 </div>
-            </div>
+            </div>  
            <div class="dialog_box_body">
              <div class="dialog_body_item">
                 <div class="dialog_body_item_tilte">Name:</div>
@@ -130,7 +172,6 @@
                 <div class="dialog_body_item_tilte">DayAbsent dont have permission:</div>
                 <div class="dialog_body_item_content">
                     <div class="list_date_nonpermission">
-                        
                     </div>
                 </div>
              </div>
@@ -149,7 +190,7 @@
        </div>
     </div>
 </body>
-<script src="../static/js/Statistics.js"></script>
+<script src="../static/js/StatisticsAdmin.js"></script>
 <script src="../static/js/Header.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
