@@ -20,30 +20,55 @@ fetch('header.html')
         });
     });
    
-
-    document.addEventListener('DOMContentLoaded', function() {
-      var imgNav = document.getElementById('img_nav');
-      if (imgNav) {
-        imgNav.addEventListener('click', function() {
-          document.getElementById('dropdown_content').classList.toggle('show');
-        });
-      } else {
-        console.log('Element with ID "img_nav" not found');
-      }
-    });
-  
-  
-    // Đóng dropdown nếu nhấp ra ngoài nó
-    window.onclick = function(event) {
-      if (!event.target.matches('.nav-ava img')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
     
+document.addEventListener('DOMContentLoaded', function() {
+  var btnAva = document.getElementById('btn_ava');
+  
+  if (btnAva) {
+    btnAva.addEventListener('click', function() {
+      console.log('Co img ne');
+      document.getElementById('dropdown_content').style.display=  'block';
+    });
+  } else {
+    console.log('Element with ID "btn_ava" not found');
+  }
+
+});
+ 
+
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      var personalInfoLink = document.getElementById('personal_info_link');
+      var dialogOverlay = document.getElementById('dialog_overlay_info');
+      if(personalInfoLink){
+        personalInfoLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          dialogOverlay.style.display = 'block';
+      });
+      }
+     
+      document.getElementById('close-dialog-btn').addEventListener('click', function() {
+        document.getElementById('dialog_overlay_info').style.display = 'none';
+    });
+     document.getElementById('logout').addEventListener('click',function(){
+    window.location.href= 'MainPage.html';
+  })
+  });
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   var btnAva = document.getElementById('btn_ava');
+  //   var dropdownContent = document.getElementById('dropdown_content');
+
+  //   // Lắng nghe sự kiện click trên toàn bộ tài liệu
+  //   document.addEventListener('click', function(event) {
+  //       // Nếu phần tử được nhấn không phải là dropdown hoặc button avatar
+  //       if (event.target !== dropdownContent && event.target !== btnAva) {
+  //           // Ẩn dropdown
+  //           dropdownContent.style.display = 'none';
+  //       }
+  //   });
+  // });
+
+
+  

@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="../static/css/TimeSheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="../static/js/Header.js"></script>
   <title>INSOMNIA</title>
   <link
     rel="shortcut icon"
@@ -21,60 +24,12 @@
     <div class="container">
         <div class="container1">
             <div class="information_date">
-                <button id="btn_information">Information
+                <button id="btn_information" style="display: none;">Information
                 </button>
-                <div id="dialog_overlay">
-                    <div id="dialog_box">
-                        <div class="dialog_box_head">
-                            <div class="dialog_box_head_name">
-                                <h5 class="head_name">Bạch Dương</h5>
-                                <div class="head_major">UI Designer</div>
-                            </div>
-                            <div class="img_close">
-                                <img id="img_dialog" src="../Img/ava.jpg" alt="">
-                                <i id="close-dialog-btn" class="fa-solid fa-xmark"></i>
-                            </div>
-                        </div>
-                       <div class="dialog_box_body">
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Email:</div>
-                            <div class="dialog_body_item_content">bachduongvan0402@gmail.com</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Mobile phone:</div>
-                            <div class="dialog_body_item_content">0914136584</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Date of birth:</div>
-                            <div class="dialog_body_item_content">04-02-2003</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Gender:</div>
-                            <div class="dialog_body_item_content">Female</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">EmployeeID:</div>
-                            <div class="dialog_body_item_content">user42</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Degisnation:</div>
-                            <div class="dialog_body_item_content">UI Designer</div>
-                         </div>
-                         <div class="dialog_body_item">
-                            <div class="dialog_body_item_tilte">Department:</div>
-                            <div class="dialog_body_item_content">Design</div>
-                         </div>
-                       </div>
-                       <button class="edit_profile">Edit profile</button>
-                    </div>
-                </div>
+                
             
-                <div class="date-container">
-                    <input type="date" id="birthday" class="date" name="birthday">
-                  </div>
-                    <!-- <i class="icon_calendar fa-solid fa-calendar"></i>
-                    <span>15/4/2024</span> -->
-               
+                <!-- <div class="date-container"> -->
+                    <input type="date" class="head_date" data-date="" data-date-format="DD MMMM YYYY" value="2015-08-09">    
             </div>
             <div class="board_timesheet">
                 <div class="board_timesheet_left">
@@ -181,5 +136,8 @@
     </div>
 </body>
 <script src="../static/js/TimeSheet.js"></script>
-<script src="../static/js/Header.js"></script>
+<!-- <script src="../static/js/Header.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
+
 </html>

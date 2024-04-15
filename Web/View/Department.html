@@ -7,9 +7,9 @@
   <title>Chi tiết hoạt động </title>
   <link rel="stylesheet" href="../static/css/Department.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="../static/js/Header.js"></script>
 </head>
 
 <body>
@@ -104,7 +104,25 @@
                                 </div> 
                             </td>
                         </tr>  
-                        
+                        <div id="dialog_overlay_edit">
+                            <div id="dialog_box_edit">
+                                <div class="dialog_box_head">
+                                        <h5 class="head_name">Edit Department</h5>
+                                        <i id="close-dialog-edit-btn" class="fa-solid fa-xmark"></i>
+                                </div>
+                               <div class="dialog_box_body">
+                                 <div class="dialog_body_item">
+                                    <div class="dialog_body_item_tilte">Name department:</div>
+                                    <input type="text" class="txt_name">
+                                 </div>
+                                 <div class="dialog_body_item">
+                                    <div class="dialog_body_item_tilte">Time Rule:</div>
+                                    <input type="text" class="txt_timeRule">
+                                 </div>
+                               </div>
+                               <button id="edit_department">Edit Department</button>
+                            </div>
+                        </div>
                     </tbody>
                     
                 </table>
@@ -113,5 +131,5 @@
     </div>  
 </body>
 <script src="../static/js/Department.js"></script>
-<script src="../static/js/Header.js"></script>
+<!-- <script src="../static/js/Header.js"></script> -->
 </html>

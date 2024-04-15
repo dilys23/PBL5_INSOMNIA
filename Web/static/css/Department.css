@@ -193,6 +193,38 @@ td{
     right:1rem;
     bottom: 0.7rem;
 }
+#dialog_overlay_edit{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;  
+    /* backdrop-filter: blur(0.5px); */
+  } 
+  #dialog_box_edit{
+    background-color: white;
+    width: 30rem;
+    /* padding: 1.2rem; */
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+  #edit_department{
+    color:var(--btn-blue);
+    background-color: white;
+    border: 1px solid var(--btn-blue);
+    border-radius: 20px;
+    padding: 0.3rem 0.7rem;
+    position: absolute;
+    right:1rem;
+    bottom: 0.7rem;
+}
 .container_head_add_date input[type="date"]::-webkit-datetime-edit,
 .container_head_add_date input[type="date"]::-webkit-inner-spin-button,
 .container_head_add_date input[type="date"]::-webkit-clear-button {

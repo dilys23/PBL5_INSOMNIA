@@ -4,7 +4,9 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="../static/css/Header.css" />
+      <!-- <link rel="stylesheet" href="../static/css/TimeSheet.css" /> -->
       <!-- <script src="../static/js/Header.js"></script> -->
+      <script src="../static/js/Header.js"></script>
       <!-- --------- FAVICON ---------- -->
       <title>INSOMNIA</title>
       <link
@@ -43,16 +45,61 @@
             </ul>
           </div>
           <div class="nav-ava">  
-            <img src="../Img/ava.jpg" id="img_nav">
-            <div id="dropdown_content" class="dropdown-content">
-              <a href="#">Thông tin cá nhân</a>
-              <a href="#">Đăng xuất</a>
-            </div>
+              <div class="nav-ava-wrap" id="btn_ava"><img src="../Img/ava.jpg"  alt=""></div>
+              <div id="dropdown_content" class="dropdown-content">
+                <a href=""  id="personal_info_link">Thông tin cá nhân</a>
+                <hr>
+                <a href="#" id="logout">Đăng xuất</a>
+              </div>
           </div>
         
         </nav>
         <!-- -------------- MAIN ---------------- -->
-      
+        <div id="dialog_overlay_info">
+          <div id="dialog_box_info">
+              <div class="dialog_box_head_info">
+                  <div class="dialog_box_head_name_info">
+                      <h5 class="head_name_info">Bạch Dương</h5>
+                      <div class="head_major_info">UI Designer</div>
+                  </div>
+                  <div class="img_close">
+                      <img id="img_dialog" src="../Img/ava.jpg" alt="">
+                      <i id="close-dialog-btn" class="fa-solid fa-xmark"></i>
+                  </div>
+              </div>
+             <div class="dialog_box_body_info">
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Email:</div>
+                  <div class="dialog_body_item_content">bachduongvan0402@gmail.com</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Mobile phone:</div>
+                  <div class="dialog_body_item_content">0914136584</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Date of birth:</div>
+                  <div class="dialog_body_item_content">04-02-2003</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Gender:</div>
+                  <div class="dialog_body_item_content">Female</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">EmployeeID:</div>
+                  <div class="dialog_body_item_content">user42</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Degisnation:</div>
+                  <div class="dialog_body_item_content">UI Designer</div>
+               </div>
+               <div class="dialog_body_item_info">
+                  <div class="dialog_body_item_tilte_info">Department:</div>
+                  <div class="dialog_body_item_content">Design</div>
+               </div>
+             </div>
+             <button class="edit_profile">Edit profile</button>
+          </div>
+      </div>
         
       </div>
       <!-- ----- TYPING JS Link ----- -->
@@ -61,6 +108,6 @@
       <script src="https://unpkg.com/scrollreveal"></script>
       <!-- ----- MAIN JS ----- -->
       <script src="../static/js/homepage.js"></script>
-      <script src="../static/js/Header.js"></script>
+    
     </body>
   </html>
