@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="../static/js/Header.js"></script>
+<!-- <script src="../static/js/TimeSheetAdmin.js"></script> -->
   <title>INSOMNIA</title>
   <link
     rel="shortcut icon"
@@ -29,10 +30,8 @@
                         <i class="btn_search fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="container_head_department">
-                        <select class="department_options">
-                            <option value="design">Design</option>
-                            <option value="mark">Marketing</option>
-                            <option value="dev">Development</option>                        
+                        <select class="department_options">    
+                            <option value="department-All">All</option>                  
                         </select>
                     </div>
                 </div>
@@ -50,8 +49,8 @@
                             </tr>
                         </thead>
                     
-                    <tbody>
-                        <tr class="table_employee_infor">
+                    <tbody id="tbody-users">
+                        <!-- <tr class="table_employee_infor">
                             <td class="col_name">
                                 <img src="../Img/ava.jpg" alt="" class="img_ava">
                                 <div class="table_name_employee">Van Thi Bach Duong</div>
@@ -110,7 +109,7 @@
                             <td class="col_depart">6h57p</td>
                             <td class="col_depart">11h20p</td>
                             <td class="col_depart">OnTime</td>
-                        </tr>  
+                        </tr>   -->
                         
                     </tbody>
                     <tfoot>
@@ -235,6 +234,6 @@
     </div>  
 </body>
 <!-- <script src="../static/js/TimeSheet.js"></script> -->
-<script src="../static/js/TimeSheetAdmin.js"></script>
 <!-- <script src="../static/js/Header.js"></script> -->
+<script src="../static/js/TimeSheetAdmin.js"></script>
 </html>
