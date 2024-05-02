@@ -8,7 +8,10 @@
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
     <link rel="stylesheet" href="../static/css/MainPage.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
@@ -16,12 +19,7 @@
     />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <title>INSOMNIA</title>
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="../Img/logo.svg"
-    />
-    <script src="../static/js/MainPage.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../Img/logo.svg" />
   </head>
 
   <body>
@@ -51,46 +49,136 @@
             </li>
           </ul>
         </div>
-        <div class="nav-button ">
-       
-            <button class="btn login" id="login" >
-                Login 
-            </button>
-            <div class="dialog-overlay" id="dialogOverlay">
-              <div class="dialog-box">
-                       <div class="dialog-title">
-                          <h2 class="title">Login with your account</h2>
-                          <i class="fa-solid fa-xmark" id="btn_close_dialog"></i>
-                       </div>
-                      
-                      <div class="dialog-body">
-                          <div class="form-group">
-                              <label for="dialog-login-email" class="dialog-label">Email</label>
-                              <div class="input-group">
-                                <input type="email" id="dialog-login-email" placeholder="Email address">
-                                <i class="fa-solid fa-envelope icon_email"></i>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                              <label for="dialog-password" class="dialog-label">Password</label>
-                              <div class="input-group">
-                                  <input type="password" pattern=".{8,}" id="dialog-password" placeholder="Your password">      
-                                  <i class="fa-solid fa-eye" id="icon_eye"></i>
-                              </div>        
-                          </div>
-                          <div class="form-group2">
-                            <div class="space"></div>
-                            <p class="help-text">At least 8 characters</p>
-                          </div>
-                     
-                        <button type="submit" id="btn-submit">Login</button>
-                        <a href="#" id="forgot_pass">Forgot password?</a>
-                        <p>I don't have an account. <a href="#" onclick="switchForm('register', event)">Register</a></p>
-                      </div>
+        <div class="nav-button">
+          <button class="btn login" id="login">Login</button>
+          <div class="dialog-overlay" id="dialogOverlay">
+            <div class="dialog-box">
+              <div class="dialog-title">
+                <h2 class="title">Login with your account</h2>
+                <i class="fa-solid fa-xmark" id="btn_close_dialog"></i>
               </div>
+
+              <div class="dialog-body">
+                <div class="form-group">
+                  <label for="dialog-login-email" class="dialog-label"
+                    >Email</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="email"
+                      id="dialog-login-email"
+                      placeholder="Email address"
+                    />
+                    <i class="fa-solid fa-envelope icon_email"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dialog-password" class="dialog-label"
+                    >Password</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      pattern=".{8,}"
+                      id="dialog-password"
+                      placeholder="Your password"
+                    />
+                    <i class="fa-solid fa-eye" id="icon_eye"></i>
+                  </div>
+                </div>
+                <div class="form-group2">
+                  <div class="space"></div>
+                  <p class="help-text">At least 8 characters</p>
+                </div>
+
+                <button type="submit" id="btn-submit">Login</button>
+                <a href="#" id="forgot_pass">Forgot password?</a>
+                <p>
+                  I don't have an account.
+                  <a id="btn_register">Register</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-       
+        <div class="dialog-overlay-register" id="dialogOverlayRegister">
+          <div class="dialog-box-register">
+            <div class="dialog-title">
+              <h2 class="title">Create new account</h2>
+              <i class="fa-solid fa-xmark" id="btn_close_dialog_register"></i>
+            </div>
+            <div class="dialog-body">
+              <div class="form-group">
+                <label for="username" class="dialog-label-register"
+                  >Username</label
+                >
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="User name"
+                    id="dialog-register-login-username"
+                  />
+                  <i class="bx bx-user"></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dialog-login-email" class="dialog-label-register"
+                  >Email</label
+                >
+                <div class="input-group">
+                  <input
+                    type="email"
+                    id="dialog-register-login-email"
+                    placeholder="Email address"
+                  />
+                  <i class="fa-solid fa-envelope icon_email"></i>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dialog-password" class="dialog-label-register"
+                  >Password</label
+                >
+                <div class="input-group">
+                  <input
+                    type="password"
+                    pattern=".{8,}"
+                    id="dialog-register-password"
+                    placeholder="Your password"
+                  />
+                  <i class="fa-solid fa-eye" id="icon_eye"></i>
+                </div>
+              </div>
+              <div class="form-group-register">
+                <div class="space-regis"></div>
+                <p class="help-text">At least 8 characters</p>
+              </div>
+              <div class="form-group">
+                <label for="confirm-pass" class="dialog-label-register"
+                  >Confirm password</label
+                >
+                <div class="input-group">
+                  <input
+                    type="password"
+                    pattern=".{8,}"
+                    id="dialog-confirm-pass"
+                    placeholder="Enter password again"
+                  />
+                  <i class="fa-solid fa-eye" id="icon_eye"></i>
+                </div>
+                <span class="help-text"
+                  >Confirm password must be same with password</span
+                >
+              </div>
+              <button type="submit" class="btn-submit">Register</button>
+              <p>
+                I already have an account.
+                <a id="btn_login">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="nav-menu-btn">
           <i class="uil uil-bars" onclick="myMenuFunction()"></i>
         </div>
@@ -110,35 +198,28 @@
               <div class="featured-text-info">
                 <p>
                   The time management system is a technological solution that
-                  helps businesses efficiently record and track employees' working
-                  hours. It is a crucial component of human resources and
-                  financial management, aiding organizations in saving time,
+                  helps businesses efficiently record and track employees'
+                  working hours. It is a crucial component of human resources
+                  and financial management, aiding organizations in saving time,
                   enhancing transparency, and reducing errors in payroll
                   calculations.
                 </p>
               </div>
-          
+
               <div class="social_icons">
                 <div class="icon">
-                  <a href=""
-                    ><i class="uil uil-instagram"></i
-                  ></a>
+                  <a href=""><i class="uil uil-instagram"></i></a>
                 </div>
                 <div class="icon">
-                  <a href=""
-                    ><i class="uil uil-linkedin-alt"></i
-                  ></a>
+                  <a href=""><i class="uil uil-linkedin-alt"></i></a>
                 </div>
                 <div class="icon">
-                  <a
-                    href=""
-                    ><i class="uil uil-facebook"></i
-                  ></a>
+                  <a href=""><i class="uil uil-facebook"></i></a>
                 </div>
               </div>
             </div>
-            </div>
-           
+          </div>
+
           <div class="featured-image">
             <div class="home-img">
               <img src="../Img/home.svg" alt="avatar" />
@@ -157,7 +238,6 @@
             <h1>About Me</h1>
           </div>
           <div class="row">
-       
             <div class="col">
               <div class="skills-box">
                 <img src="../Img/imgconect.svg" alt="" />
@@ -238,7 +318,6 @@
             </div>
           </div>
         </section>
-     
 
         <!-- -------------- CONTACT BOX ---------------- -->
         <section class="section" id="contact">
@@ -345,7 +424,6 @@
               ><i class="uil uil-facebook"></i
             ></a>
           </div>
-        
         </div>
         <div class="bottom-footer">
           <p>
@@ -356,13 +434,13 @@
         </div>
       </footer>
     </div>
-  
+
     <!-- ----- TYPING JS Link ----- -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <!-- ----- SCROLL REVEAL JS Link----- -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- ----- MAIN JS ----- -->
     <script src="../static/js/homepage.js   "></script>
-   
+    <script src="../static/js/MainPage.js"></script>
   </body>
 </html>
