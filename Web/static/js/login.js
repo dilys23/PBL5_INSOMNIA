@@ -1,13 +1,15 @@
 function switchForm(className, e) {
-	e.preventDefault();
-	const allForm = document.querySelectorAll('form');
-	const form = document.querySelector(`form.${className}`);
+  e.preventDefault();
+  const allForm = document.querySelectorAll('form');
+  const form = document.querySelector(`form.${className}`);
 
-	allForm.forEach(item=> {
-		item.classList.remove('active');
-	})
-	form.classList.add('active');
+  allForm.forEach(item => {
+    item.classList.remove('active');
+  })
+  form.classList.add('active');
 }
+
+CONST_BASE_HTTP = "http://localhost:5126"
 
 
 
@@ -45,8 +47,8 @@ function loginSubmit(event) {
         alert("Đăng nhập thất bại");
         console.log(res);
         console.log("chua nhap thong tin");
-        
-       
+
+
       } else if (res.status == 200) {
         // Check if the returned access_token matches the one in local storage
         localStorage.access_token = res.data.access_token;
@@ -55,10 +57,10 @@ function loginSubmit(event) {
         // isLoggedIn = true;
         // if ( isLoggedIn)
         // {
-          document.getElementById("login-btn").innerHTML = "Logout";
-          document.getElementById("login-btn").addEventListener("click", logout);
-          console.log("log out ne");
-         
+        document.getElementById("login-btn").innerHTML = "Logout";
+        document.getElementById("login-btn").addEventListener("click", logout);
+        console.log("log out ne");
+
         // }
         // isLoggedIn = false;
       }
@@ -133,5 +135,5 @@ function render() {
   console.log("UI updated");
 }
 registerPassword.addEventListener('input', function () {
-	registerConfirmPassword.pattern = `${this.value}`;
+  registerConfirmPassword.pattern = `${this.value}`;
 })

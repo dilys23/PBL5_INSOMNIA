@@ -646,7 +646,8 @@ footer {
 .dialog-label {
   width: 8rem;
 }
-#dialog-register-login-username,
+#name,
+#dialog-confirm-pass,
 #dialog-register-login-email,
 #dialog-register-password,
 #dialog-login-email,
@@ -659,6 +660,8 @@ footer {
   border: 1px solid var(--dark-grey);
   transition: all 0.3s ease;
 }
+#icon_eye_confirm,
+#icon_eye_regis,
 #icon_eye,
 .icon_email {
   width: 2rem;
@@ -703,6 +706,7 @@ footer {
   color: var(--dark-grey);
   font-size: 0.8rem;
 }
+#btn-submit-register,
 #btn-submit {
   padding: 12px 0;
   background: var(--blue);
@@ -741,7 +745,8 @@ a:hover {
 }
 .dialog-title {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 2rem;
   align-items: center;
 }
 .dialog-title i {

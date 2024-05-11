@@ -1,201 +1,234 @@
+:root {
+  --introduce_name: #29306d;
+  --introduce_descrip: rgba(67, 75, 140, 0.7);
+  --bg-grey: #f5f7fa;
+  --text-black: #4d4d4d;
+  --text-light-black: #717171;
+  --text-blue: #547af6;
+  --btn-blue: #3d8bfd;
+  --btn-red: rgba(235, 18, 18, 0.7);
+  --absent: rgba(235, 18, 18, 0.5);
+  --ontime: rgba(80, 196, 255, 0.63);
+  --late: rgba(231, 255, 84, 0.7);
+  --light-blue: rgba(80, 196, 255, 0.2);
+  --dialog-title: rgba(0, 0, 0, 0.6);
+  --blue-table: rgba(80, 196, 255, 0.63);
+  --input-search: rgba(80, 196, 255, 0.24);
+  --btn-accept: #5cf06b;
+  --icon-blue-edit: #90d9ff;
+  --icon-blue: rgba(80, 196, 255, 0.33);
+  --icon-blue-click: rgba(80, 196, 255, 0.63);
+  --item-employ: #cae8f9;
+}
 #header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 98;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
-    height: 70px; 
-    line-height: 70px; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 98;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+  height: 70px;
+  line-height: 70px;
 }
 .container {
-    margin-top: 3rem; 
-    padding-top: 20px; 
+  margin-top: 3rem;
+  padding-top: 20px;
 }
-#bdaymonth{
-    border-radius: 20px;
-    border: 1px solid var(--btn-blue);
-    outline: none;
-    padding:0.5rem;
-    color:var(--btn-blue);
-    display: flex;
-    text-align: center;
-    height: 1.5rem;
+#bdaymonth {
+  border-radius: 20px;
+  border: 1px solid var(--btn-blue);
+  outline: none;
+  padding: 0.5rem;
+  color: var(--btn-blue);
+  display: flex;
+  text-align: center;
+  height: 1.5rem;
 }
-.btn_see{
-    border: 1px solid var(--btn-blue);
-    width: 6rem;
-    /* text-align: center; */
-    margin:0 auto;
-    padding:0.2rem 0.8rem;
-    border-radius: 20px;
+.btn_see {
+  border: 1px solid var(--btn-blue);
+  width: 6rem;
+  /* text-align: center; */
+  margin: 0 auto;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
 }
 tr {
-    display: flex; 
+  display: flex;
 }
 
-.tr_head{
-    display: flex; 
+.tr_head {
+  display: flex;
 }
-.th_name{
-    font-size: 1rem;
-    flex: 1.5;
-    padding: 10px; 
+.th_name {
+  font-size: 1rem;
+  flex: 1.5;
+  padding: 10px;
 }
 .col_name {
-    font-size: 0.8rem;
-    flex: 1.5; 
-    padding: 10px; 
-    margin: auto 0;
+  font-size: 0.8rem;
+  flex: 1.5;
+  padding: 10px;
+  margin: auto 0;
+  display: flex;
+  /* padding-left: 70px; */
 }
-th:not(.th_name){
-   
-    flex: 1; 
-    padding: 10px;
+.col_name_ava {
+  width: 150px;
+}
+th:not(.th_name) {
+  flex: 1;
+  padding: 10px;
 }
 
 td:not(.col_name) {
-    font-size: 0.8rem;
-    flex: 1; 
-    padding: 10px; 
+  font-size: 0.8rem;
+  flex: 1;
+  padding: 10px;
 }
-.col_depart{
-    margin:auto 0;
+.col_depart {
+  margin: auto 0;
 }
 /* dialog see more */
-#dialog_overlay{
-    display: none;
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99;  
-    
-  } 
-  #dialog_box{
-    background-color: white;
-    width: 30rem;
-    /* padding: 1.2rem; */
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-    border: 1px solid black;
-  }
-.dialog_box_head{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    padding: 0 2rem;
-    background-color: var(--input-search);
-    border-radius: 20px;
-    height: 4rem;
+#dialog_overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
-.head_name{
-    margin-right: 0.2rem;
-    
+#dialog_box {
+  background-color: white;
+  width: 30rem;
+  /* padding: 1.2rem; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid black;
 }
-#head_month, .head_name{
-    font-size: 1.3rem;
-    color: var(--btn-blue);
+.dialog_box_head {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: var(--input-search);
+  border-radius: 20px;
+  height: 4rem;
 }
-.dialog_box_body{
-    padding: 1rem 2rem;
-    margin-bottom: 3rem;
+.table_employee_infor {
+  cursor: pointer;
 }
-.dialog_box_head_title{
-    display: flex;
+.table_employee_infor:hover {
+  background-color: var(--bg-grey);
 }
-#close-dialog-btn{
-    color:var(--btn-blue);
+.head_name {
+  margin-right: 0.2rem;
+}
+#head_month,
+.head_name {
+  font-size: 1.3rem;
+  color: var(--btn-blue);
+}
+.dialog_box_body {
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
+}
+.dialog_box_head_title {
+  display: flex;
+}
+#close-dialog-btn {
+  color: var(--btn-blue);
 }
 
-#btn_close{
-    display: flex;
-    border: 1px solid var(--btn-blue);
-    background: white;
-    width: 5.5rem;
-    padding: 0.3rem 0.7rem;
-    gap:0.5rem;
-    border-radius: 20px;
-    color: var(--btn-blue);
-    align-items: center;
-    margin-top: 1rem;
-    position: absolute;
-    right:1rem;
-    bottom: 0.7rem;
+#btn_close {
+  display: flex;
+  border: 1px solid var(--btn-blue);
+  background: white;
+  width: 5.5rem;
+  padding: 0.3rem 0.7rem;
+  gap: 0.5rem;
+  border-radius: 20px;
+  color: var(--btn-blue);
+  align-items: center;
+  margin-top: 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.7rem;
 }
-.dialog_body_item{
-    display: flex;
-    margin-bottom: 1rem;
+.dialog_body_item {
+  display: flex;
+  margin-bottom: 1rem;
 }
-.dialog_body_item_tilte{
-    width: 16rem;
-    color:var(--text-light-black) ;
+.dialog_body_item_tilte {
+  width: 16rem;
+  color: var(--text-light-black);
 }
-.statistics{
-    display: flex;
-    justify-content: space-around;
-    padding: 5rem 10rem;
-    gap : 4rem;
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem 10rem;
+  gap: 4rem;
 }
-.statistics_left{
-    border: 1px solid var(--btn-blue);
-    width: 60%;
-    padding:0rem 2rem;
-    margin: 0 auto;
-    border-radius: 20px;
+.statistics_left {
+  border: 1px solid var(--btn-blue);
+  width: 60%;
+  padding: 0rem 2rem;
+  margin: 0 auto;
+  border-radius: 20px;
 }
-.statistics_right{
-    width: 40%;
-    border: 1px solid var(--btn-blue);
-    border-radius: 20px;
+.statistics_right {
+  width: 40%;
+  border: 1px solid var(--btn-blue);
+  border-radius: 20px;
 }
-.wrap{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
-  }
-  .circle-graph {
-    position: relative;
-    width: 200px; /* Độ rộng của hình tròn */
-    height: 200px; /* Chiều cao của hình tròn */
-    border-radius: 50%; /* Để tạo hình tròn */
-    background-color: #ddd; /* Màu nền của hình tròn */
-  }
-  
-  .note_ontime{
-    display: flex;
-    justify-content: space-between;
-    gap:1rem;
-    align-items: center;
-  }
-  .note_ontime_rect, .note_late_rect, .note_absent_rect{
-    width: 2rem;
-    height: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 0.3rem;
-  }
-  .note_ontime_rect{
-    background: var(--ontime);
-  }
-  .note_late_rect{
-   background: var(--late);
-  }
-  .note_absent_rect{
-    background: var(--absent);
-  }
-  .note-graph-name{
-    width:3rem;
-    font-weight: 500;
-  }
-  
-  .statistics_left_title{
-    color:var(--btn-blue);
-    font-size: 1.2rem;
-    padding: 1rem 0rem 2rem 0rem;
-  }
+.wrap {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.circle-graph {
+  position: relative;
+  width: 200px; /* Độ rộng của hình tròn */
+  height: 200px; /* Chiều cao của hình tròn */
+  border-radius: 50%; /* Để tạo hình tròn */
+  background-color: #ddd; /* Màu nền của hình tròn */
+}
+
+.note_ontime {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+.note_ontime_rect,
+.note_late_rect,
+.note_absent_rect {
+  width: 2rem;
+  height: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}
+.note_ontime_rect {
+  background: var(--ontime);
+}
+.note_late_rect {
+  background: var(--late);
+}
+.note_absent_rect {
+  background: var(--absent);
+}
+.note-graph-name {
+  width: 3rem;
+  font-weight: 500;
+}
+
+.statistics_left_title {
+  color: var(--btn-blue);
+  font-size: 1.2rem;
+  padding: 1rem 0rem 2rem 0rem;
+}
