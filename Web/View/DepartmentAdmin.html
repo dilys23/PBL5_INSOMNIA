@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết hoạt động</title>
+    <link rel="stylesheet" href="../static/css/DepartmentAdmin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="../static/js/Header.js"></script>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div class="container">
+      <div class="container_shift">
+        <div class="sub_shift">
+          <div class="sub_shift_title" style="justify-content: left;">Name:</div>
+          <div class="sub_shift_title">Time Start</div>
+          <div class="sub_shift_title">Time End</div>
+        </div>
+        <hr>
+        <div class="sub_shift">
+          <div class="sub_shift_name">Morning shift:</div>
+          <input
+            type="text"
+            value="7h00 AM"
+            class="textview_shift"
+            id="txt_shift_in_morning"
+            readonly
+          />
+          <input
+            type="text"
+            value="11h00 AM"
+            class="textview_shift"
+            id="txt_shift_out_morning"
+            readonly
+          />
+          <i
+            class="fa-regular fa-pen-to-square"
+            id="btn_edit_shift_in1"
+            title="Edit"
+            onclick="toggleIconsMorning()"
+          ></i>
+          <i
+            class="fa-solid fa-floppy-disk"
+            id="btn_save_shift_out1"
+            title="Save"
+            style="display: none;"
+            onclick="toggleSaveEditMorning()"
+          ></i>
+        </div>
+        <hr>
+        <div class="sub_shift">
+          <div class="sub_shift_name">Afternoon shift:</div>
+          <input
+            type="text"
+            value="13h"
+            class="textview_shift"
+            id="txt_shift_in_afternoon"
+           
+            readonly
+          />
+          <input
+            type="text"
+            value="17h"
+            class="textview_shift"
+            id="txt_shift_out_afternoon"
+            readonly
+          />
+          
+          <i
+            class="fa-regular fa-pen-to-square"
+            id="btn_edit_shift_in2"
+            title="Edit"
+            onclick="toggleIconsAfternoon()"
+          ></i>
+          <i
+            class="fa-solid fa-floppy-disk"
+            id="btn_save_shift_out2"
+            title="Save"
+            style="display: none;"
+            onclick="toggleSaveEditAfternoon()"
+          ></i>
+        </div>
+      </div>
+      <div class="container_department">
+        <div class="container_department_head">
+            <div class="container_department_head_search">
+                <input type="search" placeholder="Employee" class="search-input">
+                <button type="button" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="container_department_head_list">
+                <select class="department_options">
+                    <option value="All Department">All Department</option>
+                    <option value="Management">Management</option>
+                    <option value="Design">Design</option>
+                    <option value="Development">Development</option>
+                    <option value="Social">Social</option>                  
+                </select>
+            </div>
+            <div id="btn_search_department">Search</div>
+            <div id="btn_add_department">Add Department</div>
+            <div id="dialog_overlay_add_department">
+                <div id="dialog_box_add_department">
+                    <div class="dialog_box_head_add_department">
+                            <h5 class="head_name_add_department">Add Department</h5>
+                            <i id="close-dialog-add-btn" class="fa-solid fa-xmark"></i>
+                    </div>
+                   <div class="dialog_box_body_add_department">
+                     <div class="dialog_body_item_add_department">
+                        <div class="dialog_body_item_tilte_add_department">Name department:</div>
+                        <input type="text" class="txt_name_department" placeholder="Name">
+                     </div>
+                   </div>
+                   <button id="add_department">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="container_department_body">
+            <div class="container_name_department">
+                <i class="fa-solid fa-list"></i>
+                <div id="name_department">All Details</div>
+                <i class="fa-regular fa-pen-to-square " style="display: none;" id="btn_edit_depart" ></i>
+            </div>
+            <div class="container_department_body_employee">
+                <div class="table_employee_head">
+                    <div class="head_title_empty"></div>
+                    <div class="head_title">Name</div>
+                    <div class="head_title">Department</div>
+                    <div class="head_title">Position</div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto;" />
+                <div class="table_employee_content">
+                    <div class="employee_list_detail">
+                        <div class="employee_detail">
+                            <div class="wrap-ava"><img src="../Img/avatar.jfif" alt="" class="employee_detail_avatar"></div>
+                            <div class="employee_detail_text">Bach Duong</div>
+                            <div class="employee_detail_text">Design</div>
+                            <div class="employee_detail_text">UI Design</div>
+                        </div>
+                        <hr style="width: 90%; margin: 0 auto;" />
+                        <div class="employee_detail">
+                            <div class="wrap-ava"><img src="../Img/avatar.jfif" alt="" class="employee_detail_avatar"></div>
+                            <div class="employee_detail_text">Nguyen Thi Le</div>
+                            <div class="employee_detail_text">Design</div>
+                            <div class="employee_detail_text">UI Design</div>
+                        </div>
+                        <hr style="width: 90%; margin: 0 auto;" />
+                        <div class="employee_detail">
+                            <div class="wrap-ava"><img src="../Img/avatar.jfif" alt="" class="employee_detail_avatar"></div>
+                            <div class="employee_detail_text">Van Nguyen</div>
+                            <div class="employee_detail_text">Development</div>
+                            <div class="employee_detail_text">UI Design</div>
+                        </div>
+                        <hr style="width: 90%; margin: 0 auto;" />
+                        <div class="employee_detail">
+                            <div class="wrap-ava"><img src="../Img/avatar.jfif" alt="" class="employee_detail_avatar"></div>
+                            <div class="employee_detail_text">Tuan Anh</div>
+                            <div class="employee_detail_text">Design</div>
+                            <div class="employee_detail_text">UI Design</div>
+                        </div>
+                    </div>
+                    <hr style="width: 90%; margin: 0 auto;" />
+                    <div id="btn_add_employee"><i class="fa-solid fa-plus custom_plus"></i></div>
+
+
+                    <div id="dialog_overlay_add_employee">
+                        <div id="dialog_box_add_employee">
+                          <div class="dialog_box_head_add_employee">
+                            <div class="dialog_box_head_name_add_employee">
+                              <h5 class="head_name_add_employee">Add employee</h5>
+                            </div>
+                            <div class="img_close">
+                              <!-- <img id="img_dialog_add_employee" src="../Img/ava.jpg" alt="" /> -->
+                              <i id="btn_close_add_employee" class="fa-solid fa-xmark"></i>
+                            </div>
+                          </div>
+                          <div class="dialog_box_body_add_employee">
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">Image:</div>
+                              <div class="dialog_body_item_emloyee_avatar">
+                                <!-- <img src="../Img/image_default.webp" alt="" id="add_avatar" title="Change the avatar" onclick="changeAvatar()"> -->
+                                <img src="../Img/image_default.webp" alt="" id="add_avatar" title="Change the avatar" onclick="chooseAvatar()">
+                                <input type="file" id="avatar_input" style="display: none;" accept="image/*" onchange="uploadAvatar(event)">
+                              </div>
+                            </input>
+                            </div>
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">Email:</div>
+                              <input class="dialog_body_item_content_add_employee" type="text" placeholder="nguyenvana@gmail.com">
+                            </input>
+                            </div>
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">Mobile phone:</div>
+                              <input class="dialog_body_item_content_add_employee" type="text" placeholder="0914136584"></input>
+                            </div>
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">
+                                Date of birth:
+                              </div>
+                              <input class="dialog_body_item_content_add_employee" type="date" placeholder="yyyy-mm-dd" value="2003-02-04"></input>
+                            </div>
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">Gender:</div>
+                              <select class="dialog_body_item_content_add_employee">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                              </select>
+                            </div>
+                            <div class="dialog_body_item_add_employee">
+                                <div class="dialog_body_item_tilte_add_employee">Department:</div>
+                                <select class="dialog_body_item_content_add_employee">
+                                    <option value="depart">Management</option>
+                                    <option value="depart">Design</option>
+                                    <option value="depart">Development</option>
+                                    <option value="depart">Social</option>  
+                                  </select>
+                              </div>
+                            <div class="dialog_body_item_add_employee">
+                              <div class="dialog_body_item_tilte_add_employee">Degisnation:</div>
+                              <input class="dialog_body_item_content_add_employee" type="text" placeholder="UI Designer"></input>
+                            </div>
+                          </div>
+                          <button id="save_profile">Save</button>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+      <div id="overlay"></div>
+        <div id="detail_infor_employee">
+            <div class="detail_infor_employee_head">
+                <div class="detail_infor_employee_head_icon">
+                    <i class="fa-solid fa-chevron-right" id="back_department" onclick="hideDetailEmployee()"></i>
+                    <div class="detail_infor_employee_head_status">Completed</div>
+                </div>
+                <div class="detail_infor_employee_head_name_department">Design Department</div>
+                <div class="full_name">Full name</div>
+                <div class="wrap_name_edit" title="Edit info">
+                    <div class="name_employee">Bach Duong</div>
+                    <div class="wrap_edit">
+                        <div id="wrap_edit_left">
+                            <i id="btn_edit_info" class="fa-regular fa-pen-to-square"></i>
+                            <div id="edit_info" onclick="editInformation()">Edit Info</div>
+                        </div>
+                        <div id="wrap_edit_right" style="display: none;">
+                            <i id="btn_save_info" class="fa-regular fa-floppy-disk"></i>
+                            <div id="save_info" onclick="saveInformation()">Save Info</div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="wrap_title_info">
+                    <div class="title_info">Status</div>
+                    <div class="title_info">Position</div>
+                    <div class="title_info">Email</div>
+                </div>
+                <div class="wrap_title_info">
+                    <input class="content_info" value="Employee" id="status_info" readonly></input>
+                    <input class="content_info" value="CEO" id="position_info" readonly></input>
+                    <input type="text" class="content_info" id="email_info"value="bachduongvan0402@gmail.com" style="width: 40%;" readonly></input>
+                </div>
+                <div class="wrap_title_info">
+                    <div class="title_info">Age,Gender</div>
+                    <div class="title_info">SSN</div>
+                    <div class="title_info">Phone</div>
+                </div>
+                <div class="wrap_title_info">
+                    <input class="content_info" value="21, Female" id="age_gender_info" readonly></input>
+                    <input class="content_info" value="23/12/2023" id="ssn_info" readonly></input>
+                    <input class="content_info" value="+84 965 265 145" id="phone_info" readonly></input>
+                </div>
+            </div>
+            <div class="detail_infor_employee_body">
+                <div class="detail_infor_employee_left">
+                    <div class="title_left">Permission day</div>
+                    <div class="permission_list">
+                        <div class="item_permission">
+                            <div class="item_date_permission">24/14/2024</div>
+                            <div class="item_status_permission item_verified">
+                                <div class="name_status">Verified</div>
+                                <i class="fa-regular fa-circle-check"></i>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="item_permission">
+                            <div class="item_date_permission">28/14/2024</div>
+                            <div class="item_status_permission item_unverified">
+                                <div class="name_status">Unverified</div>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="item_permission">
+                            <div class="item_date_permission">28/14/2024</div>
+                            <div class="item_status_permission item_unverified">
+                                <div class="name_status">Unverified</div>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                        </div>
+                        <hr>
+                        
+                    </div>
+                </div>
+                <div class="detail_infor_employee_right">
+                    <div class="detail_infor_employee_right_head">
+                        <div class="text_note">Notes</div>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="note_list">
+                        <div class="item_note">
+                            <div class="item_note_head">
+                                <div class="item_note_left">
+                                    <img src="../Img/avatar.jfif" class="img_ava" alt="">
+                                    <div class="text_name">Bach Duong</div>
+                                </div>
+                                <div class="item_note_right">
+                                    2h
+                                </div>
+                            </div>
+                           <div class="item_note_content">Remote from home and will done task before Tuesday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div id="dialog_overlay_edit_department">
+            <div id="dialog_box_edit_department">
+                <div class="dialog_box_head_edit_department">
+                        <h5 class="head_name_edit_department">Edit Department</h5>
+                        <i id="close-dialog-edit-btn" class="fa-solid fa-xmark"></i>
+                </div>
+               <div class="dialog_box_body_edit_department">
+                 <div class="dialog_body_item_edit_department">
+                    <div class="dialog_body_item_tilte_edit_department">Name department:</div>
+                    <input type="text" class="txt_name_department_edit">
+                 </div>
+               </div>
+               <button id="edit_department">Save</button>
+            </div>
+        </div>
+  </body>
+
+  <script src="../static/js/DepartmentAdmin.js"></script>
+  <!-- <script src="../static/js/Header.js"></script> -->
+</html>

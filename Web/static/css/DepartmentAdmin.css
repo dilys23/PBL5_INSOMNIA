@@ -1,0 +1,679 @@
+:root {
+  --introduce_name: #29306d;
+  --introduce_descrip: rgba(67, 75, 140, 0.7);
+  --bg-grey: #f5f7fa;
+  --text-black: #4d4d4d;
+  --text-light-black: #717171;
+  --text-blue: #547af6;
+  --btn-blue: #3d8bfd;
+  --btn-red: rgba(235, 18, 18, 0.7);
+  --absent: rgba(235, 18, 18, 0.5);
+  --ontime: rgba(80, 196, 255, 0.63);
+  --late: rgba(231, 255, 84, 0.7);
+  --light-blue: rgba(80, 196, 255, 0.2);
+  --dialog-title: rgba(0, 0, 0, 0.6);
+  --blue-table: rgba(80, 196, 255, 0.63);
+  --input-search: rgba(80, 196, 255, 0.24);
+  --btn-accept: #5cf06b;
+  --icon-blue-edit: #90d9ff;
+  --icon-blue: rgba(80, 196, 255, 0.33);
+  --icon-blue-click: rgba(80, 196, 255, 0.63);
+  --item-employ: #cae8f9;
+}
+body {
+  background-color: #f8f8f8;
+}
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 98;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+  height: 70px;
+  line-height: 70px;
+}
+.container {
+  margin-top: 10rem;
+  /* padding-top: 20px; */
+}
+.container_shift {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem 5rem;
+  margin: 0 8rem 2rem 8rem;
+  border-radius: 10px;
+  background-color: white;
+  height: 200px;
+}
+.sub_shift {
+  display: flex;
+  gap: 100px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.sub_shift_title {
+  width: 220px;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.sub_shift_name {
+  width: 220px;
+}
+.textview_shift {
+  width: 220px;
+}
+/* hr {
+    border-color: #797979 !important;
+    border-width: 0.1px;
+  } */
+.textview_shift {
+  border: none;
+  text-align: center;
+  outline: none;
+  display: flex;
+}
+#btn_save_shift_out2,
+#btn_save_shift_out1,
+#btn_edit_shift_in1,
+#btn_edit_shift_in2 {
+  color: #0086ca;
+  font-size: 18px;
+  margin: auto 0;
+  cursor: pointer;
+}
+/*------------------------------- Department------------------ */
+.container_department {
+  margin: 5rem 8rem;
+  background-color: #f2f2f2;
+  height: 800px;
+  padding: 30px 70px;
+  border-radius: 5px;
+}
+.container_department_head_search {
+  position: relative;
+  display: inline-block;
+}
+
+.search-input {
+  padding: 8px 10px 8px 40px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 8px;
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  text-align: center;
+  display: flex;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+.search-button i {
+  font-size: 18px;
+}
+.container_department_head {
+  display: flex;
+  gap: 50px;
+}
+.department_options {
+  width: 300px;
+  padding: 8px 10px 8px 40px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 8px;
+  outline: none;
+  border-radius: 5px;
+}
+#btn_search_department {
+  border: none;
+  width: 120px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #24aaf2;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 8px;
+  cursor: pointer;
+}
+#btn_add_department {
+  border: none;
+  width: 150px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #3064eb;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 8px;
+  cursor: pointer;
+}
+/* ---------Employee of department------------ */
+.container_department_body {
+  margin-top: 60px;
+}
+.container_name_department {
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  width: 190px;
+  display: flex;
+  gap: 15px;
+  text-align: center;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 10px 50px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 4px;
+  margin-bottom: -10px;
+}
+#btn_edit_depart {
+  color: #0086ca;
+  cursor: pointer;
+}
+.container_department_body_employee {
+  width: 1120px;
+  background-color: white;
+  height: 450px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 4px;
+}
+.head_title {
+  width: 280px;
+  text-align: center;
+}
+.head_title_empty {
+  width: 200px;
+}
+.table_employee_head {
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+#name_department {
+  font-size: 15px;
+}
+.employee_detail_avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 90px;
+}
+.employee_detail {
+  display: flex;
+  padding: 3px 0;
+}
+.employee_detail:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+.employee_detail_text {
+  width: 280px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.wrap-ava {
+  width: 200px;
+  text-align: center;
+}
+i.fa-solid.fa-plus.custom_plus {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 90px;
+  background-color: #2457c5;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table_employee_content {
+  position: relative;
+}
+#btn_add_employee {
+  position: absolute;
+  width: 90%;
+  background-color: #b3e0fa;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 5px;
+  padding: 7px 0;
+  left: 60px;
+  top: 250px;
+}
+#btn_add_employee:hover {
+  background-color: #92cff2;
+}
+/* Dialog add department */
+#dialog_overlay_edit_department,
+#dialog_overlay_add_department {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+#dialog_box_edit_department,
+#dialog_box_add_department {
+  background-color: white;
+  width: 30rem;
+  height: 13rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.dialog_box_head_edit_department,
+.dialog_box_head_add_department {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: var(--input-search);
+  border-radius: 5px;
+  height: 4rem;
+}
+.head_name_edit_department,
+.head_name_add_department {
+  font-size: 1.3rem;
+}
+.dialog_box_body_edit_department,
+.dialog_box_body_add_department {
+  padding: 2rem 2rem;
+}
+.dialog_body_item_edit_department,
+.dialog_body_item_add_department {
+  display: flex;
+  margin-bottom: 1rem;
+  /* padding: 10px 0; */
+}
+.dialog_body_item_tilte_edit_department,
+.dialog_body_item_tilte_add_department {
+  margin-right: 3rem;
+  width: 10rem;
+}
+#edit_department,
+#add_department {
+  color: white;
+  background-color: #24aaf2;
+  border: none;
+
+  border-radius: 5px;
+  padding: 0.3rem 2rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.7rem;
+  cursor: pointer;
+}
+.txt_name_department_edit,
+.txt_name_department {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
+#close-dialog-edit-btn,
+#close-dialog-add-btn {
+  cursor: pointer;
+}
+/* ----------------------------Dialog add employee  */
+#dialog_overlay_add_employee {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+#dialog_box_add_employee {
+  background-color: white;
+  width: 35rem;
+  height: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  border: 1px solid black;
+}
+#dialog_box_add_employee {
+  background-color: white;
+  width: 35rem;
+  height: 32rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  border: 1px solid black;
+}
+#dialog_box_add_employee h2 {
+  margin-top: 0;
+}
+#btn_close_add_employee,
+#btn_close_employee {
+  /* background-color: #ccc; */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dialog_box_head_name_add_employee {
+  padding: 15px 20px;
+}
+.dialog_box_head_name_info_employee {
+  padding: 0rem 1rem;
+}
+.dialog_box_head_add_employee {
+  border-radius: 5px;
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+}
+.head_name_add_employee {
+  font-size: 1.2rem;
+  max-height: 1.2rem;
+}
+.head_major_add_employee {
+  font-size: 0.9rem;
+  padding-top: 1rem;
+}
+#img_dialog_add_employee {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: auto 0;
+}
+.dialog_box_body_add_employee {
+  padding: 3rem;
+}
+.dialog_body_item_add_employee {
+  display: flex;
+  justify-content: left;
+  max-height: 2.5rem;
+  margin-bottom: 15px;
+}
+.dialog_body_item_content_add_employee {
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.dialog_body_item_tilte_add_employee {
+  width: 10rem;
+  color: var(--dialog-title);
+}
+
+.img_close_employee {
+  display: flex;
+  margin: auto 0;
+}
+input[type="date"] {
+  color: #999999;
+}
+.dialog_body_item_emloyee_avatar {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+}
+#add_avatar {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 90px;
+}
+#save_profile {
+  color: white;
+  border: none;
+  background-color: #24aaf2;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: 0.3rem 2rem;
+  position: absolute;
+  right: 2rem;
+  bottom: 0.7rem;
+  cursor: pointer;
+}
+/* -----------------------Information Detail of Employee ---------------------------*/
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ trong suốt 50% */
+  z-index: 999; /* Đảm bảo overlay hiển thị trên mọi phần tử khác */
+}
+
+#detail_infor_employee {
+  display: none;
+  width: 50%;
+  height: 750px;
+  margin-bottom: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+.detail_infor_employee_head {
+  background-color: #caf7ef;
+  padding: 20px 40px 90px 40px;
+}
+.detail_infor_employee_head_icon {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.detail_infor_employee_head_status {
+  width: 140px;
+  background-color: #8dfcc7;
+  color: #42cd7a;
+  padding: 10px 20px;
+  border-radius: 34px;
+}
+#back_department {
+  cursor: pointer;
+  font-size: 20px;
+}
+.detail_infor_employee_head_name_department {
+  margin-top: 15px 0;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.full_name {
+  color: #969696;
+  font-size: 18px;
+}
+.name_employee {
+  color: #3d8bfd;
+  font-size: 30px;
+}
+#wrap_edit_right,
+#wrap_edit_left {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.wrap_name_edit {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+#btn_save_info,
+#btn_edit_info {
+  color: #0086ca;
+  font-size: 20px;
+  margin: auto 0;
+  cursor: pointer;
+}
+#save_info,
+#edit_info {
+  font-size: 18px;
+}
+.wrap_title_info {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.content_info {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 30%;
+  font-weight: 500;
+}
+.title_info {
+  font-size: 15px;
+  color: #969696;
+  width: 30%;
+}
+.detail_infor_employee_body {
+  display: flex;
+}
+.detail_infor_employee_left {
+  width: 60%;
+  padding: 20px 20px 20px 40px;
+  height: 270px;
+}
+.title_left {
+  font-weight: 600;
+}
+.item_permission {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 5px 0;
+}
+.item_status_permission {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.item_verified {
+  color: #3d8bfd;
+}
+.item_unverified {
+  color: #fc1414;
+}
+.permission_list {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.permission_list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.permission_list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.permission_list::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.permission_list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.detail_infor_employee_right {
+  width: 40%;
+  padding: 20px 30px 20px 20px;
+}
+.detail_infor_employee_right_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.text_note {
+  font-weight: 600;
+}
+.detail_infor_employee_right_head i {
+  background-color: #2457c5;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  border-radius: 90px;
+  cursor: pointer;
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+.item_note {
+  padding: 10px;
+}
+.item_note_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.img_ava {
+  width: 40px;
+  height: 40px;
+  border-radius: 90px;
+}
+.item_note_left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.text_name {
+  color: #7a7a7a;
+}
+.item_note_content {
+  font-size: 14px;
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
