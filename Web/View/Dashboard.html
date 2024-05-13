@@ -19,237 +19,142 @@
   <body>
     <div id="header"></div>
     <div class="container">
-      <div class="container_head">
-        <div class="dashboard_circel">
-          <div class="container_shift">
-            <div class="sub_shift">
-              <div class="sub_shift_title" style="justify-content: left">
-                Name:
-              </div>
-              <div class="sub_shift_title">Time Start</div>
-              <div class="sub_shift_title">Time End</div>
-            </div>
-            <hr />
-            <div class="sub_shift">
-              <div class="sub_shift_name">Morning shift:</div>
-              <input
-                type="text"
-                value="7h00 AM"
-                class="textview_shift"
-                id="txt_shift_in_morning"
-                readonly
-              />
-              <input
-                type="text"
-                value="11h00 AM"
-                class="textview_shift"
-                id="txt_shift_out_morning"
-                readonly
-              />
-              <i
-                class="fa-regular fa-pen-to-square"
-                id="btn_edit_shift_in1"
-                title="Edit"
-                onclick="toggleIconsMorning()"
-              ></i>
-              <i
-                class="fa-solid fa-floppy-disk"
-                id="btn_save_shift_out1"
-                title="Save"
-                style="display: none"
-                onclick="toggleSaveEditMorning()"
-              ></i>
-            </div>
-            <hr />
-            <div class="sub_shift">
-              <div class="sub_shift_name">Afternoon shift:</div>
-              <input
-                type="text"
-                value="13h"
-                class="textview_shift"
-                id="txt_shift_in_afternoon"
-                readonly
-              />
-              <input
-                type="text"
-                value="17h"
-                class="textview_shift"
-                id="txt_shift_out_afternoon"
-                readonly
-              />
+      <div class="container_left">
+        <div class="container_body_left_head">
+          <input
+            type="date"
+            class="head_date"
+            data-date=""
+            data-date-format="DD MMMM YYYY"
+            value="2015-08-09"
+          />
 
-              <i
-                class="fa-regular fa-pen-to-square"
-                id="btn_edit_shift_in2"
-                title="Edit"
-                onclick="toggleIconsAfternoon()"
-              ></i>
-              <i
-                class="fa-solid fa-floppy-disk"
-                id="btn_save_shift_out2"
-                title="Save"
-                style="display: none"
-                onclick="toggleSaveEditAfternoon()"
-              ></i>
-            </div>
+          <div class="container_department_head_list">
+            <select class="department_options">
+              <option value="All Department">All Department</option>
+              <option value="Management">Management</option>
+              <option value="Design">Design</option>
+              <option value="Development">Development</option>
+              <option value="Social">Social</option>
+            </select>
+          </div>
+          <div class="container_department_head_status">
+            <select class="status_options">
+              <option value="Working">Working</option>
+              <!-- <option value="Absent">Absent</option> -->
+            </select>
           </div>
         </div>
-        <div class="dashboard_column"></div>
-        <div class="dashboard_high_rate">
-          <div class="dashboard_high_rate_title">High attendance rates</div>
-          <div class="dashboard_high_rate_list">
-            <div class="item_high_rate">
-              <div class="item_high_rate_left">
-                <img src="../Img/avatar.jfif" class="img_ava" alt="" />
-                <div class="item_high_rate_name">Bach Duong</div>
+        <div class="container_body_left_body">
+          <div class="table_title">
+            <div class="name_title">Name</div>
+            <div class="name_title">Department</div>
+            <div class="name_title">Login Time</div>
+            <div class="name_title">Logout Time</div>
+            <div class="name_title">Status</div>
+          </div>
+          <div class="table_content">
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
               </div>
-              <div class="item_high_rate_right">
-                <div class="item_number_high_rate">0</div>
-                <i class="fa-solid fa-triangle-exclamation status_verified"></i>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
               </div>
-            </div>
-            <div class="item_high_rate">
-              <div class="item_high_rate_left">
-                <img src="../Img/avatar.jfif" class="img_ava" alt="" />
-                <div class="item_high_rate_name">Le Nguyen</div>
-              </div>
-              <div class="item_high_rate_right">
-                <div class="item_number_high_rate">1</div>
-                <i class="fa-solid fa-triangle-exclamation item-warning"></i>
-              </div>
-            </div>
-            <div class="item_high_rate">
-              <div class="item_high_rate_left">
-                <img src="../Img/avatar.jfif" class="img_ava" alt="" />
-                <div class="item_high_rate_name">Le Nguyen</div>
-              </div>
-              <div class="item_high_rate_right">
-                <div class="item_number_high_rate">2</div>
-                <i class="fa-solid fa-triangle-exclamation item-warning"></i>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
               </div>
             </div>
+            <hr />
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
+              </div>
+            </div>
+            <hr />
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
+              </div>
+            </div>
+            <hr />
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
+              </div>
+            </div>
+            <hr />
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
+              </div>
+            </div>
+            <hr />
+            <div class="item_employ">
+              <div class="name_employ">Bach Duong</div>
+              <div class="depart_employ">Management</div>
+              <div class="wrap_time_shift_in">
+                <div class="time_shift">8h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_time_shift_out">
+                <div class="time_shift">11h00</div>
+                <div class="name_shift">Morning Shift</div>
+              </div>
+              <div class="wrap_status_employ">
+                <div class="status_employ">Working</div>
+              </div>
+            </div>
+            <hr />
           </div>
         </div>
       </div>
-      <div class="container_body">
-        <div class="container_body_left">
-          <div class="container_body_left_head">
-            <input
-              type="date"
-              class="head_date"
-              data-date=""
-              data-date-format="DD MMMM YYYY"
-              value="2015-08-09"
-            />
-
-            <div class="container_department_head_list">
-              <select class="department_options">
-                <option value="All Department">All Department</option>
-                <option value="Management">Management</option>
-                <option value="Design">Design</option>
-                <option value="Development">Development</option>
-                <option value="Social">Social</option>
-              </select>
-            </div>
-            <div class="container_department_head_status">
-              <select class="status_options">
-                <option value="Working">Working</option>
-                <!-- <option value="Absent">Absent</option> -->
-              </select>
-            </div>
-          </div>
-          <div class="container_body_left_body">
-            <div class="table_title">
-              <div class="name_title">Name</div>
-              <div class="name_title">Department</div>
-              <div class="name_title">Login Time</div>
-              <div class="name_title">Logout Time</div>
-              <div class="name_title">Status</div>
-            </div>
-            <div class="table_content">
-              <div class="item_employ">
-                <div class="name_employ">Bach Duong</div>
-                <div class="depart_employ">Management</div>
-                <div class="wrap_time_shift_in">
-                  <div class="time_shift">8h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_time_shift_out">
-                  <div class="time_shift">11h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_status_employ">
-                  <div class="status_employ">Working</div>
-                </div>
-              </div>
-              <hr />
-              <div class="item_employ">
-                <div class="name_employ">Bach Duong</div>
-                <div class="depart_employ">Management</div>
-                <div class="wrap_time_shift_in">
-                  <div class="time_shift">8h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_time_shift_out">
-                  <div class="time_shift">11h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_status_employ">
-                  <div class="status_employ">Working</div>
-                </div>
-              </div>
-              <hr />
-              <div class="item_employ">
-                <div class="name_employ">Bach Duong</div>
-                <div class="depart_employ">Management</div>
-                <div class="wrap_time_shift_in">
-                  <div class="time_shift">8h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_time_shift_out">
-                  <div class="time_shift">11h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_status_employ">
-                  <div class="status_employ">Working</div>
-                </div>
-              </div>
-              <hr />
-              <div class="item_employ">
-                <div class="name_employ">Bach Duong</div>
-                <div class="depart_employ">Management</div>
-                <div class="wrap_time_shift_in">
-                  <div class="time_shift">8h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_time_shift_out">
-                  <div class="time_shift">11h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_status_employ">
-                  <div class="status_employ">Working</div>
-                </div>
-              </div>
-              <hr />
-              <div class="item_employ">
-                <div class="name_employ">Bach Duong</div>
-                <div class="depart_employ">Management</div>
-                <div class="wrap_time_shift_in">
-                  <div class="time_shift">8h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_time_shift_out">
-                  <div class="time_shift">11h00</div>
-                  <div class="name_shift">Morning Shift</div>
-                </div>
-                <div class="wrap_status_employ">
-                  <div class="status_employ">Working</div>
-                </div>
-              </div>
-              <hr />
-            </div>
-          </div>
-        </div>
+      <div class="container_right">
+        <div class="dashboard_column"></div>
         <div class="container_body_right">
           <div class="container_body_right_head">
             <i class="fa-solid fa-file-invoice"></i>
@@ -342,6 +247,79 @@
                 <div class="absent_list"></div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="container_shift">
+          <div class="sub_shift">
+            <div class="sub_shift_title" style="justify-content: left">
+              Name:
+            </div>
+            <div class="sub_shift_title">Time Start</div>
+            <div class="sub_shift_title">Time End</div>
+            <div class="icon_edit"></div>
+          </div>
+          <hr />
+          <div class="sub_shift">
+            <div class="sub_shift_name">Morning shift:</div>
+            <input
+              type="text"
+              value="7h00 AM"
+              class="textview_shift"
+              id="txt_shift_in_morning"
+              readonly
+            />
+            <input
+              type="text"
+              value="11h00 AM"
+              class="textview_shift"
+              id="txt_shift_out_morning"
+              readonly
+            />
+            <i
+              class="fa-regular fa-pen-to-square"
+              id="btn_edit_shift_in1"
+              title="Edit"
+              onclick="toggleIconsMorning()"
+            ></i>
+            <i
+              class="fa-solid fa-floppy-disk"
+              id="btn_save_shift_out1"
+              title="Save"
+              style="display: none"
+              onclick="toggleSaveEditMorning()"
+            ></i>
+          </div>
+          <hr />
+          <div class="sub_shift">
+            <div class="sub_shift_name">Afternoon shift:</div>
+            <input
+              type="text"
+              value="13h"
+              class="textview_shift"
+              id="txt_shift_in_afternoon"
+              readonly
+            />
+            <input
+              type="text"
+              value="17h"
+              class="textview_shift"
+              id="txt_shift_out_afternoon"
+              readonly
+            />
+
+            <i
+              class="fa-regular fa-pen-to-square"
+              id="btn_edit_shift_in2"
+              title="Edit"
+              onclick="toggleIconsAfternoon()"
+            ></i>
+            <i
+              class="fa-solid fa-floppy-disk"
+              id="btn_save_shift_out2"
+              title="Save"
+              style="display: none"
+              onclick="toggleSaveEditAfternoon()"
+            ></i>
           </div>
         </div>
       </div>
