@@ -562,6 +562,9 @@ input[type="date"] {
 .item_unverified {
   color: #fc1414;
 }
+.item_waiting {
+  color: #ddc80b;
+}
 .permission_list {
   overflow-y: auto;
   max-height: 200px;

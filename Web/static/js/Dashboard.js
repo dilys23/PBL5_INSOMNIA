@@ -13,29 +13,53 @@ async function start() {
         setTimeout(start, 5000);
     }
 };
-                            
+                      
+
+
+start();
 connection.onclose(async () => {
     await start();
 });
                             
-start();
 
+// (year_before === "1") ? "undefined" : new Date(stest[1].time).toLocaleString('vi-VN')
 
 
 connection.on("ReceiveAttendance", req => {
-    var userId = req.userId
-    var year = new Date(req.time).getFullYear() + ""
-    var time = (year === "1") ? "undefined" : new Date(req.time).toLocaleString('vi-VN')
-    var status = req.status
-    console.log(userId, time, status)
-    var row = document.getElementById(userId)
-    if (row) {
-      var cells = row.getElementsByTagName("div");
-      cells[2].textContent = time
-      cells[2].textContent = time
-
-      cells[3].textContent = status
+  var userId_new = req.userId
+  var time_new = new Date(req.time).toLocaleString("vi-VN")
+  var status_new = req.status
+  var row = document.getElementById(userId_new)
+  if (row) {
+    var cells = row.getElementsByTagName("div")
+    cell_in = cells[3]
+    cell_out = cells[6]
+    cell_status = cells[9]
+    if (status_new === "In") {
+      if (cell_status.textContent === "Working") {
+        cell_in.textContent = time_new
+      }
+      else {
+        cell_in.textContent = time_new
+        cell_out.textContent = "Loading . . ."
+        cell_status.textContent = "Working"
+        cell_status.className = "status_employ"
+      }
     }
+    else {
+      if (cell_status.textContent === "Working") {
+        cell_status.textContent = "Absent"
+        cell_status.className = "status_employ_absent"
+        cell_out.textContent = time_new
+      }
+      else {
+        cell_out.textContent = time_new
+      }
+    }
+  }
+  
+
+
   })
 
 
@@ -272,22 +296,43 @@ function loadDataTable() {
             })
             .then(({users, listWorkingStatus}) => {
               users.forEach(user => {
-                
-                var s = listWorkingStatus.find(d => {return d.userId === user.id})
-                  var year = new Date(s.time).getFullYear() + ""
-                  var time = (year === "1") ? "undefined" : new Date(s.time).toLocaleString('vi-VN')
-                  var status = s.status
-                var testuser = {
-                  id: user.id,
-                  name: user.personName,
-                  department: departmentName,
-                  time_in: time,
-                  time_out: time,
-                  name_shift: "Morning",
-                  status: status
+                var stest = listWorkingStatus.filter(d => d.userId === user.id).sort((a, b) => new Date(b.time) - new Date(a.time))
+                if (stest.length == 2) {
+                  var year_before = new Date(stest[1].time).getFullYear() + ""
+                  var year_after = new Date(stest[0].time).getFullYear() + ""
+
+                  var time_before = (year_before === "1") ? "undefined" : new Date(stest[1].time).toLocaleString('vi-VN')
+                  var time_after = (year_after === "1") ? "undefined" : new Date(stest[0].time).toLocaleString('vi-VN')
+
+                  var status = stest[0].status
+                  var testuser = {
+                    id: user.id,
+                    name: user.personName,
+                    department: departmentName,
+                    time_in: (stest[0].status == "In") ? time_after : time_before,
+                    time_out: (stest[0].status == "In") ? "Loading . . ." : time_after,
+                    name_shift: "Morning",
+                    status: status
+                  }
+                  var userRow = createEmployee(testuser);
+                  tbody.appendChild(userRow);
                 }
-                var userRow = createEmployee(testuser);
-                tbody.appendChild(userRow);
+                else {
+                  var year = new Date(stest[0].time).getFullYear() + ""
+                  var time = (year === "1") ? "undefined" : new Date(stest[0].time).toLocaleString("vi-VN")
+                  var status = stest[0].status
+                  var testuser = {
+                    id: user.id,
+                    name: user.personName,
+                    department: departmentName,
+                    time_in: (stest[0].status == "In") ? time : "undefined",
+                    time_out: (stest[0].status == "In") ? "Loading . . ." : time,
+                    name_shift: "Morning",
+                    status: status
+                  }
+                  var userRow = createEmployee(testuser);
+                  tbody.appendChild(userRow);
+                }
               })
             }).catch((err) => {
               console.log(err)
@@ -307,21 +352,44 @@ function loadDataTable() {
               departments.forEach(department => {
                 var dName = department.departmentName
                 department.users.forEach(user => {
-                  var s = listWorkingStatus.find(d => {return d.userId === user.id})
-                  var year = new Date(s.time).getFullYear() + ""
-                  var time = (year === "1") ? "undefined" : new Date(s.time).toLocaleString('vi-VN')
-                  var status = s.status
-                  var testuser = {
-                    id: user.id,
-                    name: user.personName,
-                    department: dName,
-                    time_in: time,
-                    time_out: time,
-                    name_shift: "Morning",
-                    status: status
+                  var stest = listWorkingStatus.filter(d => d.userId === user.id).sort((a, b) => new Date(b.time) - new Date(a.time))
+                  console.log(stest)
+                  if (stest.length == 2) {
+                    var year_before = new Date(stest[1].time).getFullYear() + ""
+                    var year_after = new Date(stest[0].time).getFullYear() + ""
+
+                    var time_before = (year_before === "1") ? "undefined" : new Date(stest[1].time).toLocaleString('vi-VN')
+                    var time_after = (year_after === "1") ? "undefined" : new Date(stest[0].time).toLocaleString('vi-VN')
+
+                    var status = stest[0].status
+                    var testuser = {
+                      id: user.id,
+                      name: user.personName,
+                      department: dName,
+                      time_in: (stest[0].status == "In") ? time_after : time_before,
+                      time_out: (stest[0].status == "In") ? "Loading . . ." : time_after,
+                      name_shift: "Morning",
+                      status: status
+                    }
+                    var userRow = createEmployee(testuser);
+                    tbody.appendChild(userRow);
                   }
-                  var userRow = createEmployee(testuser);
-                  tbody.appendChild(userRow);
+                  else {
+                    var year = new Date(stest[0].time).getFullYear() + ""
+                    var time = (year === "1") ? "undefined" : new Date(stest[0].time).toLocaleString("vi-VN")
+                    var status = stest[0].status
+                    var testuser = {
+                      id: user.id,
+                      name: user.personName,
+                      department: dName,
+                      time_in: (stest[0].status == "In") ? time : "undefined",
+                      time_out: (stest[0].status == "In") ? "Loading . . ." : time,
+                      name_shift: "Morning",
+                      status: status
+                    }
+                    var userRow = createEmployee(testuser);
+                    tbody.appendChild(userRow);
+                  }
                 })
               })
               
