@@ -129,7 +129,7 @@ function uploadAvatar(event) {
 var permissionforms = document.querySelectorAll(".item_permission");
 permissionforms.forEach(function (form) {
     form.addEventListener('click', function () {
-        var isPending = form.classList.contains('item_pending');
+        var isPending = form.classList.contains('item_waiting');
         var buttonOption = document.querySelector('.button_option');
         buttonOption.style.display = isPending ? 'flex' : 'none';
         document.getElementById('dialog_overlay_permission_form').style.display = 'block';
@@ -139,3 +139,37 @@ permissionforms.forEach(function (form) {
 document.getElementById('close-dialog-permission-btn').addEventListener('click', function () {
     document.getElementById('dialog_overlay_permission_form').style.display = 'none';
 })
+function addIcons() {
+    var items = document.querySelectorAll('.item_permission');
+
+    items.forEach(function (item) {
+        var statusElement = item.querySelector('.name_status');
+        var statusText = statusElement.textContent.trim();
+        var icon = document.createElement('i');
+
+        // Remove existing icons if present
+        var existingIcon = item.querySelector('i');
+        if (existingIcon) {
+            existingIcon.remove();
+        }
+
+        // Check status text and add the corresponding class and icon
+        if (statusText === 'Allow') {
+            item.classList.add('item_allow');
+            icon.classList.add('fa-regular', 'fa-circle-check');
+        } else if (statusText === 'Disallow') {
+            item.classList.add('item_disallow');
+            icon.classList.add('fa-solid', 'fa-triangle-exclamation');
+        } else if (statusText === 'Waiting') {
+            item.classList.add('item_waiting');
+            icon.classList.add('fa-solid', 'fa-spinner');
+        }
+
+        // Append the icon to the status permission element
+        var statusPermission = item.querySelector('.item_status_permission');
+        statusPermission.appendChild(icon);
+    });
+}
+
+// Call the function to add icons
+addIcons();

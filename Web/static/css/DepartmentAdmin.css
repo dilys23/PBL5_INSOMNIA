@@ -560,17 +560,17 @@ input[type="date"] {
   gap: 10px;
   align-items: center;
 }
-.item_verified {
-  color: #3d8bfd;
-}
-.item_unverified {
-  color: #fc1414;
-}
-.item_pending {
+.item_allow {
   color: #19d943;
 }
+.item_disallow {
+  color: rgb(198, 34, 34);
+}
+.item_waiting {
+  color: #ffb74d;
+}
 .item_date_permission {
-  color: black;
+  /* color: black; */
 }
 .permission_list {
   overflow-y: auto;
