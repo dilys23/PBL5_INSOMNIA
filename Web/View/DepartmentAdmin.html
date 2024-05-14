@@ -245,27 +245,27 @@
                 <div class="detail_infor_employee_left">
                     <div class="title_left">Permission day</div>
                     <div class="permission_list">
-                        <div class="item_permission">
+                        <div class="item_permission item_verified">
                             <div class="item_date_permission">24/14/2024</div>
-                            <div class="item_status_permission item_verified">
+                            <div class="item_status_permission">
                                 <div class="name_status">Verified</div>
                                 <i class="fa-regular fa-circle-check"></i>
                             </div>
                         </div>
                         <hr>
-                        <div class="item_permission">
+                        <div class="item_permission item_unverified">
                             <div class="item_date_permission">28/14/2024</div>
-                            <div class="item_status_permission item_unverified">
+                            <div class="item_status_permission ">
                                 <div class="name_status">Unverified</div>
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                             </div>
                         </div>
                         <hr>
-                        <div class="item_permission">
+                        <div class="item_permission item_pending">
                             <div class="item_date_permission">28/14/2024</div>
-                            <div class="item_status_permission item_unverified">
-                                <div class="name_status">Unverified</div>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div class="item_status_permission ">
+                                <div class="name_status">Pending</div>
+                                <i class="fa-solid fa-spinner"></i>
                             </div>
                         </div>
                         <hr>
@@ -308,6 +308,36 @@
                </div>
                <button id="edit_department">Save</button>
             </div>
+        </div>
+        <div id="dialog_overlay_permission_form">
+          <div id="dialog_box_permission_form">
+            <div class="dialog_box_head_permission_form">
+              <h5 class="head_name_permission">Permission Form</h5>
+              <i id="close-dialog-permission-btn" class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="dialog_box_body_permission_form">
+              <div class="item_permission">
+                <div class="title_form">Name:</div>
+                <div class="content_form">Bach Duong</div>
+              </div>
+              <div class="item_permission">
+                <div class="title_form">Day:</div>
+                <div class="content_form">14-5-2024</div>
+              </div>
+              <div class="item_permission">
+                <div class="title_form">Shift:</div>
+                <div class="content_form">Morning</div>
+              </div>
+              <div class="item_permission">
+                <div class="title_form">Reason:</div>
+                <div class="content_form">The reason of permission form</div>
+              </div>
+            </div>
+            <div class="button_option">
+              <button id="accept_permission">Accept</button>
+              <button id="reject_permission">Reject</button>
+            </div>
+          </div>
         </div>
   </body>
 

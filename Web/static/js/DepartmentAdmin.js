@@ -126,3 +126,16 @@ function uploadAvatar(event) {
         reader.readAsDataURL(selectedFile);
     }
 }
+var permissionforms = document.querySelectorAll(".item_permission");
+permissionforms.forEach(function (form) {
+    form.addEventListener('click', function () {
+        var isPending = form.classList.contains('item_pending');
+        var buttonOption = document.querySelector('.button_option');
+        buttonOption.style.display = isPending ? 'flex' : 'none';
+        document.getElementById('dialog_overlay_permission_form').style.display = 'block';
+
+    });
+});
+document.getElementById('close-dialog-permission-btn').addEventListener('click', function () {
+    document.getElementById('dialog_overlay_permission_form').style.display = 'none';
+})
