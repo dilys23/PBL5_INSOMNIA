@@ -1,20 +1,20 @@
-var employeeHeads = document.querySelectorAll(".item_employee_head");
-employeeHeads.forEach(function (head) {
-    head.addEventListener('click', function () {
-        console.log('co nhan ne');
-        var parent = this.closest('.item_employee');
-        var absent = parent.querySelector('.item_employee_absent');
-        if (absent) {
-            if (absent.classList.contains('active')) {
-                absent.classList.remove('active');
-            } else {
-                absent.classList.add('active');
-            }
-        } else {
-            console.log('Không tìm thấy phần tử .item_employee_absent');
-        }
-    });
-});
+// var employeeHeads = document.querySelectorAll(".item_employee_head");
+// employeeHeads.forEach(function (head) {
+//     head.addEventListener('click', function () {
+//         console.log('co nhan ne');
+//         var parent = this.closest('.item_employee');
+//         var absent = parent.querySelector('.item_employee_absent');
+//         if (absent) {
+//             if (absent.classList.contains('active')) {
+//                 absent.classList.remove('active');
+//             } else {
+//                 absent.classList.add('active');
+//             }
+//         } else {
+//             console.log('Không tìm thấy phần tử .item_employee_absent');
+//         }
+//     });
+// });
 //  Shift Time
 function toggleIconsMorning() {
     var editIcon = document.getElementById("btn_edit_shift_in1");
@@ -93,6 +93,13 @@ employees.forEach(function (employee) {
     });
 });
 
+
+var listemployees = document.querySelectorAll(".item_employee");
+listemployees.forEach(function (employee) {
+    employee.addEventListener('click', function () {
+        document.getElementById('dialog_overlay_permission_form').style.display = 'block';
+    });
+});
 var permissionforms = document.querySelectorAll(".sub_absent");
 permissionforms.forEach(function (form) {
     form.addEventListener('click', function () {
@@ -106,3 +113,38 @@ permissionforms.forEach(function (form) {
 document.getElementById('close-dialog-permission-btn').addEventListener('click', function () {
     document.getElementById('dialog_overlay_permission_form').style.display = 'none';
 })
+
+const employeeIcons = document.querySelectorAll('.item_employee_head');
+
+function addStatusIcon(status) {
+    let iconClasses;
+    switch (status) {
+        case "Disallow":
+            iconClasses = ["fa-solid", "fa-triangle-exclamation", "status_disallow"];
+            break;
+        case "Waiting":
+            iconClasses = ["fa-solid", "fa-spinner", "status_waiting"];
+            break;
+        case "Allow":
+            iconClasses = ["fa-regular", "fa-circle-check", "status_allow"];
+            break;
+        default:
+            console.warn("Unknown status:", status);
+            return;
+    }
+
+    if (iconClasses) {
+        employeeIcons.forEach(employ => {
+            const wrapIcon = employ.querySelector('.wrap-icon');
+            if (wrapIcon) {
+                const icon = document.createElement('i');
+                iconClasses.forEach(className => icon.classList.add(className));
+                wrapIcon.appendChild(icon);
+            }
+        });
+    }
+}
+
+const status = "Allow";
+
+addStatusIcon(status);
