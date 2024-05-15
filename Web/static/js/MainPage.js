@@ -8,7 +8,7 @@ function myMenuFunction() {
     }
 }
 
-CONST_BASE_HTTP = "http://localhost:5126"
+CONST_BASE_HTTP = "http://localhost:5126/api/admin"
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
 // window.onscroll = function() {headerShadow()};
 // function headerShadow() {
@@ -157,13 +157,13 @@ document.getElementById('btn-submit').addEventListener('click', (e) => {
         "Email": form.email.value,
         "Password": form.password.value
     }
-    getData(`${CONST_BASE_HTTP}/api/Account/login`, body).then((data) => {
+    getData(`${CONST_BASE_HTTP}/Account/login`, body).then((data) => {
         return data.json()
     })
         .then((data) => {
             if (data.status == 200) {
                 sessionStorage.setItem("token", data.token)
-                window.location.href = "../View/TimeSheetAdmin.html"
+                window.location.href = "../View/Dashboard.html"
             }
             else {
                 console.log(data.errors)
