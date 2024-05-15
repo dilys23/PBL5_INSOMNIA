@@ -36,7 +36,9 @@
           </div>
           <div class="container_department_head_status">
             <select class="status_options">
+              <option value="All">All</option>
               <option value="Working">Working</option>
+              <option value="Absent">Absent</option>
               <!-- <option value="Absent">Absent</option> -->
             </select>
           </div>
@@ -160,7 +162,7 @@
             <div class="icon_edit"></div>
           </div>
           <hr />
-          <div class="sub_shift">
+          <!-- <div class="sub_shift">
             <div class="sub_shift_name">Morning shift:</div>
             <input
               type="text"
@@ -190,8 +192,8 @@
               onclick="toggleSaveEditMorning()"
             ></i>
           </div>
-          <hr />
-          <div class="sub_shift">
+          <hr /> -->
+          <!-- <div class="sub_shift">
             <div class="sub_shift_name">Afternoon shift:</div>
             <input
               type="text"
@@ -221,7 +223,7 @@
               style="display: none"
               onclick="toggleSaveEditAfternoon()"
             ></i>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -271,6 +273,36 @@
           </div>
         </div>
         <div class="dialog_box_body_for_employee"></div>
+      </div>
+    </div>
+    <div id="dialog_overlay_permission_form">
+      <div id="dialog_box_permission_form">
+        <div class="dialog_box_head_permission_form">
+          <h5 class="head_name_permission">Permission Form</h5>
+          <i id="close-dialog-permission-btn" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="dialog_box_body_permission_form">
+          <div class="item_permission">
+            <div class="title_form">Name:</div>
+            <div class="content_form">Bach Duong</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Day:</div>
+            <div class="content_form">14-5-2024</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Shift:</div>
+            <div class="content_form">Morning</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Reason:</div>
+            <div class="content_form">The reason of permission form</div>
+          </div>
+        </div>
+        <div class="button_option">
+          <button id="accept_permission">Accept</button>
+          <button id="reject_permission">Reject</button>
+        </div>
       </div>
     </div>
   </body>

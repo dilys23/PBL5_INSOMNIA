@@ -97,6 +97,22 @@ employeeHeads.forEach(function (head) {
         }
     });
 });
+
+const selectbox_status = document.querySelector('.status_options')
+selectbox_status.addEventListener('change', () => {
+  const list_employee = document.querySelector('.table_content')
+  const list = list_employee.querySelectorAll('.item_employ')
+  
+  list.forEach(e => {
+    e.style.display = 'none'
+    if (e.classList.contains(selectbox_status.value)) {
+      e.style.display = 'flex'
+    }
+    if (selectbox_status.value === "All") {
+      e.style.display = 'flex'
+    }
+  })
+})
 //  Shift Time
 function toggleIconsMorning() {
     var editIcon = document.getElementById("btn_edit_shift_in1");
@@ -127,6 +143,10 @@ function toggleSaveEditMorning() {
         document.getElementById("txt_shift_out_morning").setAttribute("readonly", true);
     }
 }
+
+
+
+
 
 function toggleIconsAfternoon() {
     var editIcon = document.getElementById("btn_edit_shift_in2");
@@ -174,6 +194,20 @@ employees.forEach(function (employee) {
         document.getElementById('dialog_overlay_for_employee').style.display = 'block';
     });
 });
+
+var permissionforms = document.querySelectorAll(".sub_absent");
+permissionforms.forEach(function (form) {
+    form.addEventListener('click', function () {
+        var isPending = form.classList.contains('status_pending');
+        var buttonOption = document.querySelector('.button_option');
+        buttonOption.style.display = isPending ? 'flex' : 'none';
+        document.getElementById('dialog_overlay_permission_form').style.display = 'block';
+
+    });
+});
+document.getElementById('close-dialog-permission-btn').addEventListener('click', function () {
+    document.getElementById('dialog_overlay_permission_form').style.display = 'none';
+})
 
 
 function createEmployee(user) {
@@ -229,6 +263,15 @@ function createEmployee(user) {
     status_employ.className = (user.status === "In") ? "status_employ" : "status_employ_absent"
     status_employ.textContent = (user.status === "In") ? "Working" : "Absent"
 
+    row.classList.add((user.status === "In") ? "Working" : "Absent")
+    const select_status = selectbox_status.value
+    row.style.display = 'none'
+    if (row.classList.contains(select_status)) {
+      row.style.display = 'flex'
+    }
+    if (select_status === 'All') {
+      row.style.display = 'flex'
+    }
     wrap_status_employ.appendChild(status_employ)
 
     row.appendChild(name_column)
@@ -276,12 +319,57 @@ getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
     })
 
 
+    function create_shift(shift) {
+      const sub_shift = document.createElement("div")
+      sub_shift.className = "sub_shift"
+      sub_shift.id = shift.shiftId
+    
+      const shift_name = document.createElement("div")
+      shift_name.className = "sub_shift_name"
+      shift_name.textContent = shift.shiftName
+    
+      const input_in = document.createElement("input")
+      input_in.type = "text"
+      input_in.value = shift.time_In
+      input_in.className = "textview_shift"
+      input_in.readOnly
+    
+      const input_out = document.createElement("input")
+      input_out.type = "text"
+      input_out.value = shift.time_Out
+      input_out.className = "textview_shift"
+      input_out.readOnly
+    
+      sub_shift.appendChild(shift_name)
+      sub_shift.appendChild(input_in)
+      sub_shift.appendChild(input_out)
+    
+      return sub_shift
+    }
+    
+    const container_shift = document.querySelector('.container_shift')
+    
+    getData(`${CONST_BASE_HTTP}/Shifts`, token)
+      .then((data) => {
+        console.log(data)
+        return data.json()
+      })
+      .then(shifts => {
+        shifts.forEach(s => {
+          var shift = create_shift(s)
+          container_shift.appendChild(shift)
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
 
 function loadDataTable() {
     tbody.innerHTML = ""
     var departmentName = ""
     var departmentId = selectBox.value
+    var select_status = selectbox_status.value
     if (departmentId != "department-All") {
         getData(`${CONST_BASE_HTTP}/Departments/${departmentId}`, token).then((data) => {
             return data.json()

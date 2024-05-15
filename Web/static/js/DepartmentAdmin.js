@@ -112,6 +112,54 @@ function uploadAvatar(event) {
         reader.readAsDataURL(selectedFile);
     }
 }
+var permissionforms = document.querySelectorAll(".item_permission");
+permissionforms.forEach(function (form) {
+    form.addEventListener('click', function () {
+        var isPending = form.classList.contains('item_waiting');
+        var buttonOption = document.querySelector('.button_option');
+        buttonOption.style.display = isPending ? 'flex' : 'none';
+        document.getElementById('dialog_overlay_permission_form').style.display = 'block';
+
+    });
+});
+document.getElementById('close-dialog-permission-btn').addEventListener('click', function () {
+    document.getElementById('dialog_overlay_permission_form').style.display = 'none';
+})
+function addIcons() {
+    var items = document.querySelectorAll('.item_permission');
+
+    items.forEach(function (item) {
+        var statusElement = item.querySelector('.name_status');
+        var statusText = statusElement.textContent.trim();
+        var icon = document.createElement('i');
+
+        // Remove existing icons if present
+        var existingIcon = item.querySelector('i');
+        if (existingIcon) {
+            existingIcon.remove();
+        }
+
+        // Check status text and add the corresponding class and icon
+        if (statusText === 'Allow') {
+            item.classList.add('item_allow');
+            icon.classList.add('fa-regular', 'fa-circle-check');
+        } else if (statusText === 'Disallow') {
+            item.classList.add('item_disallow');
+            icon.classList.add('fa-solid', 'fa-triangle-exclamation');
+        } else if (statusText === 'Waiting') {
+            item.classList.add('item_waiting');
+            icon.classList.add('fa-solid', 'fa-spinner');
+        }
+
+        // Append the icon to the status permission element
+        var statusPermission = item.querySelector('.item_status_permission');
+        statusPermission.appendChild(icon);
+    });
+}
+
+// Call the function to add icons
+// addIcons();
+
 
 
 
@@ -149,18 +197,35 @@ async function getData(url = "", token) {
 
 function create_permission(dayoff) {
 
-    var css_class = ""
-    if (dayoff.status === "Allow") {
-        css_class = "item_verified"
-    }
-    if (dayoff.status === "Disallow") {
-        css_class = "item_unverified"
-    }
+    const icon = document.createElement("i")
+    var css = ""
     if (dayoff.status === "Waiting") {
-        css_class = "item_waiting"
+        icon.classList.add('fa-solid', 'fa-spinner');
+        css = 'item_waiting'
     }
+
+    if (dayoff.status === "Allow") {
+        icon.classList.add('fa-regular', 'fa-circle-check')
+        css = 'item_allow'
+    }
+
+    if (dayoff.status === "Disallow") {
+        icon.classList.add('fa-solid', 'fa-triangle-exclamation')
+        css = 'item_disallow'
+    }
+
+
     const row = document.createElement("div")
-    row.className = `item_permission ${css_class}`
+    row.className = `item_permission ${css}`
+    row.addEventListener('click', () => {
+        permission = {
+            userId: dayoff.id,
+            time: dayoff.time.split("T")[0],
+            status: dayoff.status,
+            name: dayoff.name
+        }
+        click_permission(permission)
+    })
 
     // date
     const date = document.createElement("div")
@@ -178,9 +243,59 @@ function create_permission(dayoff) {
 
     row.appendChild(date)
     row.appendChild(status)
+    row.appendChild(icon)
 
     return row
 
+}
+
+function click_permission(permission) {
+    console.log(permission)
+    var buttonOption = document.querySelector('.button_option');
+    buttonOption.style.display = (permission.status === 'Waiting') ? 'flex' : 'none'
+    const display_permission = document.getElementById('dialog_overlay_permission_form')
+    const name_cell = display_permission.querySelectorAll('.item_permission')[0].getElementsByClassName('content_form')[0]
+    const date_cell = display_permission.querySelectorAll('.item_permission')[1].getElementsByClassName('content_form')[0]
+    const reason_cell = display_permission.querySelectorAll('.item_permission')[2].getElementsByClassName('content_form')[0]
+
+    getData(`${CONST_BASE_HTTP}/DayOffAdmin/${permission.time}/${permission.userId}`, token)
+        .then(data => {
+            return data.json()
+        })
+        .then(data => {
+            name_cell.textContent = permission.name
+            date_cell.textContent = new Date(data.date).toLocaleString("vi-VN").split(" ")[1]
+            reason_cell.textContent = data.reason
+            display_permission.style.display = 'block';
+            return {userId: permission.userId, time: data.date}
+        })
+        .then(({userId, time}) => {
+            const accept_btn = document.getElementById('accept_permission')
+            const reject_btn = document.getElementById('reject_permission')
+            accept_btn.addEventListener('click', () => {
+                const reply = {
+                    userId: userId,
+                    time: time,
+                    status: "Allow"
+                }
+                reply_permission(reply)
+            })
+            reject_btn.addEventListener('click', () => {
+                const reply = {
+                    userId: userId,
+                    time: time,
+                    status: "Disallow"
+                }
+                reply_permission(reply)
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    
+}
+function reply_permission(reply) {
+    console.log(reply)
 }
 
 function clickDetailEmployee(userId) {
@@ -199,6 +314,7 @@ function clickDetailEmployee(userId) {
     const age_gender_info = detailInforEmployee.querySelector('#age_gender_info')
     const phone_info = detailInforEmployee.querySelector('#phone_info')
     const permission_list = detailInforEmployee.querySelector('.permission_list')
+    permission_list.innerHTML = ""
     console.log(permission_list)
     getData(`${CONST_BASE_HTTP}/Users/${userId}`, token).then(data => {
         return data.json()
@@ -220,6 +336,8 @@ function clickDetailEmployee(userId) {
 
         listDayOff.forEach(d => {
             var dayoff = {
+                name: user.personName,
+                id: d.userId,
                 time: d.date,
                 status: d.status
             }
