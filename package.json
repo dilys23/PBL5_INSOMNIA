@@ -1,0 +1,15 @@
+{
+  "name": "pbl5_insomnia",
+  "version": "1.0.0",
+  "description": "Employee Attendance Website_Use HTML-CSS-JS for Front-end and NodeJS for Back-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@microsoft/signalr": "^8.0.0"
+  }
+}

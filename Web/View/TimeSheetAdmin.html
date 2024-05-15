@@ -1,239 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết hoạt động</title>
+    <link rel="stylesheet" href="../static/css/TimeSheetAdmin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="../static/js/Header.js"></script>
+    <!-- <script src="../static/js/TimeSheetAdmin.js"></script> -->
+    <title>INSOMNIA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../Img/logo.svg" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi tiết hoạt động </title>
-  <link rel="stylesheet" href="../static/css/TimeSheetAdmin.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="../static/js/Header.js"></script>
-<!-- <script src="../static/js/TimeSheetAdmin.js"></script> -->
-  <title>INSOMNIA</title>
-  <link
-    rel="shortcut icon"
-    type="image/x-icon"
-    href="../Img/logo.svg"
-  />
-</head>
-
-<body>
+  <body>
     <div id="header"></div>
     <div class="container">
-        <div class="container1">
-            <div class="container_head">
-                <div class="container_head_left">
-                    <div class="container_head_search">
-                        <input type="search" class="input_search">
-                        <i class="btn_search fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div class="container_head_department">
-                        <select class="department_options">    
-                            <option value="department-All">All</option>                  
-                        </select>
-                    </div>
-                </div>
-                <input type="date" class="head_date" data-date="" data-date-format="DD MMMM YYYY" value="2015-08-09">
+      <div class="container1">
+        <div class="container_head">
+          <div class="container_head_left">
+            <div class="container_head_search">
+              <input type="search" class="input_search" />
+              <i class="btn_search fa-solid fa-magnifying-glass"></i>
             </div>
-            <div class="table-container">
-                <table>
-                        <thead>
-                            <tr class="tr_head">
-                                <th class="th_name">Name</th>
-                                <th>Department</th>
-                                <th>ChechInTime</th>
-                                <th>ChechOutTime</th>
-                                <th class="th_status">Status</th>
-                            </tr>
-                        </thead>
-                    
-                    <tbody id="tbody-users">
-                        <!-- <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Van Thi Bach Duong</div>
-                            </td>
-                            <td class="col_depart"><div>Designer</div></td>
-                            <td class="col_depart">6h55p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>  
-                        <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Lê Minh Anh</div>
-                            </td>
-                            <td class="col_depart"><div>Management</div></td>
-                            <td class="col_depart">6h57p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>   
-                        <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Van Thi Bach Duong</div>
-                            </td>
-                            <td class="col_depart"><div>Designer</div></td>
-                            <td class="col_depart">6h55p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>  
-                        <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Lê Minh Anh</div>
-                            </td>
-                            <td class="col_depart"><div>Management</div></td>
-                            <td class="col_depart">6h57p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>  
-                        <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Van Thi Bach Duong</div>
-                            </td>
-                            <td class="col_depart"><div>Designer</div></td>
-                            <td class="col_depart">6h55p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>  
-                        <tr class="table_employee_infor">
-                            <td class="col_name">
-                                <img src="../Img/ava.jpg" alt="" class="img_ava">
-                                <div class="table_name_employee">Lê Minh Anh</div>
-                            </td>
-                            <td class="col_depart"><div>Management</div></td>
-                            <td class="col_depart">6h57p</td>
-                            <td class="col_depart">11h20p</td>
-                            <td class="col_depart">OnTime</td>
-                        </tr>   -->
-                        
-                    </tbody>
-                    <tfoot>
-                        <tr class="row_total">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Total:</td>
-                            <td>2</td>
-                        </tr> 
-                    </tfoot>
-                </table>
+            <div class="container_head_department">
+              <select class="department_options">
+                <option value="department-All">All</option>
+              </select>
             </div>
+          </div>
+          <input
+            type="date"
+            class="head_date"
+            data-date=""
+            data-date-format="DD MMMM YYYY"
+            value="2015-08-09"
+          />
         </div>
-        <div class="container_absent_permission">
-            <div class="container_absent">
-                <div class="container_absent_title">
-                    Absent Today
-                </div>
-                <div class="list_member">
-                    <div class="member">
-                        <div class="member_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <b class="member_name">Nguyễn Thị Lê</b>
-                        </div>
-                        <div class="member_id">
-                            <i>ID:</i>
-                            <i>Em169587458</i>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <div class="member_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <b class="member_name">Hồ Viết Tuấn</b>
-                        </div>
-                        <div class="member_id">
-                            <i>ID:</i>
-                            <i>Em169587458</i>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <div class="member_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <b class="member_name">Lê Minh Anh</b>
-                        </div>
-                        <div class="member_id">
-                            <i>ID:</i>
-                            <i>Em169587458</i>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <div class="member_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <b class="member_name">Lê Minh Anh</b>
-                        </div>
-                        <div class="member_id">
-                            <i>ID:</i>
-                            <i>Em169587458</i>
-                        </div>
-                    </div>
-                </div>   
-            </div>
-            <div class="container_permission">
-                <div class="container_permission_title">
-                       Permission request
-                </div>
-                <div class="list_member">
-                    <div class="member_permission">
-                        <div class="member_permission_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <h6 class="member_name">Mai Thuý Loan</h6>
-                        </div>
-                        <div class="member_permission_right">
-                            <div class="btn_accept">
-                                <i class="fa-solid fa-check"></i>
-                                <span>Accept</span>
-                            </div>
-                            <div class="btn_dismiss">
-                                <i class="fa-solid fa-xmark"></i>
-                                <span>Dismiss</span>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="member_permission">
-                        <div class="member_permission_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <h6 class="member_name">Văn Tiến</h6>
-                        </div>
-                        <div class="member_permission_right">
-                            <div class="btn_accept">
-                                <i class="fa-solid fa-check"></i>
-                                <span>Accept</span>
-                            </div>
-                            <div class="btn_dismiss">
-                                <i class="fa-solid fa-xmark"></i>
-                                <span>Dismiss</span>
-                            </div>
-                        </div>  
-                    </div>
-                    <div class="member_permission">
-                        <div class="member_permission_left">
-                            <img class="memeber_ava" src="../Img/ava.jpg" alt="">
-                            <h6 class="member_name">Lê Hồng Ngân</h6>
-                        </div>
-                        <div class="member_permission_right">
-                            <div class="btn_accept">
-                                <i class="fa-solid fa-check"></i>
-                                <span>Accept</span>
-                            </div>
-                            <div class="btn_dismiss">
-                                <i class="fa-solid fa-xmark"></i>
-                                <span>Dismiss</span>
-                            </div>
-                        </div>  
-                    </div>
-                  
-                    
-                </div>
-            </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr class="tr_head">
+                <th class="th_name">Name</th>
+                <th>Department</th>
+                <th>Time</th>
+                <th class="th_status">Status</th>
+              </tr>
+            </thead>
+
+            <tbody id="tbody-users">
+              <!-- <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Van Thi Bach Duong</div>
+                </td>
+                <td class="col_depart"><div>Designer</div></td>
+                <td class="col_depart">6h55p</td>
+                <td class="col_depart">In</td>
+              </tr>
+              <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Lê Minh Anh</div>
+                </td>
+                <td class="col_depart"><div>Management</div></td>
+                <td class="col_depart">6h57p</td>
+                <td class="col_depart">In</td>
+              </tr>
+              <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Van Thi Bach Duong</div>
+                </td>
+                <td class="col_depart"><div>Designer</div></td>
+                <td class="col_depart">6h55p</td>
+                <td class="col_depart">In</td>
+              </tr>
+              <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Lê Minh Anh</div>
+                </td>
+                <td class="col_depart"><div>Management</div></td>
+                <td class="col_depart">12h</td>
+                <td class="col_depart">Out</td>
+              </tr>
+              <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Van Thi Bach Duong</div>
+                </td>
+                <td class="col_depart"><div>Designer</div></td>
+                <td class="col_depart">6h55p</td>
+                <td class="col_depart">In</td>
+              </tr>
+              <tr class="table_employee_infor">
+                <td class="col_name">
+                  <img src="../Img/ava.jpg" alt="" class="img_ava" />
+                  <div class="table_name_employee">Lê Minh Anh</div>
+                </td>
+                <td class="col_depart"><div>Management</div></td>
+                <td class="col_depart">11h20p</td>
+                <td class="col_depart">Out</td>
+              </tr> -->
+            </tbody>
+            <tfoot>
+              <tr class="row_total">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <div class="row_total_text">
+                    <div>Total:</div>
+                    <div>2</div>
+                  </div>
+                </td>
+                <!-- <td>2</td> -->
+              </tr>
+            </tfoot>
+          </table>
         </div>
-       
-    </div>  
-</body>
-<!-- <script src="../static/js/TimeSheet.js"></script> -->
-<!-- <script src="../static/js/Header.js"></script> -->
-<script src="../static/js/TimeSheetAdmin.js"></script>
+      </div>
+      <div class="container_absent_permission">
+        <div class="container_absent">
+          <div class="container_absent_title">Absent Today</div>
+          <div class="list_member">
+            <div class="member">
+              <div class="member_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <b class="member_name">Nguyễn Thị Lê</b>
+              </div>
+              <div class="member_id">
+                <i>ID:</i>
+                <i>Em169587458</i>
+              </div>
+            </div>
+            <div class="member">
+              <div class="member_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <b class="member_name">Hồ Viết Tuấn</b>
+              </div>
+              <div class="member_id">
+                <i>ID:</i>
+                <i>Em169587458</i>
+              </div>
+            </div>
+            <div class="member">
+              <div class="member_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <b class="member_name">Lê Minh Anh</b>
+              </div>
+              <div class="member_id">
+                <i>ID:</i>
+                <i>Em169587458</i>
+              </div>
+            </div>
+            <div class="member">
+              <div class="member_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <b class="member_name">Lê Minh Anh</b>
+              </div>
+              <div class="member_id">
+                <i>ID:</i>
+                <i>Em169587458</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container_permission">
+          <div class="container_permission_title">Permission request</div>
+          <div class="list_member">
+            <div class="member_permission">
+              <div class="member_permission_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <h6 class="member_name">Mai Thuý Loan</h6>
+              </div>
+              <div class="member_permission_right">
+                <div class="btn_accept">
+                  <i class="fa-solid fa-check"></i>
+                  <span>Accept</span>
+                </div>
+                <div class="btn_dismiss">
+                  <i class="fa-solid fa-xmark"></i>
+                  <span>Dismiss</span>
+                </div>
+              </div>
+            </div>
+            <div class="member_permission">
+              <div class="member_permission_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <h6 class="member_name">Văn Tiến</h6>
+              </div>
+              <div class="member_permission_right">
+                <div class="btn_accept">
+                  <i class="fa-solid fa-check"></i>
+                  <span>Accept</span>
+                </div>
+                <div class="btn_dismiss">
+                  <i class="fa-solid fa-xmark"></i>
+                  <span>Dismiss</span>
+                </div>
+              </div>
+            </div>
+            <div class="member_permission">
+              <div class="member_permission_left">
+                <img class="memeber_ava" src="../Img/ava.jpg" alt="" />
+                <h6 class="member_name">Lê Hồng Ngân</h6>
+              </div>
+              <div class="member_permission_right">
+                <div class="btn_accept">
+                  <i class="fa-solid fa-check"></i>
+                  <span>Accept</span>
+                </div>
+                <div class="btn_dismiss">
+                  <i class="fa-solid fa-xmark"></i>
+                  <span>Dismiss</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../static/js/signalr.js"></script>
+  <script src="../static/js/TimeSheetAdmin.js"></script>
 </html>

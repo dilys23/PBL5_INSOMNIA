@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết hoạt động</title>
+    <link rel="stylesheet" href="../static/css/Dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+  </head>
+
+  <body>
+    <div id="header"></div>
+    <div class="container">
+      <div class="container_left">
+        <div class="container_body_left_head">
+          <input
+            type="date"
+            class="head_date"
+            data-date=""
+            data-date-format="DD MMMM YYYY"
+            value="2015-08-09"
+          />
+
+          <div class="container_department_head_list">
+            <select class="department_options">
+              <option value="department-All">All</option>
+            </select>
+          </div>
+          <div class="container_department_head_status">
+            <select class="status_options">
+              <option value="All">All</option>
+              <option value="Working">Working</option>
+              <option value="Absent">Absent</option>
+              <!-- <option value="Absent">Absent</option> -->
+            </select>
+          </div>
+        </div>
+        <div class="container_body_left_body">
+          <div class="table_title">
+            <div class="name_title">Name</div>
+            <div class="name_title">Department</div>
+            <div class="name_title">Login Time</div>
+            <div class="name_title">Logout Time</div>
+            <div class="name_title">Status</div>
+          </div>
+          <div class="table_content">
+            
+          </div>
+        </div>
+      </div>
+      <div class="container_right">
+        <div class="dashboard_column"></div>
+        <div class="container_body_right">
+          <div class="container_body_right_head">
+            <i class="fa-solid fa-file-invoice"></i>
+            <div class="dashboard_high_rate_title">Absence request List</div>
+          </div>
+          <div class="container_body_right_content">
+            <div class="item_employee">
+              <div class="item_employee_head">
+                <div class="wrap_img_name">
+                  <img src="../Img/avatar.jfif" class="img_ava" alt="" />
+                  <div class="item_employee_name">Le Nguyen</div>
+                </div>
+                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
+              </div>
+              <div class="item_employee_absent">
+                <hr
+                  style="
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-top: 3px;
+                    margin-bottom: 3px;
+                  "
+                />
+                <div class="absent_list">
+                  <div class="sub_absent status_pending">
+                    <i class="fa-solid fa-spinner"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                  <div class="sub_absent status_unverified">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                  <div class="sub_absent status_verified">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item_employee">
+              <div class="item_employee_head">
+                <div class="wrap_img_name">
+                  <img src="../Img/avatar.jfif" class="img_ava" alt="" />
+                  <div class="item_employee_name">Bach Duong</div>
+                </div>
+                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
+              </div>
+              <div class="item_employee_absent">
+                <hr
+                  style="
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-top: 3px;
+                    margin-bottom: 3px;
+                  "
+                />
+                <div class="absent_list">
+                  <div class="sub_absent status_pending">
+                    <i class="fa-solid fa-spinner"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                  <div class="sub_absent status_unverified">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                  <div class="sub_absent status_verified">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item_employee">
+              <div class="item_employee_head">
+                <div class="wrap_img_name">
+                  <img src="../Img/avatar.jfif" class="img_ava" alt="" />
+                  <div class="item_employee_name">Hong Nhung</div>
+                </div>
+                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
+              </div>
+              <div class="item_employee_absent">
+                <hr
+                  style="
+                    width: 90%;
+                    margin: 0 auto;
+                    margin-top: 3px;
+                    margin-bottom: 3px;
+                  "
+                />
+                <div class="absent_list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container_shift">
+          <div class="sub_shift">
+            <div class="sub_shift_title" style="justify-content: left">
+              Name:
+            </div>
+            <div class="sub_shift_title">Time Start</div>
+            <div class="sub_shift_title">Time End</div>
+            <div class="icon_edit"></div>
+          </div>
+          <hr />
+          <!-- <div class="sub_shift">
+            <div class="sub_shift_name">Morning shift:</div>
+            <input
+              type="text"
+              value="7h00 AM"
+              class="textview_shift"
+              id="txt_shift_in_morning"
+              readonly
+            />
+            <input
+              type="text"
+              value="11h00 AM"
+              class="textview_shift"
+              id="txt_shift_out_morning"
+              readonly
+            />
+            <i
+              class="fa-regular fa-pen-to-square"
+              id="btn_edit_shift_in1"
+              title="Edit"
+              onclick="toggleIconsMorning()"
+            ></i>
+            <i
+              class="fa-solid fa-floppy-disk"
+              id="btn_save_shift_out1"
+              title="Save"
+              style="display: none"
+              onclick="toggleSaveEditMorning()"
+            ></i>
+          </div>
+          <hr /> -->
+          <!-- <div class="sub_shift">
+            <div class="sub_shift_name">Afternoon shift:</div>
+            
+            
+            <i
+              class="fa-regular fa-pen-to-square"
+              id="btn_edit_shift_in2"
+              title="Edit"
+              onclick="toggleIconsAfternoon()"
+            ></i>
+            <i
+              class="fa-solid fa-floppy-disk"
+              id="btn_save_shift_out2"
+              title="Save"
+              style="display: none"
+              onclick="toggleSaveEditAfternoon()"
+            ></i>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div id="dialog_overlay_for_employee">
+      <div id="dialog_box_for_employee">
+        <div class="dialog_box_head_for_employee">
+          <div class="row_one">
+            <div class="wrap_img_position">
+              <img src="../Img/avatar.jfif" class="image_for_employ" alt="" />
+            </div>
+            <div class="wrap_name_position">
+              <div class="name_for_employ">Bach Duong</div>
+              <div class="position_for_employ">Project Manager</div>
+            </div>
+            <div class="wrap_name_position">
+              <div class="name_for_employ">Department</div>
+              <div class="depart_for_employ">Management</div>
+            </div>
+            <div class="wrap_name_position">
+              <div class="name_for_employ">Shift Schedule</div>
+              <div class="shift_for_employ">Morning shift</div>
+            </div>
+          </div>
+          <hr style="width: 90%; margin: 0 auto" />
+          <div class="row_two">
+            <div class="wrap_time_shift">
+              <i class="fa-regular fa-clock"></i>
+              <div class="wrap-title-time">
+                <div class="title-time">Shift Time</div>
+                <div class="shift-time">8:00 am to 03:00 pm</div>
+              </div>
+            </div>
+            <div class="wrap_time_shift">
+              <i class="fa-regular fa-user"></i>
+              <div class="wrap-title-time">
+                <div class="title-time">Login Time</div>
+                <div class="shift-time">7h40 am</div>
+              </div>
+            </div>
+            <div class="wrap_time_shift">
+              <i class="fa-solid fa-power-off"></i>
+              <div class="wrap-title-time">
+                <div class="title-time">Logout Time</div>
+                <div class="shift-time">On duty</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dialog_box_body_for_employee"></div>
+      </div>
+    </div>
+    <div id="dialog_overlay_permission_form">
+      <div id="dialog_box_permission_form">
+        <div class="dialog_box_head_permission_form">
+          <h5 class="head_name_permission">Permission Form</h5>
+          <i id="close-dialog-permission-btn" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="dialog_box_body_permission_form">
+          <div class="item_permission">
+            <div class="title_form">Name:</div>
+            <div class="content_form">Bach Duong</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Day:</div>
+            <div class="content_form">14-5-2024</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Shift:</div>
+            <div class="content_form">Morning</div>
+          </div>
+          <div class="item_permission">
+            <div class="title_form">Reason:</div>
+            <div class="content_form">The reason of permission form</div>
+          </div>
+        </div>
+        <div class="button_option">
+          <button id="accept_permission">Accept</button>
+          <button id="reject_permission">Reject</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../static/js/signalr.js"></script>
+  <script src="../static/js/Dashboard.js"></script>
+  <script src="../static/js/Header.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</html>
