@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="../static/js/Header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
@@ -86,7 +87,10 @@
         </div>
       </div>
       <div class="container_body">
-        <div class="container_body_left"></div>
+        <div class="container_body_left">
+          <input type="month" id="bdaymonth" name="bdaymonth" />
+          <canvas id="myChart"></canvas>
+        </div>
         <div class="container_body_right">
           <div class="container_body_right_head">
             <div class="head_left">
