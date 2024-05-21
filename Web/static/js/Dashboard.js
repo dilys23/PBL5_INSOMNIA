@@ -549,3 +549,136 @@ function loadDataTable() {
 
 selectBox.addEventListener("change", loadDataTable)
 document.addEventListener("DOMContentLoaded", loadDataTable())
+
+
+// ----------------------------Dash board column -------------------------------
+const departments = ['Design', 'Management', 'Development', 'Social', 'Marketing'];
+const attendance = [70, 80, 60, 90, 80];
+const absence = [30, 20, 40, 10, 20];
+
+// Cấu hình dữ liệu cho biểu đồ
+const data = {
+    labels: departments,
+    datasets: [
+        {
+            label: 'Working',
+            data: attendance,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Absent',
+            data: absence,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }
+    ]
+}
+const config = {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Percent (%)'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Department'
+                },
+                ticks: {
+                    // maxRotation: 45,
+                    // minRotation: 45,
+                    font: {
+                        size: 10
+                    }
+                }
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                // text: 'Phần trăm nhân viên đi làm và vắng mặt theo từng department'
+            }
+        }
+    }
+};
+
+// Vẽ biểu đồ
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+);
+
+const months = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+    'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
+
+const attendanceForEmployee = [70, 80, 60, 90, 80, 75, 85, 65, 92, 78, 68, 88];
+const absenceForEmployee = [30, 20, 40, 10, 20, 25, 15, 35, 8, 22, 32, 12];
+
+// Cấu hình dữ liệu cho biểu đồ
+const dataForEmploy = {
+    labels: months,  // Thay đổi labels từ departments sang months
+    datasets: [
+        {
+            label: 'Working',
+            data: attendanceForEmployee,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Absent',
+            data: absenceForEmployee,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }
+    ]
+};
+
+const configForEmploy = {
+    type: 'bar',
+    data: dataForEmploy,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Percent (%)'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Month'
+                },
+                ticks: {
+                    font: {
+                        size: 10
+                    }
+                }
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                // text: 'Phần trăm nhân viên đi làm và vắng mặt theo từng tháng'
+            }
+        }
+    }
+};
+
+// Vẽ biểu đồ
+const myChartForEmployee = new Chart(
+    document.getElementById('chartForEmployee'),  // Đổi ID tương ứng với HTML của bạn
+    configForEmploy
+);

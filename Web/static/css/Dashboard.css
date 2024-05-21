@@ -406,7 +406,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 /* -----------------------Dialog for employee------------------------ */
 #dialog_overlay_for_employee {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -428,7 +428,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   padding: 40px 40px;
 }
 .dialog_box_head_for_employee {
-  height: 180px;
+  height: 35%;
   width: 100%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 12px;
@@ -498,10 +498,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 .dialog_box_body_for_employee {
   margin-top: 30px;
-  height: 260px;
+  padding: 0 20px;
+  height: 60%;
   width: 100%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 12px;
+}
+#chartForEmployee {
+  width: 100%;
 }
 /* -------------------Dialog accept permission-------------- */
 #dialog_overlay_permission_form {
@@ -624,4 +628,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .content_form::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+#myChart {
+  width: 100%;
+  padding: 0 5px;
 }
