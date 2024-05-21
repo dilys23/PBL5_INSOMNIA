@@ -163,7 +163,7 @@ function addIcons() {
 
 
 
-CONST_BASE_HTTP = "http://localhost:5126/api/admin"
+CONST_BASE_HTTP = "http:/172.20.10.4:5126/api/admin"
 async function getData(url = "", token) {
     const response = await fetch(url, {
       method: "GET",
@@ -316,7 +316,7 @@ function clickDetailEmployee(userId) {
     const permission_list = detailInforEmployee.querySelector('.permission_list')
     permission_list.innerHTML = ""
     console.log(permission_list)
-    getData(`${CONST_BASE_HTTP}/Users/${userId}`, token).then(data => {
+    getData(`${CONST_BASE_HTTP}/UsersAdmin/${userId}`, token).then(data => {
         return data.json()
     })
     .then(user => {
