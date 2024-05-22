@@ -163,7 +163,7 @@ function addIcons() {
 
 
 
-CONST_BASE_HTTP = "http:/172.20.10.4:5126/api/admin"
+CONST_BASE_HTTP = "http://localhost:5126/api/admin"
 async function getData(url = "", token) {
     const response = await fetch(url, {
       method: "GET",

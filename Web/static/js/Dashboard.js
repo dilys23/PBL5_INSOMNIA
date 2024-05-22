@@ -17,7 +17,7 @@
 // });
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("http://172.20.10.4:5126/Attendance")
+    .withUrl("http://localhost/Attendance")
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
@@ -343,7 +343,7 @@ function createEmployee(user) {
 }
 
 
-const CONST_BASE_HTTP = "http://172.20.10.4:5126/api/admin"
+const CONST_BASE_HTTP = "http://localhost:5126/api/admin"
 async function getData(url = "", token) {
     const response = await fetch(url, {
         method: "GET",
