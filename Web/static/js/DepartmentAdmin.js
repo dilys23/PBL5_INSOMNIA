@@ -73,7 +73,8 @@ function saveInformation() {
         document.getElementById("ssn_info").setAttribute("readonly", true);
         document.getElementById("phone_info").setAttribute("readonly", true);
     }
-} document.addEventListener('DOMContentLoaded', function () {
+}
+document.addEventListener('DOMContentLoaded', function () {
     const searchButton = document.getElementById('btn_search_department');
     const departmentOptions = document.querySelector('.department_options');
     const name_department = document.getElementById('name_department');
@@ -166,22 +167,22 @@ function addIcons() {
 CONST_BASE_HTTP = "http://localhost:5126/api/admin"
 async function getData(url = "", token) {
     const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      mode: "cors"
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        mode: "cors"
     })
     return response
-  }
-  const token = sessionStorage.getItem("token");
-  const selectBox = document.querySelector(".department_options")
+}
+const token = sessionStorage.getItem("token");
+const selectBox = document.querySelector(".department_options")
 
 
-  getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
+getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
     return data.json()
-  })
+})
     .then(departments => {
         departments.forEach(department => {
             const option = document.createElement("option")
@@ -229,7 +230,7 @@ function create_permission(dayoff) {
 
     // date
     const date = document.createElement("div")
-     date.className = `item_date_permission`
+    date.className = `item_date_permission`
     date.textContent = new Date(dayoff.time).toLocaleString("vi-VN").split(" ")[1]
     // status
     const status = document.createElement("div")
@@ -238,7 +239,7 @@ function create_permission(dayoff) {
     const detail_status = document.createElement("div")
     detail_status.className = "name_status"
     detail_status.textContent = dayoff.status
-    
+
     status.appendChild(detail_status)
 
     row.appendChild(date)
@@ -267,9 +268,9 @@ function click_permission(permission) {
             date_cell.textContent = new Date(data.date).toLocaleString("vi-VN").split(" ")[1]
             reason_cell.textContent = data.reason
             display_permission.style.display = 'block';
-            return {userId: permission.userId, time: data.date}
+            return { userId: permission.userId, time: data.date }
         })
-        .then(({userId, time}) => {
+        .then(({ userId, time }) => {
             const accept_btn = document.getElementById('accept_permission')
             const reject_btn = document.getElementById('reject_permission')
             accept_btn.addEventListener('click', () => {
@@ -292,7 +293,7 @@ function click_permission(permission) {
         .catch(err => {
             console.log(err)
         })
-    
+
 }
 function reply_permission(reply) {
     console.log(reply)
@@ -304,7 +305,7 @@ function clickDetailEmployee(userId) {
     const overlay = document.getElementById('overlay');
     detailInforEmployee.style.display = 'block';
     overlay.style.display = 'block';
-    
+
     console.log(detailInforEmployee)
     console.log(userId)
     const departmentHeader = detailInforEmployee.querySelector('.detail_infor_employee_head_name_department')
@@ -319,36 +320,36 @@ function clickDetailEmployee(userId) {
     getData(`${CONST_BASE_HTTP}/UsersAdmin/${userId}`, token).then(data => {
         return data.json()
     })
-    .then(user => {
-        return getData(`${CONST_BASE_HTTP}/DayOffAdmin/user/${user.id}`, token)
-                    .then(data => data.json())
-                    .then(listDayOff => {
-                        return {user: user, listDayOff: listDayOff}
-                    })
-    })
-    .then(({user, listDayOff}) => {
-        departmentHeader.textContent = user.departmentName
-        name_employ.textContent = user.personName
-        address.value = user.address
-        email.value = user.email
-        age_gender_info.value = user.gender
-        phone_info.value = user.phoneNumber
-
-        listDayOff.forEach(d => {
-            var dayoff = {
-                name: user.personName,
-                id: d.userId,
-                time: d.date,
-                status: d.status
-            }
-            console.log(dayoff)
-            var row = create_permission(dayoff)
-            permission_list.appendChild(row)
+        .then(user => {
+            return getData(`${CONST_BASE_HTTP}/DayOffAdmin/user/${user.id}`, token)
+                .then(data => data.json())
+                .then(listDayOff => {
+                    return { user: user, listDayOff: listDayOff }
+                })
         })
-    })
-    .catch(err => {
-        console.log(err)
-    })
+        .then(({ user, listDayOff }) => {
+            departmentHeader.textContent = user.departmentName
+            name_employ.textContent = user.personName
+            address.value = user.address
+            email.value = user.email
+            age_gender_info.value = user.gender
+            phone_info.value = user.phoneNumber
+
+            listDayOff.forEach(d => {
+                var dayoff = {
+                    name: user.personName,
+                    id: d.userId,
+                    time: d.date,
+                    status: d.status
+                }
+                console.log(dayoff)
+                var row = create_permission(dayoff)
+                permission_list.appendChild(row)
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
     // Thêm hiệu ứng trượt từ phải sang trái
     detailInforEmployee.style.animation = 'slideInRight 0.5s forwards';
 }
@@ -383,7 +384,7 @@ function createEmployee(user) {
 
     // phone
     const phone = document.createElement("div")
-    phone.className = "employee_detail_text" 
+    phone.className = "employee_detail_text"
     phone.textContent = user.phoneNumber
 
     row.appendChild(avatar)
@@ -405,33 +406,12 @@ function loadDataTable() {
         getData(`${CONST_BASE_HTTP}/Departments/${departmentId}`, token).then(data => {
             return data.json()
         })
-        .then(department => {
-            departmentName = department.departmentName
-            return department.users
-        })
-        .then(users => {
-            users.forEach(user => {
-                var userAppend = {
-                    id: user.id,
-                    name: user.personName,
-                    departmentName: user.departmentName,
-                    phoneNumber: user.phoneNumber
-                }
-                var userRow = createEmployee(userAppend)
-                tbody.appendChild(userRow)
+            .then(department => {
+                departmentName = department.departmentName
+                return department.users
             })
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
-    else {
-        getData(`${CONST_BASE_HTTP}/Departments`, token).then(data => {
-            return data.json()
-        })
-        .then(departments => {
-            departments.forEach(department => {
-                department.users.forEach(user => {
+            .then(users => {
+                users.forEach(user => {
                     var userAppend = {
                         id: user.id,
                         name: user.personName,
@@ -442,10 +422,31 @@ function loadDataTable() {
                     tbody.appendChild(userRow)
                 })
             })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+    else {
+        getData(`${CONST_BASE_HTTP}/Departments`, token).then(data => {
+            return data.json()
         })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(departments => {
+                departments.forEach(department => {
+                    department.users.forEach(user => {
+                        var userAppend = {
+                            id: user.id,
+                            name: user.personName,
+                            departmentName: user.departmentName,
+                            phoneNumber: user.phoneNumber
+                        }
+                        var userRow = createEmployee(userAppend)
+                        tbody.appendChild(userRow)
+                    })
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 }
 
