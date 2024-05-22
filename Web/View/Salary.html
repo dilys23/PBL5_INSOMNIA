@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lương</title>
+    <link rel="stylesheet" href="../static/css/Salary.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="container">
+      <div class="container_head">
+        <div class="container_head_title">
+          <div class="title_main">Details Salary of Month</div>
+          <input
+            id="bday-month"
+            type="month"
+            name="bday-month"
+            value="2024-05"
+          />
+        </div>
+        <div class="container_head_salary">
+          <div class="board">
+            <div class="board_title">Fixed Hourly Wage</div>
+            <div class="board_wage">
+              <input type="text" class="text_wage" value="20.000" readonly></input>
+              <div class="board_wage_dv">VN dong</div>
+            </div>
+            <div class="wrap_button">
+              <div class="custom-button" id="button_change_price" onclick="toggleButtons()">Change</div>
+              <div class="custom-button" id="button_save_price" onclick="toggleButtons()" style="display: none;">Save</div>
+            </div>
+          </div>
+          <div class="board">
+            <div class="board_title">Total Monthly Payment</div>
+            <div class="board_payment">
+              <div class="board_payment_price">20.000</div>
+              <div class="board_wage_dv">VN dong</div>
+            </div>
+          </div>
+          <div class="board">
+            <div class="board_title">Who has the highest salary?</div>
+            <div class="employee_highest">
+              <img
+                src="../Img/avatar.jfif"
+                class="employee_highest_img"
+                alt=""
+              />
+              <div class="wrap_name_salary">
+                <div class="employee_highest_name">Nguyễn Văn An</div>
+                <div class="employee_highest_salary">12.000.000đ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container_body">
+        <div class="container_menu">
+          <div class="container_department_head_search">
+            <input type="search" placeholder="Employee" class="search-input" />
+            <button type="button" class="search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="container_department_head_list">
+            <select class="department_options">
+              <option value="department-all">All Department</option>
+            </select>
+          </div>
+          <div class="container_salary_status">
+            <select class="salary_status">
+              <option value="status_received">Received</option>
+              <option value="status_not_received">Not Received</option>
+              <option value="status_all">All</option>
+            </select>
+          </div>
+          <div id="btn_search_department">Search</div>
+        </div>
+        <div class="container_table">
+          <div class="container_table_body_employee">
+            <div class="table_employee_head">
+              <div class="head_title">Name</div>
+              <div class="head_title">Department</div>
+              <div class="head_title">Sumary Hour</div>
+              <div class="head_title">Salary</div>
+              <div class="head_title">Status</div>
+            </div>
+            <hr style="width: 90%; margin: 0 auto" />
+            <div class="table_employee_content">
+              <div class="employee_list_detail">
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_received_money">Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_not_received_money">Not Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_received_money">Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_received_money">Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_received_money">Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_received_money">Received</div>
+                  </div>
+                </div>
+                <hr style="width: 90%; margin: 0 auto" />
+                <div class="employee_detail">
+                  <div class="text_column">Bach Duong</div>
+                  <div class="text_column">Design</div>
+                  <div class="text_column">70h</div>
+                  <div class="text_column">12.000.000d</div>
+                  <div class="status_column">
+                    <div class="status_not_received_money">Not Received</div>
+                  </div>
+                </div>
+              </div>
+              <hr style="width: 90%; margin: 0 auto" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../static/js/Salary.js"></script>
+  <script src="../static/js/Header.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</html>
