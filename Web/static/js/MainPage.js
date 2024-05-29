@@ -151,6 +151,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+const form_register = {
+    personName: document.getElementById('name'),
+    email: document.getElementById('dialog-register-login-email'),
+    password: document.getElementById('dialog-register-password'),
+    confirmPassword: document.getElementById('dialog-confirm-pass')
+}
+
+document.getElementById('btn-submit-register').addEventListener('click', (e) => {
+    e.preventDefault();
+    var body = {
+        "personName": form_register.personName.value,
+        "email": form_register.email.value,
+        "gender": "Female",
+        "address": "TP Hue",
+        "phoneNumber": "0982819281",
+        "password": form_register.password.value,
+        "confirmPassword": form_register.confirmPassword.value,
+        "userType": 1
+    }
+    getData(`${CONST_BASE_HTTP}/Account/register`, body)
+        .then((data) => {
+            return data.json()
+        })
+        .then((data) => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
 document.getElementById('btn-submit').addEventListener('click', (e) => {
     e.preventDefault();
     var body = {
