@@ -137,3 +137,4 @@ function render() {
 registerPassword.addEventListener('input', function () {
   registerConfirmPassword.pattern = `${this.value}`;
 })
+

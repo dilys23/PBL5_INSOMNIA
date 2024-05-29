@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
   </head>
 
@@ -51,50 +52,45 @@
             <div class="name_title">Logout Time</div>
             <div class="name_title">Status</div>
           </div>
-          <div class="table_content">
-            
-          </div>
+          <div class="table_content"></div>
         </div>
       </div>
       <div class="container_right">
-        <div class="dashboard_column"></div>
+        <div class="dashboard_column">
+          <canvas id="myChart"></canvas>
+        </div>
         <div class="container_body_right">
           <div class="container_body_right_head">
-            <i class="fa-solid fa-file-invoice"></i>
-            <div class="dashboard_high_rate_title">Absence request List</div>
+            <div class="head_left">
+              <i class="fa-solid fa-file-invoice"></i>
+              <div class="dashboard_high_rate_title">Absence request List</div>
+            </div>
+            <div class="head_right">
+              <select class="options">
+                <option value="All">All</option>
+                <option value="Allowed">Allowed</option>
+                <option value="Disallowed">Disallowed</option>
+                <option value="Waiting">Waiting</option>
+              </select>
+            </div>
           </div>
           <div class="container_body_right_content">
+            <!-- <div class="item_employee">
+              <div class="item_employee_head">
+                <div class="wrap_img_name">
+                  <img src="../Img/avatar.jfif" class="img_ava" alt="" />
+                  <div class="item_employee_name">Le Nguyen</div>
+                </div>
+                <div class="wrap-icon"></div>
+              </div>
+            </div>
             <div class="item_employee">
               <div class="item_employee_head">
                 <div class="wrap_img_name">
                   <img src="../Img/avatar.jfif" class="img_ava" alt="" />
                   <div class="item_employee_name">Le Nguyen</div>
                 </div>
-                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
-              </div>
-              <div class="item_employee_absent">
-                <hr
-                  style="
-                    width: 90%;
-                    margin: 0 auto;
-                    margin-top: 3px;
-                    margin-bottom: 3px;
-                  "
-                />
-                <div class="absent_list">
-                  <div class="sub_absent status_pending">
-                    <i class="fa-solid fa-spinner"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                  <div class="sub_absent status_unverified">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                  <div class="sub_absent status_verified">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                </div>
+                <div class="wrap-icon"></div>
               </div>
             </div>
             <div class="item_employee">
@@ -103,31 +99,7 @@
                   <img src="../Img/avatar.jfif" class="img_ava" alt="" />
                   <div class="item_employee_name">Bach Duong</div>
                 </div>
-                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
-              </div>
-              <div class="item_employee_absent">
-                <hr
-                  style="
-                    width: 90%;
-                    margin: 0 auto;
-                    margin-top: 3px;
-                    margin-bottom: 3px;
-                  "
-                />
-                <div class="absent_list">
-                  <div class="sub_absent status_pending">
-                    <i class="fa-solid fa-spinner"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                  <div class="sub_absent status_unverified">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                  <div class="sub_absent status_verified">
-                    <i class="fa-regular fa-circle-check"></i>
-                    <div class="sub_absent_date">December 12 - 5 , 2024</div>
-                  </div>
-                </div>
+                <div class="wrap-icon"></div>
               </div>
             </div>
             <div class="item_employee">
@@ -136,20 +108,9 @@
                   <img src="../Img/avatar.jfif" class="img_ava" alt="" />
                   <div class="item_employee_name">Hong Nhung</div>
                 </div>
-                <i class="fa-solid fa-chevron-down btn_more_absent"></i>
+                <div class="wrap-icon"></div>
               </div>
-              <div class="item_employee_absent">
-                <hr
-                  style="
-                    width: 90%;
-                    margin: 0 auto;
-                    margin-top: 3px;
-                    margin-bottom: 3px;
-                  "
-                />
-                <div class="absent_list"></div>
-              </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="container_shift">
@@ -222,11 +183,11 @@
               <img src="../Img/avatar.jfif" class="image_for_employ" alt="" />
             </div>
             <div class="wrap_name_position">
-              <div class="name_for_employ">Bach Duong</div>
+              <div class="name_for_employ dialog_name_employee">Bach Duong</div>
               <div class="position_for_employ">Project Manager</div>
             </div>
             <div class="wrap_name_position">
-              <div class="name_for_employ">Department</div>
+              <div class="name_for_employ dialog_departmentName_employee">Department</div>
               <div class="depart_for_employ">Management</div>
             </div>
             <div class="wrap_name_position">
@@ -247,19 +208,69 @@
               <i class="fa-regular fa-user"></i>
               <div class="wrap-title-time">
                 <div class="title-time">Login Time</div>
-                <div class="shift-time">7h40 am</div>
+                <div class="shift-time dialog-time-login">7h40 am</div>
               </div>
             </div>
             <div class="wrap_time_shift">
               <i class="fa-solid fa-power-off"></i>
               <div class="wrap-title-time">
                 <div class="title-time">Logout Time</div>
-                <div class="shift-time">On duty</div>
+                <div class="shift-time dialog-time-logout">On duty</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="dialog_box_body_for_employee"></div>
+        <div class="dialog_box_body_for_employee">
+          <div class="history_recognition_title">
+            <div class="title_history">Time In</div>
+            <div class="title_history">Time Out</div>
+            <div class="title_reco">Recognition In</div>
+            <div class="title_reco">Recognition Out</div>
+          </div>
+          <div class="dialog_body_recognition">
+            <!-- <div class="history_recognition_title">
+              <div class="wrap_wrap">
+                <div class="wrap_history_time">
+                  <div class="history_time">8:00 am</div>
+                  <div class="history_shift">Morning Shift</div>
+                </div>
+              </div>
+              <div class="wrap_wrap">
+                <div class="wrap_history_time">
+                  <div class="history_time">11:00 am</div>
+                  <div class="history_shift">Morning Shift</div>
+                </div>
+              </div>
+              <div class="title_reco">
+                <img src="../Img/avatar.jfif" class="img_history" alt="" />
+              </div>
+              <div class="title_reco">
+                <img src="../Img/avatar.jfif" class="img_history" alt="" />
+              </div>
+            </div>
+            <hr style="margin: 10px 0px 20px 0" /> -->
+            <!-- <div class="history_recognition_title">
+              <div class="wrap_wrap">
+                <div class="wrap_history_time">
+                  <div class="history_time">13:00 am</div>
+                  <div class="history_shift">Afternoon Shift</div>
+                </div>
+              </div>
+              <div class="wrap_wrap">
+                <div class="wrap_history_time">
+                  <div class="history_time">17:00 am</div>
+                  <div class="history_shift">Afternoon Shift</div>
+                </div>
+              </div>
+              <div class="title_reco">
+                <img src="../Img/avatar.jfif" class="img_history" alt="" />
+              </div>
+              <div class="title_reco">
+                <img src="../Img/avatar.jfif" class="img_history" alt="" />
+              </div>
+            </div> -->
+          </div>
+        </div>
       </div>
     </div>
     <div id="dialog_overlay_permission_form">
@@ -281,15 +292,18 @@
             <div class="title_form">Shift:</div>
             <div class="content_form">Morning</div>
           </div>
-          <div class="item_permission">
-            <div class="title_form">Reason:</div>
-            <div class="content_form">The reason of permission form</div>
+
+          <div class="title_form" style="padding-bottom: 10px">Reason:</div>
+          <div class="wrap-reason">
+            <div class="content_form" style="padding: 5px 10px">
+              The reason of permission form
+            </div>
           </div>
         </div>
-        <div class="button_option">
+        <!-- <div class="button_option">
           <button id="accept_permission">Accept</button>
           <button id="reject_permission">Reject</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
