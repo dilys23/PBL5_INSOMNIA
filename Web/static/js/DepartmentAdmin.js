@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
 document.getElementById('btn_edit_depart').addEventListener('click', function () {
     document.getElementById('dialog_overlay_edit_department').style.display = 'block';
 });
@@ -100,6 +103,8 @@ function chooseAvatar() {
     // Kích hoạt sự kiện click trên input file
     document.getElementById('avatar_input').click();
 }
+
+
 
 function uploadAvatar(event) {
     var selectedFile = event.target.files[0];
@@ -179,21 +184,57 @@ async function getData(url = "", token) {
 const token = sessionStorage.getItem("token");
 const selectBox = document.querySelector(".department_options")
 
+async function postData(url = "", body, token) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        mode: "cors",
+        body: JSON.stringify(body)
+    })
+    return response
+}
 
-getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
-    return data.json()
-})
-    .then(departments => {
-        departments.forEach(department => {
+
+document.getElementById('add_department').addEventListener('click', () => {
+    const departmentName = document.querySelector('.txt_name_department').value
+    const body = {
+        departmentName: departmentName
+    }
+    postData(`${CONST_BASE_HTTP}/Departments`, body, token)
+        .then(data => {
+            return data.json()
+        })
+        .then(department => {
             const option = document.createElement("option")
             option.value = department.departmentId
             option.textContent = department.departmentName
             selectBox.appendChild(option)
+            document.getElementById('dialog_overlay_add_department').style.display = 'none'
         })
-    })
-    .catch(err => {
-        console.log(err)
-    })
+        .catch(err => {
+            console.log(err)
+        })
+    
+})
+
+// getData(`${CONST_BASE_HTTP}/Departments`, token)
+//     .then(data => {
+//         return data.json()
+//     })
+//     .then(departments => {
+//         departments.forEach(department => {
+//             const option = document.createElement("option")
+//             option.value = department.departmentId
+//             option.textContent = department.departmentName
+//             selectBox.appendChild(option)
+//         })
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
 
 
 function create_permission(dayoff) {
@@ -294,6 +335,10 @@ function click_permission(permission) {
             console.log(err)
         })
 
+
+function create_dialog(user) {
+
+}
 }
 function reply_permission(reply) {
     console.log(reply)
@@ -395,6 +440,22 @@ function createEmployee(user) {
     return row
 
 }
+
+getData(`${CONST_BASE_HTTP}/Departments`, token)
+    .then(data => {
+        return data.json()
+    })
+    .then(departments => {
+        departments.forEach(department => {
+            const option = document.createElement("option")
+            option.value = department.departmentId
+            option.textContent = department.departmentName
+            selectBox.appendChild(option)
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
 const tbody = document.querySelector(".employee_list_detail")
 
