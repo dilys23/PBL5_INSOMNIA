@@ -343,7 +343,40 @@ function createEmployee(user) {
 }
 
 
-CONST_BASE_HTTP = "http://localhost:5126/api/admin"
+function create_permission(user) {
+    const item = document.createElement("div")
+    item.className = "item_employee"
+
+    const item_head = document.createElement("div")
+    item_head.className = "item_employee_head"
+
+    const img_name = document.createElement("div")
+    item_head.className = "wrap_img_name"
+
+    const img = document.createElement("img")
+    img.src = "../Img/avatar.jfif"
+    img.className = "img_ava"
+    img.alt = ""
+
+    const name = document.createElement("div")
+    name.className = "item_employee_name"
+    name.textContent = user.personName
+
+    img_name.appendChild(img)
+    img_name.appendChild(name)
+
+    const icon = document.createElement("div")
+    icon.className = "wrap-icon"
+
+    item_head.appendChild(img_name)
+    item_head.appendChild(icon)
+
+    item.appendChild(item_head)
+    return item
+}
+
+
+const CONST_BASE_HTTP = "http://localhost:5126/api/admin"
 async function getData(url = "", token) {
     const response = await fetch(url, {
         method: "GET",
@@ -361,6 +394,8 @@ const token = sessionStorage.getItem("token");
 const selectBox = document.querySelector(".department_options");
 const tbody = document.querySelector(".table_content");
 
+const departmentsChart = []
+
 getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
     return data.json()
 })
@@ -375,6 +410,7 @@ getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
     }).catch((err) => {
         console.log(err)
     })
+
 
 
 function create_shift(shift) {
@@ -421,6 +457,117 @@ getData(`${CONST_BASE_HTTP}/Shifts`, token)
     .catch(err => {
         console.log(err)
     })
+var currentDate = new Date().toLocaleDateString("vi-VN").split("/")
+const day = currentDate[0]
+var month = currentDate[1]
+const year = currentDate[2]
+if (month.length === 1) {
+    month = "0" + month
+}
+currentDate = year + "-" + month + "-" + day
+const container_content = document.querySelector('.container_body_right_content')
+getData(`${CONST_BASE_HTTP}/DayOffAdmin/date/${currentDate}`, token)
+    .then(data => {
+        return data.json()
+    })
+    .then(dayOffs => {
+        dayOffs.forEach(dayOff => {
+            var user = {
+                personName: dayOff.userName,
+                reason: dayOff.reason
+            }
+            console.log(dayOff)
+            var row = create_permission(user)
+            row.addEventListener('click', () => {
+                const dialog_overlay_permission_form = document.getElementById('dialog_overlay_permission_form')
+                const content_form = dialog_overlay_permission_form.querySelectorAll('.content_form')
+                const name = content_form[0]
+                const date = content_form[1]
+                const shift = content_form[2]
+                const reason = content_form[3]
+                name.textContent = user.personName
+                date.textContent = currentDate
+                reason.textContent = user.reason
+                dialog_overlay_permission_form.style.display = 'block'
+            })
+            container_content.appendChild(row)
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+function create_recognition(user) {
+    const history_recognition_title = document.createElement("div")
+    history_recognition_title.className = "history_recognition_title"
+
+    const wrap_wrap_in = document.createElement("div")
+    wrap_wrap_in.className = "wrap_wrap"
+
+    const wrap_history_time_in = document.createElement("div")
+    wrap_history_time_in.className = "wrap_history_time"
+
+    const history_time_in = document.createElement("div")
+    history_time_in.className = "history_time"
+    history_time_in.textContent = user.time_in
+
+    const history_shift_in = document.createElement("div")
+    history_shift_in.className = "history_shift"
+    history_shift_in.textContent = "Morning Shift"
+
+    wrap_history_time_in.appendChild(history_time_in)
+    wrap_history_time_in.appendChild(history_shift_in)
+
+    wrap_wrap_in.appendChild(wrap_history_time_in)
+
+    //
+    const wrap_wrap_out = document.createElement("div")
+    wrap_wrap_out.className = "wrap_wrap"
+
+    const wrap_history_time_out = document.createElement("div")
+    wrap_history_time_out.className = "wrap_history_time"
+
+    const history_time_out = document.createElement("div")
+    history_time_out.className = "history_time"
+    history_time_out.textContent = user.time_out
+
+    const history_shift_out = document.createElement("div")
+    history_shift_out.className = "history_shift"
+    history_shift_out.textContent = "Morning Shift"
+
+    wrap_history_time_out.appendChild(history_time_out)
+    wrap_history_time_out.appendChild(history_shift_out)
+
+    wrap_wrap_out.appendChild(wrap_history_time_out)
+
+    const title_reco_in = document.createElement("div")
+    title_reco_in.className = "title_reco"
+
+    const img_history_in = document.createElement("img")
+    img_history_in.className = "img_history"
+    img_history_in.src = user.pathIn
+    img_history_in.alt = ""
+
+    title_reco_in.appendChild(img_history_in)
+
+    //
+
+    const title_reco_out = document.createElement("div")
+    title_reco_out.className = "title_reco"
+
+    const img_history_out = document.createElement("img")
+    img_history_out.className = "img_history"
+    img_history_out.src = user.pathOut
+    img_history_out.alt = ""
+
+    title_reco_out.appendChild(img_history_out)
+
+    history_recognition_title.appendChild(wrap_wrap_in)
+    history_recognition_title.appendChild(wrap_wrap_out)
+    history_recognition_title.appendChild(title_reco_in)
+    history_recognition_title.appendChild(title_reco_out)
+
+    return history_recognition_title
+}
 
 
 function loadDataTable() {
@@ -461,6 +608,41 @@ function loadDataTable() {
                             status: status
                         }
                         var userRow = createEmployee(testuser);
+                        userRow.addEventListener('click', function () {
+                            getData(`${CONST_BASE_HTTP}/Attendances/${testuser.id}`, token)
+                                .then(data => {
+                                    return data.json()
+                                })
+                                .then(attendances => {
+                                    document.querySelector('.dialog_body_recognition').innerHTML = ""
+                                    for (let i = 0; i < attendances.length - 1; i++ ) {
+                                        let time_attendance = attendances[i].time.split("T")[0]
+                                        if (time_attendance === currentDate) {
+                                            if (attendances[i].status && !attendances[i+1].status) {
+                                                var user = {
+                                                    time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    pathIn: attendances[i].pathImg,
+                                                    pathOut: attendances[i+1].pathImg
+                                                }
+                                                var row = create_recognition(user)
+                                                console.log(user)
+                                                document.querySelector('.dialog_body_recognition').appendChild(row)
+                                                console.log(row)
+                                            }
+                                        }
+                                    }
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_name_employee').textContent = testuser.name
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_departmentName_employee').textContent = testuser.department
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-login').textContent = testuser.time_in
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-logout').textContent = testuser.time_out
+                                    document.getElementById('dialog_overlay_for_employee').style.display = 'block';
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                            
+                    })
                         tbody.appendChild(userRow);
                     }
                     else {
@@ -477,6 +659,41 @@ function loadDataTable() {
                             status: status
                         }
                         var userRow = createEmployee(testuser);
+                        userRow.addEventListener('click', function () {
+                            getData(`${CONST_BASE_HTTP}/Attendances/${testuser.id}`, token)
+                                .then(data => {
+                                    return data.json()
+                                })
+                                .then(attendances => {
+                                    document.querySelector('.dialog_body_recognition').innerHTML = ""
+                                    for (let i = 0; i < attendances.length - 1; i++ ) {
+                                        let time_attendance = attendances[i].time.split("T")[0]
+                                        if (time_attendance === currentDate) {
+                                            if (attendances[i].status && !attendances[i+1].status) {
+                                                var user = {
+                                                    time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    pathIn: attendances[i].pathImg,
+                                                    pathOut: attendances[i+1].pathImg
+                                                }
+                                                var row = create_recognition(user)
+                                                console.log(user)
+                                                document.querySelector('.dialog_body_recognition').appendChild(row)
+                                                console.log(row)
+                                            }
+                                        }
+                                    }
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_name_employee').textContent = testuser.name
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_departmentName_employee').textContent = testuser.department
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-login').textContent = testuser.time_in
+                                    document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-logout').textContent = testuser.time_out
+                                    document.getElementById('dialog_overlay_for_employee').style.display = 'block';
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                            
+                    })
                         tbody.appendChild(userRow);
                     }
                 })
@@ -518,6 +735,41 @@ function loadDataTable() {
                                 status: status
                             }
                             var userRow = createEmployee(testuser);
+                            userRow.addEventListener('click', function () {
+                                getData(`${CONST_BASE_HTTP}/Attendances/${testuser.id}`, token)
+                                    .then(data => {
+                                        return data.json()
+                                    })
+                                    .then(attendances => {
+                                        document.querySelector('.dialog_body_recognition').innerHTML = ""
+                                        for (let i = 0; i < attendances.length - 1; i++ ) {
+                                            let time_attendance = attendances[i].time.split("T")[0]
+                                            if (time_attendance === currentDate) {
+                                                if (attendances[i].status && !attendances[i+1].status) {
+                                                    var user = {
+                                                        time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        pathIn: attendances[i].pathImg,
+                                                        pathOut: attendances[i+1].pathImg
+                                                    }
+                                                    var row = create_recognition(user)
+                                                    console.log(user)
+                                                    document.querySelector('.dialog_body_recognition').appendChild(row)
+                                                    console.log(row)
+                                                }
+                                            }
+                                        }
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_name_employee').textContent = testuser.name
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_departmentName_employee').textContent = testuser.department
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-login').textContent = testuser.time_in
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-logout').textContent = testuser.time_out
+                                        document.getElementById('dialog_overlay_for_employee').style.display = 'block';
+                                    })
+                                    .catch(err => {
+                                        console.log(err)
+                                    })
+                                
+                        })
                             tbody.appendChild(userRow);
                         }
                         else {
@@ -534,7 +786,42 @@ function loadDataTable() {
                                 status: status
                             }
                             var userRow = createEmployee(testuser);
+                            
                             tbody.appendChild(userRow);
+                            userRow.addEventListener('click', function () {
+                                getData(`${CONST_BASE_HTTP}/Attendances/${testuser.id}`, token)
+                                    .then(data => {
+                                        return data.json()
+                                    })
+                                    .then(attendances => {
+                                        document.querySelector('.dialog_body_recognition').innerHTML = ""
+                                        for (let i = 0; i < attendances.length - 1; i++ ) {
+                                            let time_attendance = attendances[i].time.split("T")[0]
+                                            if (time_attendance === currentDate) {
+                                                if (attendances[i].status && !attendances[i+1].status) {
+                                                    var user = {
+                                                        time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        pathIn: attendances[i].pathImg,
+                                                        pathOut: attendances[i+1].pathImg
+                                                    }
+                                                    var row = create_recognition(user)
+                                                    console.log(user)
+                                                    document.querySelector('.dialog_body_recognition').appendChild(row)
+                                                    console.log(row)
+                                                }
+                                            }
+                                        }
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_name_employee').textContent = testuser.name
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog_departmentName_employee').textContent = testuser.department
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-login').textContent = testuser.time_in
+                                        document.getElementById('dialog_overlay_for_employee').querySelector('.dialog-time-logout').textContent = testuser.time_out
+                                        document.getElementById('dialog_overlay_for_employee').style.display = 'block';
+                                    })
+                                    .catch(err => {
+                                        console.log(err)
+                                    })
+                        })
                         }
                     })
                 })
