@@ -615,15 +615,15 @@ function loadDataTable() {
                                 })
                                 .then(attendances => {
                                     document.querySelector('.dialog_body_recognition').innerHTML = ""
-                                    for (let i = 0; i < attendances.length - 1; i++ ) {
+                                    for (let i = 0; i < attendances.length - 1; i++) {
                                         let time_attendance = attendances[i].time.split("T")[0]
                                         if (time_attendance === currentDate) {
-                                            if (attendances[i].status && !attendances[i+1].status) {
+                                            if (attendances[i].status && !attendances[i + 1].status) {
                                                 var user = {
                                                     time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
-                                                    time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    time_out: new Date(attendances[i + 1].time).toLocaleString('vi-VN').split(" ")[0],
                                                     pathIn: attendances[i].pathImg,
-                                                    pathOut: attendances[i+1].pathImg
+                                                    pathOut: attendances[i + 1].pathImg
                                                 }
                                                 var row = create_recognition(user)
                                                 console.log(user)
@@ -641,8 +641,8 @@ function loadDataTable() {
                                 .catch(err => {
                                     console.log(err)
                                 })
-                            
-                    })
+
+                        })
                         tbody.appendChild(userRow);
                     }
                     else {
@@ -666,15 +666,15 @@ function loadDataTable() {
                                 })
                                 .then(attendances => {
                                     document.querySelector('.dialog_body_recognition').innerHTML = ""
-                                    for (let i = 0; i < attendances.length - 1; i++ ) {
+                                    for (let i = 0; i < attendances.length - 1; i++) {
                                         let time_attendance = attendances[i].time.split("T")[0]
                                         if (time_attendance === currentDate) {
-                                            if (attendances[i].status && !attendances[i+1].status) {
+                                            if (attendances[i].status && !attendances[i + 1].status) {
                                                 var user = {
                                                     time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
-                                                    time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                    time_out: new Date(attendances[i + 1].time).toLocaleString('vi-VN').split(" ")[0],
                                                     pathIn: attendances[i].pathImg,
-                                                    pathOut: attendances[i+1].pathImg
+                                                    pathOut: attendances[i + 1].pathImg
                                                 }
                                                 var row = create_recognition(user)
                                                 console.log(user)
@@ -692,8 +692,8 @@ function loadDataTable() {
                                 .catch(err => {
                                     console.log(err)
                                 })
-                            
-                    })
+
+                        })
                         tbody.appendChild(userRow);
                     }
                 })
@@ -742,15 +742,15 @@ function loadDataTable() {
                                     })
                                     .then(attendances => {
                                         document.querySelector('.dialog_body_recognition').innerHTML = ""
-                                        for (let i = 0; i < attendances.length - 1; i++ ) {
+                                        for (let i = 0; i < attendances.length - 1; i++) {
                                             let time_attendance = attendances[i].time.split("T")[0]
                                             if (time_attendance === currentDate) {
-                                                if (attendances[i].status && !attendances[i+1].status) {
+                                                if (attendances[i].status && !attendances[i + 1].status) {
                                                     var user = {
                                                         time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
-                                                        time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        time_out: new Date(attendances[i + 1].time).toLocaleString('vi-VN').split(" ")[0],
                                                         pathIn: attendances[i].pathImg,
-                                                        pathOut: attendances[i+1].pathImg
+                                                        pathOut: attendances[i + 1].pathImg
                                                     }
                                                     var row = create_recognition(user)
                                                     console.log(user)
@@ -768,8 +768,8 @@ function loadDataTable() {
                                     .catch(err => {
                                         console.log(err)
                                     })
-                                
-                        })
+
+                            })
                             tbody.appendChild(userRow);
                         }
                         else {
@@ -786,7 +786,7 @@ function loadDataTable() {
                                 status: status
                             }
                             var userRow = createEmployee(testuser);
-                            
+
                             tbody.appendChild(userRow);
                             userRow.addEventListener('click', function () {
                                 getData(`${CONST_BASE_HTTP}/Attendances/${testuser.id}`, token)
@@ -795,15 +795,15 @@ function loadDataTable() {
                                     })
                                     .then(attendances => {
                                         document.querySelector('.dialog_body_recognition').innerHTML = ""
-                                        for (let i = 0; i < attendances.length - 1; i++ ) {
+                                        for (let i = 0; i < attendances.length - 1; i++) {
                                             let time_attendance = attendances[i].time.split("T")[0]
                                             if (time_attendance === currentDate) {
-                                                if (attendances[i].status && !attendances[i+1].status) {
+                                                if (attendances[i].status && !attendances[i + 1].status) {
                                                     var user = {
                                                         time_in: new Date(attendances[i].time).toLocaleString('vi-VN').split(" ")[0],
-                                                        time_out: new Date(attendances[i+1].time).toLocaleString('vi-VN').split(" ")[0],
+                                                        time_out: new Date(attendances[i + 1].time).toLocaleString('vi-VN').split(" ")[0],
                                                         pathIn: attendances[i].pathImg,
-                                                        pathOut: attendances[i+1].pathImg
+                                                        pathOut: attendances[i + 1].pathImg
                                                     }
                                                     var row = create_recognition(user)
                                                     console.log(user)
@@ -821,7 +821,7 @@ function loadDataTable() {
                                     .catch(err => {
                                         console.log(err)
                                     })
-                        })
+                            })
                         }
                     })
                 })
@@ -969,3 +969,10 @@ const myChartForEmployee = new Chart(
     document.getElementById('chartForEmployee'),  // Đổi ID tương ứng với HTML của bạn
     configForEmploy
 );
+
+
+
+document.getElementById('close-dialog-notification-btn').addEventListener('click', function () {
+    document.getElementById('dialog_overlay_notification').style.display = 'none';
+});
+

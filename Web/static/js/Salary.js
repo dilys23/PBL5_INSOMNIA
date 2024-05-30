@@ -28,7 +28,7 @@ function saveWage() {
 function create_employee(user) {
     const employee_detail = document.createElement("div")
     employee_detail.className = "employee_detail"
-    
+
 
     const row_name = document.createElement("div")
     row_name.className = "text_column"
@@ -89,7 +89,7 @@ const token = sessionStorage.getItem("token");
 
 const board_wage = document.querySelector('.board_wage')
 const input_board_wage = board_wage.querySelector('.text_wage')
-const table_employee_content = document.querySelector(".table_employee_content")
+const table_employee_content = document.querySelector(".employee_list_detail")
 const board_payment_price = document.querySelector('.board_payment_price')
 const employee_highest_name = document.querySelector('.employee_highest_name')
 const employee_highest_salary = document.querySelector('.employee_highest_salary')
@@ -129,51 +129,51 @@ getData(`${CONST_BASE_HTTP}/Departments`, token).then((data) => {
 function loadDataTable() {
     table_employee_content.innerHTML = ""
     getData(`${CONST_BASE_HTTP}/SalaryPay/${currentDate}`, token)
-    .then(data => {
-        return data.json()
-    })
-    .then((salaryPays) => {
-        let totalPayment = 0
-        let userHighest = {
-            personName: "None",
-            salary: 0
-        }
-        salaryPays.forEach(salarypay => {
-            totalPayment += salarypay.moneyPay
-            console.log(salarypay)
-            if (userHighest.salary < salarypay.moneyPay) {
-                userHighest.personName = salarypay.personName
-                userHighest.salary = salarypay.moneyPay
-            }
-            var user = {
-                userId: salarypay.userId,
-                personName: salarypay.personName,
-                departmentId: salarypay.departmentId,
-                departmentName: salarypay.departmentName,
-                sumaryhour: salarypay.sumaryHour.toFixed(2),
-                salary: salarypay.moneyPay.toFixed(2),
-                status: false
-            }
-            var row = create_employee(user)
-            row.setAttribute("departmentId", user.departmentId)
-            row.style.display = 'none'
-            if (department_options.value == "department-all") {
-                row.style.display = 'flex'
-            } else {
-                if (row.getAttribute("departmentId") == department_options.value) {
-                    row.style.display = 'flex'
-                }
-            }
-            table_employee_content.appendChild(row)
+        .then(data => {
+            return data.json()
         })
+        .then((salaryPays) => {
+            let totalPayment = 0
+            let userHighest = {
+                personName: "None",
+                salary: 0
+            }
+            salaryPays.forEach(salarypay => {
+                totalPayment += salarypay.moneyPay
+                console.log(salarypay)
+                if (userHighest.salary < salarypay.moneyPay) {
+                    userHighest.personName = salarypay.personName
+                    userHighest.salary = salarypay.moneyPay
+                }
+                var user = {
+                    userId: salarypay.userId,
+                    personName: salarypay.personName,
+                    departmentId: salarypay.departmentId,
+                    departmentName: salarypay.departmentName,
+                    sumaryhour: salarypay.sumaryHour.toFixed(2),
+                    salary: salarypay.moneyPay.toFixed(2),
+                    status: false
+                }
+                var row = create_employee(user)
+                row.setAttribute("departmentId", user.departmentId)
+                row.style.display = 'none'
+                if (department_options.value == "department-all") {
+                    row.style.display = 'flex'
+                } else {
+                    if (row.getAttribute("departmentId") == department_options.value) {
+                        row.style.display = 'flex'
+                    }
+                }
+                table_employee_content.appendChild(row)
+            })
 
-        board_payment_price.textContent = totalPayment.toFixed(2)
-        employee_highest_name.textContent = userHighest.personName
-        employee_highest_salary.textContent = userHighest.salary.toFixed(2)
-    })
-    .catch(err => {
-        console.log(err)
-    })
+            board_payment_price.textContent = totalPayment.toFixed(2)
+            employee_highest_name.textContent = userHighest.personName
+            employee_highest_salary.textContent = userHighest.salary.toFixed(2)
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
 

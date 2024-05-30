@@ -213,12 +213,17 @@ document.getElementById('add_department').addEventListener('click', () => {
             option.textContent = department.departmentName
             selectBox.appendChild(option)
             document.getElementById('dialog_overlay_add_department').style.display = 'none'
+            document.getElementById('message').textContent = 'Thêm phòng ban thành công';
+            document.getElementById('dialog_overlay_notification').style.display = 'block'
         })
         .catch(err => {
             console.log(err)
         })
-    
+
 })
+
+
+
 
 // getData(`${CONST_BASE_HTTP}/Departments`, token)
 //     .then(data => {
@@ -321,6 +326,9 @@ function click_permission(permission) {
                     status: "Allow"
                 }
                 reply_permission(reply)
+                document.getElementById('dialog_overlay_permission_form').style.display = 'none'
+                document.getElementById('message').textContent = 'Duyệt đơn xin phép thành công';
+                document.getElementById('dialog_overlay_notification').style.display = 'block'
             })
             reject_btn.addEventListener('click', () => {
                 const reply = {
@@ -329,6 +337,9 @@ function click_permission(permission) {
                     status: "Disallow"
                 }
                 reply_permission(reply)
+                document.getElementById('dialog_overlay_permission_form').style.display = 'none'
+                document.getElementById('message').textContent = 'Huỷ đơn xin phép thành công';
+                document.getElementById('dialog_overlay_notification').style.display = 'block'
             })
         })
         .catch(err => {
@@ -336,9 +347,9 @@ function click_permission(permission) {
         })
 
 
-function create_dialog(user) {
+    function create_dialog(user) {
 
-}
+    }
 }
 function reply_permission(reply) {
     console.log(reply)
@@ -529,3 +540,16 @@ document.addEventListener("DOMContentLoaded", loadDataTable())
 //         detailInforEmployee.style.animation = 'slideInRight 0.5s forwards';
 //     });
 // });
+
+document.getElementById('close-dialog-notification-btn').addEventListener('click', function () {
+    document.getElementById('dialog_overlay_notification').style.display = 'none';
+});
+
+
+document.getElementById('save_profile').addEventListener('click', () => {
+    console.log('Co nhan ne')
+    document.getElementById('dialog_overlay_add_employee').style.display = 'none'
+    document.getElementById('message').textContent = 'Thêm nhân viên vào phòng ban thành công';
+    document.getElementById('dialog_overlay_notification').style.display = 'block'
+
+})

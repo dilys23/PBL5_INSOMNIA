@@ -311,6 +311,7 @@ i.fa-solid.fa-plus.custom_plus {
   position: relative;
   height: 80%;
   /* padding: 0 20px; */
+  max-height: 80%;
 }
 .status_column {
   width: 20%;

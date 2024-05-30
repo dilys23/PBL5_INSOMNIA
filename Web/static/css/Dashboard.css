@@ -742,3 +742,51 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   justify-content: center;
   align-items: center;
 }
+
+/* -----------------Dialog thong bao---------------- */
+#dialog_overlay_notification {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+#dialog_box_notification {
+  background-color: white;
+  width: 35%;
+  height: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+.dialog_box_head_notification {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 20px 40px;
+  /* background-color: #cef6ef; */
+  border-radius: 5px;
+  height: 25%;
+}
+.head_name_notification {
+  font-size: 20px;
+}
+#close-dialog-notification-btn {
+  font-size: 18px;
+  cursor: pointer;
+}
+.dialog_box_body_notification {
+  padding: 30px 50px;
+  height: 70%;
+}
+#message {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}

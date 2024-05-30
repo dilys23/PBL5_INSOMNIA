@@ -34,3 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'MainPage.html';
     })
 });
+
+function openDropdown() {
+    console.log('Co img ne');
+    var dropdownContent = document.getElementById('dropdown_content');
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        dropdownContent.style.display = 'block';
+    }
+}
+function logOut() {
+    window.location.href = 'MainPage.html';
+}

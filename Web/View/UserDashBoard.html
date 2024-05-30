@@ -88,8 +88,46 @@
       </div>
       <div class="container_body">
         <div class="container_body_left">
-          <input type="month" id="bdaymonth" name="bdaymonth" />
-          <canvas id="myChart"></canvas>
+          <div class="table_salary">
+            <div class="table_salary_title">
+              <div class="title_name">STT</div>
+              <div class="title_name">Month</div>
+              <div class="title_name">Salary</div>
+              <div class="title_name">Status</div>
+            </div>
+            <div class="table_salary_content">
+              <div class="item_table_salary">
+                <div class="item_content">1</div>
+                <div class="item_content">January, 2024</div>
+                <div class="item_content">12.000.000d</div>
+                <div class="item_content">
+                  <div class="status_salary status_salary_receive">
+                    Received
+                  </div>
+                </div>
+              </div>
+              <div class="item_table_salary">
+                <div class="item_content">2</div>
+                <div class="item_content">January, 2024</div>
+                <div class="item_content">12.000.000d</div>
+                <div class="item_content">
+                  <div class="status_salary status_salary_receive">
+                    Received
+                  </div>
+                </div>
+              </div>
+              <div class="item_table_salary">
+                <div class="item_content">4</div>
+                <div class="item_content">January, 2024</div>
+                <div class="item_content">12.000.000d</div>
+                <div class="item_content">
+                  <div class="status_salary status_salary_not_receive">
+                    Not Received
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="container_body_right">
           <div class="container_body_right_head">
@@ -191,6 +229,68 @@
           <button id="accept_permission">Accept</button>
           <button id="reject_permission">Reject</button>
         </div> -->
+      </div>
+    </div>
+    <div id="dialog_overlay_salary">
+      <div id="dialog_box_salary">
+        <div class="dialog_box_head_salary">
+          <h5 class="head_name_salary">My Payroll</h5>
+          <i id="close-dialog-salary" class="fa-solid fa-xmark"></i>
+        </div>
+        <hr style="width: 90%; margin: 0 auto" />
+        <div class="dialog_box_body_salary">
+          <div class="item_salary">
+            <div class="title_form">Name:</div>
+            <div class="content_form">Bach Duong</div>
+          </div>
+          <div class="item_salary">
+            <div class="title_form">Department:</div>
+            <div class="content_form">Design</div>
+          </div>
+          <div class="item_salary">
+            <div class="title_form">Month:</div>
+            <div class="content_form">Thang 5,2024</div>
+          </div>
+          <div class="item_salary">
+            <div class="title_form">Summary hours:</div>
+            <div class="content_form">15</div>
+          </div>
+          <div class="item_salary">
+            <div class="title_form">Total salary:</div>
+            <div class="content_form">12.000.000đ</div>
+          </div>
+          <div class="item_salary">
+            <div class="title_form">Status:</div>
+            <div class="body_status_salary status_salary_not_receive">
+              Not Received
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dialog_overlay_notification">
+      <div id="dialog_box_notification">
+        <div class="dialog_box_head_notification">
+          <h5 class="head_name_notification">Notification</h5>
+          <i id="close-dialog-notification-btn" class="fa-solid fa-xmark"></i>
+        </div>
+        <hr style="width: 90%; margin: 0 auto" />
+        <div class="dialog_box_body_notification">
+          <p id="message">
+            <!-- Thêm thông tin thành công Thêm thông tin thành công -->
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="dialog_overlay_receive_salary">
+      <div id="dialog_box_receive_salary">
+        <div class="dialog_box_body_receive_salary">
+          <p>Hoàn tất xác nhận nhận lương ?</p>
+        </div>
+        <div class="button_option">
+          <button id="confirm_salary">Confirm</button>
+          <button id="close_salary">Close</button>
+        </div>
       </div>
     </div>
     <div id="dialog_overlay_add_permission_form">

@@ -70,3 +70,59 @@ const myChart = new Chart(
     document.getElementById('myChart'),
     config
 );
+
+document.addEventListener('DOMContentLoaded', function () {
+    var items = document.querySelectorAll('.item_table_salary');
+
+    items.forEach(function (item) {
+        var statusElement = item.querySelector('.status_salary');
+
+        item.addEventListener('click', function () {
+            openSalaryDialog();
+        });
+    });
+
+    var salaryStatusElement = document.querySelector('.body_status_salary');
+    salaryStatusElement.addEventListener('click', function () {
+        closeDialog('dialog_overlay_salary');
+        openReceiveDialog();
+    });
+
+    function openSalaryDialog() {
+        document.getElementById('dialog_overlay_salary').style.display = 'flex';
+    }
+
+    function openReceiveDialog() {
+
+        document.getElementById('dialog_overlay_receive_salary').style.display = 'flex';
+    }
+
+    function closeDialog(dialogId) {
+        document.getElementById(dialogId).style.display = 'none';
+    }
+
+    document.getElementById('close-dialog-salary').addEventListener('click', function () {
+        closeDialog('dialog_overlay_salary');
+    });
+
+    document.getElementById('close_salary').addEventListener('click', function () {
+        closeDialog('dialog_overlay_receive_salary');
+    });
+
+    document.getElementById('close-dialog-notification-btn').addEventListener('click', function () {
+        closeDialog('dialog_overlay_notification');
+        openSalaryDialog();
+    });
+
+    document.getElementById('confirm_salary').addEventListener('click', function () {
+        closeDialog('dialog_overlay_receive_salary');
+        openNotificationDialog('Confirmation received salary successful');
+
+    });
+
+    function openNotificationDialog(message) {
+        var messageElement = document.getElementById('message');
+        messageElement.textContent = message;
+        document.getElementById('dialog_overlay_notification').style.display = 'flex';
+    }
+});
