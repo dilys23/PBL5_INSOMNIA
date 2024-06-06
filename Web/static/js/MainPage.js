@@ -140,6 +140,10 @@ async function getData(url = "", data) {
     return response
 }
 
+document.getElementById('btn_close_dialog_register').addEventListener('click', function () {
+    document.getElementById('dialogOverlayRegister').style.display = 'none';
+});
+
 document.getElementById('btn_close_dialog').addEventListener('click', function () {
     document.getElementById('dialogOverlay').style.display = 'none';
 });
@@ -238,6 +242,7 @@ eyeIcon.addEventListener('click', function () {
 
 eyeIcon1.addEventListener('click', function () {
     if (passwordInput1.type === 'password') {
+        console.log("Chuyen");
         passwordInput1.type = 'text';
         eyeIcon1.classList.remove('fa-eye');
         eyeIcon1.classList.add('fa-eye-slash');
@@ -269,12 +274,25 @@ function myFunction() {
         x.type = "password";
     }
 }
+
 function hideShowPass() {
-    var x = document.getElementById("dialog-register-password");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {    
-        x.type = "password";
+
+    var y = document.getElementById("dialog-register-password");
+    if (y.type === "password") {
+        y.type = "text";
+        console.log('co nhan ne');
+    } else {
+        y.type = "password";
+    }
+    if (passwordInput1.type === 'password') {
+        console.log("Chuyen");
+        passwordInput1.type = 'text';
+        eyeIcon1.classList.remove('fa-eye');
+        eyeIcon1.classList.add('fa-eye-slash');
+    } else {
+        passwordInput1.type = 'password';
+        eyeIcon1.classList.remove('fa-eye-slash');
+        eyeIcon1.classList.add('fa-eye');
     }
 }
 function hideShowConfirm() {
@@ -283,6 +301,15 @@ function hideShowConfirm() {
         x.type = "text";
     } else {
         x.type = "password";
+    }
+    if (passwordInput2.type === 'password') {
+        passwordInput2.type = 'text';
+        eyeIcon2.classList.remove('fa-eye');
+        eyeIcon2.classList.add('fa-eye-slash');
+    } else {
+        passwordInput2.type = 'password';
+        eyeIcon2.classList.remove('fa-eye-slash');
+        eyeIcon2.classList.add('fa-eye');
     }
 }
 

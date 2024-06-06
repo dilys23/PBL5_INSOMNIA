@@ -667,6 +667,7 @@ footer {
   width: 2rem;
   color: var(--dark-grey);
   margin-left: -2rem;
+  cursor: pointer;
 }
 .input-group {
   position: relative;
@@ -813,5 +814,8 @@ a:hover {
   padding: 0;
 }
 #btn_close_dialog {
+  cursor: pointer;
+}
+#btn_close_dialog_register {
   cursor: pointer;
 }
