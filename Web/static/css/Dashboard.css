@@ -406,7 +406,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 /* -----------------------Dialog for employee------------------------ */
 #dialog_overlay_for_employee {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -705,7 +705,23 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 .history_recognition_title {
   display: flex;
   width: 100%;
+  overflow: auto;
   justify-content: center;
+}
+.history_recognition_title::-webkit-scrollbar {
+  width: 0px;
+}
+
+.history_recognition_title::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.history_recognition_title::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.history_recognition_title::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .title_history {
   width: 20%;
